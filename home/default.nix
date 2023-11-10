@@ -31,4 +31,6 @@ in {
     # Let home Manager install and manage itself.
     home-manager.enable = true;
   };
+
+  services.emacs.enable = true;
 }
