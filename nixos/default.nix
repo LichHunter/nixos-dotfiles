@@ -162,4 +162,8 @@
 
   # Enabling flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Enabling zsh as default shell
+  programs.zsh.enable = true;
+  users.users.omen.shell = pkgs.zsh;
 }
