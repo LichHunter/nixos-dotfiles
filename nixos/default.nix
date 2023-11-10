@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
+      # This hardware configuration was moved to flake.nix 
       #<nixos-hardware/omen/15-en1007sa>
       ./hardware-configuration.nix
     ];
