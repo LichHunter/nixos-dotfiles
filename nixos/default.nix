@@ -10,8 +10,6 @@
       # This hardware configuration was moved to flake.nix 
       #<nixos-hardware/omen/15-en1007sa>
       ./hardware-configuration.nix
-      ../home/editors/emacs
-      ../home/editors/nvim.nix
     ];
 
   # Bootloader.

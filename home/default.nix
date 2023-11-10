@@ -4,7 +4,7 @@ let
 in {
   imports = [
     ./zsh   
-    #./editors/emacs
+    ./emacs
     #./bash
   ];
   
@@ -13,6 +13,18 @@ in {
   home.stateVersion = "23.05";
   home.username = "omen";
   home.homeDirectory = "/home/omen";
+
+  home.file.".config/doom" = {
+    source = ./doom;
+  };
+ #home.file.".emacs.d" = {
+ #  source = pkgs.fetchFromGitHub {
+ #    owner = "doomemacs";
+ #    repo = "doomemacs";
+ #    rev = "master";
+ #    sha256 = "vrdwIu6F11OOSaS5SfgT/jx0Kvu7KaigthVGBENKR5k=";
+ #  };
+ #};
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -23,6 +35,7 @@ in {
 
     # nix related
     nix-output-monitor
+    emacs-all-the-icons-fonts
   ];
 
   programs = {
@@ -54,9 +67,6 @@ in {
 
       viAlias = true;
       vimAlias = true;
-    };
-    emacs = {
-      enable = true;
     };
 
     # Let home Manager install and manage itself.
