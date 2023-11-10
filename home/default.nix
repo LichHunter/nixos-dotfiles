@@ -81,6 +81,10 @@
       ll = "exa -al";
     };
   };
+  programs.neovim = {
+    enable = true;
+    #extraConfig = lib.fileContents ../path/to/your/init.vim;
+  };
 
 
   # Let home Manager install and manage itself.

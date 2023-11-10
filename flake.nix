@@ -6,6 +6,8 @@
     # Official NixOS package source, using nixos-unstable branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    emacs-overlay.url  = "github:nix-community/emacs-overlay";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
@@ -13,7 +15,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
+  outputs = { 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    nixos-hardware, 
+    nix-doom-emacs, 
+    ... 
+    }@inputs: {
     nixosConfigurations = {
       # Run the following command in the flake's directory to
       # deploy this configuration on any NixOS system:
