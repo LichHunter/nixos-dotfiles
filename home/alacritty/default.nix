@@ -2,7 +2,7 @@
 
 {
     # alacritty - a cross-platform, GPU-accelerated terminal emulator
-    alacritty = {
+    programs.alacritty = {
       enable = true;
       # custom settings
       settings = {

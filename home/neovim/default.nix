@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    neovim = {
+    programs.neovim = {
       enable = true;
       #extraConfig = lib.fileContents ../path/to/your/init.vim;
 

@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "Alexander Derevianko"
+      user-mail-address "alexander0derevianko@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -15,14 +15,14 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-symbol-font' -- for symbols
+;; - `doom-unicode-font' -- for unicode glyphs
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "Fira Code" :size 18)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 18))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -36,7 +36,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type `relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -74,3 +74,49 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! lsp-java
+  (require 'lsp-java-boot)
+  (require 'dap-java)
+
+  ;; to enable the lenses
+  (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
+  (setq lsp-java-vmargs `(
+                          "-XX:+UseParallelGC"
+                          "-XX:GCTimeRatio=4"
+                          "-XX:AdaptiveSizePolicyWeight=90"
+                          "-Dsun.zip.disableMemoryMapping=true"
+                          "-Xmx1G"
+                          "-Xms100m"
+                          ,(concat "-javaagent:" lombok-jar-path)
+                          )
+        )
+  ;; (delete-directory lsp-java-workspace-dir t)
+  )
+
+(general-auto-unbind-keys)
+(map! :leader
+      (:prefix ("m" . "my")
+               "c" #'comment-dwim
+               (:prefix ("d" . "dap")
+                        "c" #'dap-java-run-test-class
+                        "m" #'dap-java-run-test-method
+                        )
+               (:prefix ("l" . "lsp")
+                        "j" #'lsp-jt-browser
+                        "i" #'lsp-java-organize-imports
+                        "r" #'lsp-rename
+                        "g d" #'lsp-goto-type-definition
+                        )
+               )
+      )
+
+(setq lsp-java-format-settings-url "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml")
+
+;; add map for lsp-jt-browser
+;; + lsp-jt-browser
+;; + dap-java-run-test-class
+;; + dap-java-run-test-method
