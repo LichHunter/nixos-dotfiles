@@ -4,7 +4,10 @@
 
 { inputs, config, pkgs, ... }:
 
-{
+let 
+  stdenv = pkgs.stdenv;
+  #my-package = (import ./custom-emacs.nix) { inherit pkgs stdenv; };
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -109,6 +112,7 @@
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      git
+     #my-package
   ];
  
   system.stateVersion = "23.05"; # Did you read the comment?
@@ -116,4 +120,19 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.zsh.enable = true;
+
+
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+    emacs-all-the-icons-fonts
+  ];
 }

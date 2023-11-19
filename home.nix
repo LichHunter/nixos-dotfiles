@@ -13,7 +13,6 @@
     # if you enable gtk theames 
     # this is needed to fix "error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files"
     dconf
-    
     exa
   ];
 
@@ -82,4 +81,17 @@
     };
   };
 
+  programs.emacs = {
+    enable = true;
+  };
+
+  xdg = {
+    enable = true;
+    configFile = {
+      "doom" = {
+        source = ./doom-configs;
+        recursive = true;
+      };
+    };
+  };
 }
