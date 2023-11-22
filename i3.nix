@@ -56,6 +56,7 @@ in {
         {
           command = "nitrogen --set-scaled ~/Wallpapers/wallpaper.png";
           notification = false;
+          always = true;
         }
         {
           command = "nm-applet";
@@ -64,15 +65,15 @@ in {
         {
           command = "compton -b";
         }
-        #{command = "pkill polybar; sleep 1; polybar i3wmther_bar"; notification = false; always = true;}
+        {
+          command = "polybar i3wmthemer_bar";
+          notification = false;
+          always = true;
+        }
       ];
 
-       bars = [
-         {
-           position = "top";
-           statusCommand = "${pkgs.polybar}/bin/polybar i3wmthemer_bar";
-         }
-       ];
+      # Set to empty to remove default i3bar
+      bars = [];
 
       floating.criteria = [
         { title = "alsamixer"; }

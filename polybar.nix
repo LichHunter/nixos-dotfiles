@@ -4,6 +4,10 @@
   services.polybar = {
     enable = true;
     script = "polybar i3wmthemer_bar &";
+    package = pkgs.polybar.override {
+      i3Support = true;
+      i3 = pkgs.i3-gaps;
+    };
     extraConfig = ''
       [bar/i3wmthemer_bar]
       width = 100%
@@ -34,10 +38,11 @@
       modules-center = i3
       modules-right = date powermenu
 
-      tray-position =
+      tray-detached = true
+      tray-position = center
       ;tray-padding =
-      wm-restack = i3
-      override-redirect = true
+      ;wm-restack = i3
+      ;override-redirect = true
 
       cursor-click = pointer
       cursor-scroll = ns-resize
