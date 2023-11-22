@@ -66,7 +66,7 @@ in {
           command = "compton -b";
         }
         {
-          command = "polybar i3wmthemer_bar";
+          command = "pkill polybar; polybar main-bar";
           notification = false;
           always = true;
         }
