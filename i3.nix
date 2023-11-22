@@ -19,7 +19,8 @@ in {
         "${mod}+p" = "exec ${pkgs.rofi}/bin/rofi -show run";
         "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
         "${mod}+Shift+x" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
-        "${mod}+Return" = "exec konsole";
+        "${mod}+Return" = "exec alacritty";
+        "${mod}+Shift+Return" = "exec dolphin";
 
         # Focus
         "${mod}+j" = "focus left";

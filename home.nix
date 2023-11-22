@@ -24,7 +24,7 @@ in {
     dconf
     exa
     #i3
-    rofi
+    dolphin
     compton
     nitrogen
     rxvt-unicode
@@ -77,6 +77,11 @@ in {
   };
 
   programs.rofi = {
+    enable = true;
+    theme = ./arc-dark.rasi;
+  };
+
+  programs.alacritty = {
     enable = true;
   };
 }
