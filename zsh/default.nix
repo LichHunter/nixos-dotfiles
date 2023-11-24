@@ -10,7 +10,7 @@
 
     shellAliases = {
       ll = "exa -al";
-      nixos-build = "sudo nixos-rebuild bild";
+      nixos-build = "sudo nixos-rebuild build";
       nixos-switch = "sudo nixos-rebuild switch";
       sc = "source $HOME/.zshrc";
     };

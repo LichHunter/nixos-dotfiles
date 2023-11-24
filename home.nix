@@ -23,13 +23,15 @@ in {
       userEmail = "alexander0derevianko@gmail.com";
     };
 
-    emacs = {
-      enable = true;
-    };
+    emacs.enable = true;
 
     alacritty = {
       enable = true;
     };
+  };
+
+  services = {
+    emacs.enable = true;
   };
 
   home.packages = with pkgs; [
