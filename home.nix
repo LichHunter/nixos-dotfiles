@@ -28,6 +28,23 @@ in {
     alacritty = {
       enable = true;
     };
+
+    firefox = {
+      enable = true;
+      profiles.default = {
+        bookmarks = [
+          {
+            name = "google";
+            tags = [ "google" ];
+            keyword = "google";
+            url = "https://google.com";
+          }
+        ];
+        settings = {
+          "widget.use-xdg-desktop-portal.file-picker" = 1;
+        };
+      };
+    };
   };
 
   services = {
@@ -39,10 +56,10 @@ in {
     # if you enable gtk theames 
     # this is needed to fix "error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files"
     dconf
-    exa
+    eza
     #i3
     dolphin
-    compton
+    picom
     nitrogen
     rxvt-unicode
     alsa-utils
@@ -70,5 +87,11 @@ in {
     theme.name = "adw-gtk3";
     cursorTheme.name = "Bibata-Modern-Ice";
     iconTheme.name = "GruvboxPlus";
+  };
+
+  stylix = {
+    autoEnable = true;
+    targets.rofi.enable = true;
+    targets.alacritty.enable = true;
   };
 }

@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, stylix, ... }:
 
 {
   imports =
@@ -9,7 +9,7 @@
   system.stateVersion = "23.05";
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs stylix; };
     users = {
       test = import ./home.nix;
     };
@@ -52,70 +52,6 @@
 
     displayManager.sddm.enable = true;
     displayManager.defaultSession = "none+i3";
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-        *background:                      #1f1f1f
-        *foreground:                      #c6c6c6
-        *cursorColor:                     #c6c6c6
-
-        *color0:                          #828282
-        *color1:                          #cc6666
-        *color2:                          #cc6666
-        *color3:                          #f0c674
-        *color4:                          #8abeb7
-        *color5:                          #b294bb
-        *color6:                          #8abeb7
-        *color7:                          #828282
-        *color8:                          #828282
-        *color9:                          #cc6666
-        *color10:                         #8abeb7
-        *color11:                         #f0c674
-        *color12:                         #8abeb7
-        *color13:                         #b294bb
-        *color14:                         #8abeb7
-        *color15:                         #c6c6c6
-
-        URxvt.font: xft:Source Code Pro:size=10.5
-        URxvt.depth:                      32
-        URxvt*scrollBar:                  false
-        URxvt*mouseWheelScrollPage:       false
-        URxvt*cursorBlink:                true
-        URxvt*saveLines:                  5000
-        URxvt*internalBorder: 5
-        URxvt*geometry: 70x19
-
-        rofi.color-enabled: true
-        rofi.color-window: #828282, #8abeb7, #8abeb7
-        rofi.color-normal: #828282, #c6c6c6, #8abeb7, #c6c6c6, #78824B
-        rofi.color-active: #828282, #c6c6c6, #8abeb7, #c6c6c6, #78824B
-        rofi.color-urgent: #828282, #c6c6c6, #8abeb7, #c6c6c6, #78824B
-
-        rofi.separator-style: solid
-        rofi.sidebar-mode: false
-        rofi.lines: 5
-        rofi.font: Source Code Pro Semibold 10.5
-        rofi.bw: 1
-        rofi.columns: 2
-        rofi.padding: 5
-        rofi.fixed-num-lines: true
-        rofi.hide-scrollbar: true
-
-        ! Normal copy-paste keybindings without perls
-        URxvt.iso14755:                   false
-        URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
-        URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
-        !Xterm escape codes, word by word movement
-        URxvt.keysym.Control-Left:        \033[1;5D
-        URxvt.keysym.Shift-Control-Left:  \033[1;6D
-        URxvt.keysym.Control-Right:       \033[1;5C
-        URxvt.keysym.Shift-Control-Right: \033[1;6C
-        URxvt.keysym.Control-Up:          \033[1;5A
-        URxvt.keysym.Shift-Control-Up:    \033[1;6A
-        URxvt.keysym.Control-Down:        \033[1;5B
-        URxvt.keysym.Shift-Control-Down:  \033[1;6B
-      ''}
-    '';
-
   };
 
   services = {
@@ -149,13 +85,14 @@
      vim
      wget
      git
+     base16-schemes
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.zsh.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -170,4 +107,33 @@
     font-awesome_5
     source-code-pro
   ];
+
+  stylix = {
+    image = ./wallpapers/wallpaper.png;
+
+    #polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      monospace = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+  };
 }

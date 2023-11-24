@@ -3,6 +3,6 @@
 {
   programs.rofi = {
     enable = true;
-    theme = ./arc-dark.rasi;
+    #theme = ./arc-dark.rasi;
   };
 }

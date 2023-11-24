@@ -10,10 +10,10 @@ in {
     config = {
       modifier = mod;
 
-      fonts = {
-        names = ["xft:URWGothic-Book"];
-        size = 11.0;
-      };
+      # fonts = {
+      #   names = ["xft:URWGothic-Book"];
+      #   size = 11.0;
+      # };
 
       keybindings = lib.mkOptionDefault {
         "${mod}+p" = "exec ${pkgs.rofi}/bin/rofi -show run";
@@ -91,44 +91,44 @@ in {
         smartGaps = true;
       };
 
-      colors = {
-        background = "#1f1f1f";
-        focused = {
-          border = "#c6c6c6";
-          background = "#1f1f1f";
-          text = "#c6c6c6";
-          indicator = "#8abeb7";
-          childBorder = "#8abeb7";
-        };
-        focusedInactive = {
-          border = "#c6c6c6";
-          background = "#1f1f1f";
-          text = "#c6c6c6";
-          indicator = "#8abeb7";
-          childBorder = "#8abeb7";
-        };
-        unfocused = {
-          border = "#c6c6c6";
-          background = "#1f1f1f";
-          text = "#c6c6c6";
-          indicator = "#8abeb7";
-          childBorder = "#8abeb7";
-        };
-        urgent = {
-          border = "#c6c6c6";
-          background = "#1f1f1f";
-          text = "#c6c6c6";
-          indicator = "#8abeb7";
-          childBorder = "#8abeb7";
-        };
-        placeholder = {
-          border = "#c6c6c6";
-          background = "#1f1f1f";
-          text = "#c6c6c6";
-          indicator = "#8abeb7";
-          childBorder = "#8abeb7";
-        };
-      };
+    #   colors = {
+    #     background = "#1f1f1f";
+    #     focused = {
+    #       border = "#c6c6c6";
+    #       background = "#1f1f1f";
+    #       text = "#c6c6c6";
+    #       indicator = "#8abeb7";
+    #       childBorder = "#8abeb7";
+    #     };
+    #     focusedInactive = {
+    #       border = "#c6c6c6";
+    #       background = "#1f1f1f";
+    #       text = "#c6c6c6";
+    #       indicator = "#8abeb7";
+    #       childBorder = "#8abeb7";
+    #     };
+    #     unfocused = {
+    #       border = "#c6c6c6";
+    #       background = "#1f1f1f";
+    #       text = "#c6c6c6";
+    #       indicator = "#8abeb7";
+    #       childBorder = "#8abeb7";
+    #     };
+    #     urgent = {
+    #       border = "#c6c6c6";
+    #       background = "#1f1f1f";
+    #       text = "#c6c6c6";
+    #       indicator = "#8abeb7";
+    #       childBorder = "#8abeb7";
+    #     };
+    #     placeholder = {
+    #       border = "#c6c6c6";
+    #       background = "#1f1f1f";
+    #       text = "#c6c6c6";
+    #       indicator = "#8abeb7";
+    #       childBorder = "#8abeb7";
+    #     };
+    #   };
     };
   };
 }
