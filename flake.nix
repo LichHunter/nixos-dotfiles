@@ -1,35 +1,38 @@
 {
-  description = "Alex's Flake Config";
+  description = "NixOS configuration";
 
   inputs = {
-
-    # Official NixOS package source, using nixos-unstable branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
-
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix.url = "github:danth/stylix";
+
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # home-manager = {
+    #   url = "github:nix-community/home-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = inputs @{ self, nixpkgs, home-manager, nixos-hardware, ... }:
-    {
-	    nixosConfigurations = {
-	      # Run the following command in the flake's directory to
-	      # deploy this configuration on any NixOS system:
-	      #   sudo nixos-rebuild switch --flake .#nixos-main
-	      "nixos" = nixpkgs.lib.nixosSystem {
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+  in {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
         modules = [
-          ./nixos
-
-          nixos-hardware.nixosModules.omen-15-en1007sa
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.omen = import ./home;
-          }
+          stylix.nixosModules.stylix
+          ./configuration.nix
         ];
       };
     };
