@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    #unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,15 +10,10 @@
     };
 
     stylix.url = "github:danth/stylix";
-
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    emacs-overlay.url = "github:nix-community/emacs-overlay/master";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -27,6 +21,9 @@
       config = {
         allowUnfree = true;
       };
+      overlays = [
+        emacs-overlay.overlay
+      ];
     };
 
     defaultNixOptions = {
@@ -68,6 +65,9 @@
           ./modules/i3
           ./modules/zsh
           ./modules/fish
+          ./modules/firefox
+          ./modules/git
+          ./modules/alacritty
         ] # extra modules to be loaded by home-manager
         ;
     };
