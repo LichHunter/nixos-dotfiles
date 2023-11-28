@@ -13,6 +13,7 @@
       nixos-build = "sudo nixos-rebuild build";
       nixos-switch = "sudo nixos-rebuild switch";
       sc = "source $HOME/.zshrc";
+      doom = "$HOME/.config/emacs/bin/doom";
     };
 
     plugins = [

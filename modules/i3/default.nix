@@ -90,45 +90,6 @@ in {
         outer = -4;
         smartGaps = true;
       };
-
-    #   colors = {
-    #     background = "#1f1f1f";
-    #     focused = {
-    #       border = "#c6c6c6";
-    #       background = "#1f1f1f";
-    #       text = "#c6c6c6";
-    #       indicator = "#8abeb7";
-    #       childBorder = "#8abeb7";
-    #     };
-    #     focusedInactive = {
-    #       border = "#c6c6c6";
-    #       background = "#1f1f1f";
-    #       text = "#c6c6c6";
-    #       indicator = "#8abeb7";
-    #       childBorder = "#8abeb7";
-    #     };
-    #     unfocused = {
-    #       border = "#c6c6c6";
-    #       background = "#1f1f1f";
-    #       text = "#c6c6c6";
-    #       indicator = "#8abeb7";
-    #       childBorder = "#8abeb7";
-    #     };
-    #     urgent = {
-    #       border = "#c6c6c6";
-    #       background = "#1f1f1f";
-    #       text = "#c6c6c6";
-    #       indicator = "#8abeb7";
-    #       childBorder = "#8abeb7";
-    #     };
-    #     placeholder = {
-    #       border = "#c6c6c6";
-    #       background = "#1f1f1f";
-    #       text = "#c6c6c6";
-    #       indicator = "#8abeb7";
-    #       childBorder = "#8abeb7";
-    #     };
-    #   };
     };
   };
 }

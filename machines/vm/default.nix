@@ -1,19 +1,18 @@
 { inputs, config, pkgs, stylix, ... }:
 
-{
+let
+  theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  wallpaper = pkgs.runCommand "image.png" {} ''
+        COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${theme})
+        COLOR="#"$COLOR
+        ${pkgs.imagemagick}/bin/magick convert -size 1920x1080 xc:$COLOR $out
+  '';
+in {
   imports =
     [
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
     ];
   system.stateVersion = "23.05";
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs stylix; };
-    users = {
-      test = import ./home.nix;
-    };
-  };
 
   boot.loader.grub = {
     enable = true;
@@ -76,6 +75,7 @@
     packages = with pkgs; [
       firefox
       kate
+      imagemagick
     ];
   };
 
@@ -109,10 +109,12 @@
   ];
 
   stylix = {
-    image = ./wallpapers/wallpaper.png;
+    image = wallpaper;
 
+    # this can be used when we are using not base16 scheme but auto generated
+    # to set dark colors as more prefered
     #polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = theme;
 
     fonts = {
       serif = {

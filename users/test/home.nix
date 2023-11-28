@@ -3,12 +3,6 @@ let
   mod = "Mod4";
   lib = pkgs.lib;
 in {
-  imports = [
-    ./polybar
-    ./i3
-    ./zsh
-  ];
-
   home = {
     stateVersion = "23.05";
     username = "test";
