@@ -59,7 +59,10 @@
       nixos = mkComputer
         ./machines/vm
         "test"
-        [] # extra modules
+        [
+          ./modules/xserver/i3
+          ./modules/xserver/plasma
+        ] # extra modules
         [
           ./modules/polybar
           ./modules/i3

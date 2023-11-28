@@ -46,11 +46,6 @@ in {
     enable = true;
     layout = "us";
     xkbVariant = "";
-
-    windowManager.i3.enable = true;
-
-    displayManager.sddm.enable = true;
-    displayManager.defaultSession = "none+i3";
   };
 
   services = {
@@ -136,6 +131,13 @@ in {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
+    };
+  };
+
+  dov = {
+    xserver = {
+      i3.enable = true;
+      plasma.enable = false;
     };
   };
 }
