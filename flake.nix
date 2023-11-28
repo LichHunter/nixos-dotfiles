@@ -64,6 +64,7 @@
           ./modules/polybar
           ./modules/i3
           ./modules/zsh
+          ./modules/fish
         ] # extra modules to be loaded by home-manager
         ;
     };

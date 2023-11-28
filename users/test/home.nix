@@ -9,6 +9,10 @@ in {
     homeDirectory = "/home/test";
   };
 
+  dov = {
+    fish.enable = false;
+  };
+
   programs = {
     home-manager.enable = true;
     git = {
