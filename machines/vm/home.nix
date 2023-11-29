@@ -1,14 +1,17 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   mod = "Mod4";
-  lib = pkgs.lib;
 in {
   imports = [
     ./variables.nix
+    ./../../modules/zsh
+    ./../../modules/firefox
+    ./../../modules/git
+    ./../../modules/alacritty
   ];
 
   home = {
-    stateVersion = "23.05";
+    stateVersion = "${config.variables.stateVersion}";
     username = config.variables.username;
     homeDirectory = "/home/${config.variables.username}";
   };

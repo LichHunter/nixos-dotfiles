@@ -14,7 +14,7 @@ in {
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
     ];
-  system.stateVersion = "23.05";
+  system.stateVersion = "${config.variables.stateVersion}";
 
   boot.loader.grub = {
     enable = true;

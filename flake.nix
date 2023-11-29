@@ -51,11 +51,7 @@
         [
           ./modules/polybar
           ./modules/i3
-          ./modules/zsh
           ./modules/fish
-          ./modules/firefox
-          ./modules/git
-          ./modules/alacritty
         ] # extra modules to be loaded by home-manager
         ;
     };
