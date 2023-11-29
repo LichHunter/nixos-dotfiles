@@ -3,10 +3,14 @@ let
   mod = "Mod4";
   lib = pkgs.lib;
 in {
+  imports = [
+    ./variables.nix
+  ];
+
   home = {
     stateVersion = "23.05";
-    username = "test";
-    homeDirectory = "/home/test";
+    username = config.variables.username;
+    homeDirectory = "/home/${config.variables.username}";
   };
 
   dov = {

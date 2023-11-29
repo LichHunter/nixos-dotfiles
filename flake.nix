@@ -30,32 +30,20 @@
       nix.settings.auto-optimise-store = true;
     };
 
-    mkComputer = configurationNix: username: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
+    mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules; };
 
       modules = [
         stylix.nixosModules.stylix
         configurationNix
         defaultNixOptions
-
-        #(./. + "/users/${username}") # user config?
-
-        home-manager.nixosModules.home-manager
-        {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users."${username}" = {
-              imports = [ (./. + "/users/${username}/home.nix") ] ++ extraHomeModules;
-            };
-        }
       ] ++ extraModules;
     };
   in {
     nixosConfigurations = {
-      nixos = mkComputer
+      vm = mkComputer
         ./machines/vm
-        "test"
         [
           ./modules/xserver/i3
           ./modules/xserver/plasma

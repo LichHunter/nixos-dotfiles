@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -10,7 +10,9 @@ let
 in {
   imports =
     [
+      ./variables.nix
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
   system.stateVersion = "23.05";
 
@@ -62,7 +64,7 @@ in {
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
-  users.users.test = {
+  users.users."${config.variables.username}" = {
     isNormalUser = true;
     description = "test";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -139,5 +141,11 @@ in {
       i3.enable = true;
       plasma.enable = false;
     };
+  };
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users."${config.variables.username}" = {
+    imports = [ ./home.nix ] ++ extraHomeModules;
   };
 }
