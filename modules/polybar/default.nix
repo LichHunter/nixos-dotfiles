@@ -2,8 +2,7 @@
 
 let
   bar-name = "main-bar";
-  background = "#1f1f1f";
-  foreground = "#c6c6c6";
+  inherit (config.lib.stylix.colors) base01 base04 base08 base0A;
 in {
   services.polybar = {
     enable = true;
@@ -19,8 +18,8 @@ in {
         height = 27;
         radius = 0;
         fixed-center = true;
-        background = "${background}";
-        foreground = "${foreground}";
+        background = "${base01}";
+        foreground = "${base04}";
 
         line-size = 3;
 
@@ -48,7 +47,7 @@ in {
         tray-padding = 2;
         tray-maxsize = 20;
         tray-scale = 1;
-        tray-background = "${background}";
+        tray-background = "${base01}";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
@@ -63,26 +62,27 @@ in {
         wrapping-scroll = false;
 
         label-mode-padding = 2;
-        label-mode-foreground = "#828282";
-        label-mode-background = "${background}";
+        label-mode-foreground = "${base0A}";
+        label-mode-background = "${base01}";
 
         label-focused = "%index%";
-        label-focused-background = "#8abeb7";
-        label-focused-foreground = "${background}";
+        label-focused-background = "${base0A}";
+        label-focused-foreground = "${base01}";
         label-focused-padding = 2;
 
         label-unfocused = "%index%";
-        label-unfocused-background = "#8abeb7";
-        label-unfocused-foreground = "${background}";
+        label-unfocused-background = "${base01}";
+        label-unfocused-foreground = "${base0A}";
         label-unfocused-padding = 2;
 
         label-visible = "%index%";
-        label-visible-background = "#8abeb7";
-        label-visible-foreground = "${background}";
+        label-visible-background = "${base01}";
+        label-visible-foreground = "${base0A}";
         label-visible-padding = 2;
 
         label-urgent = "%index%";
-        label-urgent-background = "${background}";
+        label-urgent-background = "${base08}";
+        label-urgent-foreground = "${base01}";
         label-urgent-padding = 2;
       };
 
@@ -92,6 +92,7 @@ in {
         interval = "3.0";
 
         format-connected = "<ramp-signal> <label-connected>";
+        # TODO fix this colors too
         format-connected-foreground = "#272827";
         format-connected-background = "#7E807E";
         format-connected-padding = 2;
@@ -102,7 +103,7 @@ in {
         ramp-signal-2 = "";
         ramp-signal-3 = "";
         ramp-signal-4 = "";
-        ramp-signal-foreground = "#1f1f1f";
+        ramp-signal-foreground = "${base01}";
       };
 
       "module/eth" = {
@@ -111,10 +112,10 @@ in {
         interval = "3.0";
 
         format-connected-padding = 2;
-        format-connected-foreground = "#1f1f1f";
-        format-connected-background = "#8abeb7";
+        format-connected-foreground = "${base01}";
+        format-connected-background = "${base0A}";
         format-connected-prefix = " ";
-        format-connected-prefix-foreground = "#1f1f1f";
+        format-connected-prefix-foreground = "${base01}";
         label-connected = "%local_ip%";
       };
 
@@ -126,8 +127,8 @@ in {
         time = "%H:%M:%S";
 
         format-prefix = "  ";
-        format-foreground = "#1f1f1f";
-        format-background = "#8abeb7";
+        format-foreground = "${base01}";
+        format-background = "${base0A}";
         format-padding = 2;
 
         label = "%time% %date%";
@@ -141,11 +142,13 @@ in {
         format-spacing = 1;
 
         label-open = "";
-        label-open-foreground = "#8abeb7";
+        label-open-foreground = "${base0A}";
+        label-open-background = "${base01}";
         label-close = " cancel";
-        label-close-foreground = "#8abeb7";
+        label-close-foreground = "${base0A}";
+        label-close-background = "${base01}";
         label-separator = "|";
-        label-separator-foreground = "#8abeb7";
+        label-separator-foreground = "${base0A}";
 
         menu-0-0 = "reboot";
         menu-0-0-exec = "menu-open-1";
@@ -174,15 +177,15 @@ in {
         type = "internal/cpu";
         interval = 1;
         label = " %percentage%%";
-        format-foreground = "#1f1f1f";
-        format-background = "#8abeb7";
+        format-foreground = "${base01}";
+        format-background = "${base0A}";
       };
 
       "module/memory" = {
         type = "internal/memory";
         label = " %percentage_used%%";
-        format-foreground = "#1f1f1f";
-        format-background = "#8abeb7";
+        format-foreground = "${base01}";
+        format-background = "${base0A}";
       };
 
       "module/battery" = {

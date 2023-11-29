@@ -3,49 +3,17 @@ let
   mod = "Mod4";
   lib = pkgs.lib;
 in {
-  imports = [
-    ./polybar
-    ./i3
-    ./zsh
-  ];
-
   home = {
     stateVersion = "23.05";
     username = "test";
     homeDirectory = "/home/test";
   };
 
-  programs = {
-    home-manager.enable = true;
-    git = {
-      enable = true;
-      userName = "Alexander";
-      userEmail = "alexander0derevianko@gmail.com";
-    };
-
-    emacs.enable = true;
-
-    alacritty = {
-      enable = true;
-    };
-
-    firefox = {
-      enable = true;
-      profiles.default = {
-        bookmarks = [
-          {
-            name = "google";
-            tags = [ "google" ];
-            keyword = "google";
-            url = "https://google.com";
-          }
-        ];
-        settings = {
-          "widget.use-xdg-desktop-portal.file-picker" = 1;
-        };
-      };
-    };
+  dov = {
+    fish.enable = false;
   };
+
+  programs.home-manager.enable = true;
 
   services = {
     emacs.enable = true;
@@ -66,6 +34,17 @@ in {
     mate.mate-power-manager
     font-awesome_5
     source-code-pro
+
+    #emacs
+    ((pkgs.emacsPackagesFor pkgs.emacs28NativeComp).emacsWithPackages (epkgs: [
+      epkgs.vterm
+    ]))
+    coreutils
+    fd
+    libtool
+    ispell
+    mu
+    pandoc
   ];
 
   home.file."Wallpapers/wallpaper.png" = {
