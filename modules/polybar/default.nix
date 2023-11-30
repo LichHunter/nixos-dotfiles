@@ -28,26 +28,26 @@ in {
         padding-left = 0;
         padding-right = 2;
 
-        module-margin-left = 1;
-        module-margin-right = 2;
+        module-margin-left = 0;
+        module-margin-right = 0;
 
         font-0 = "Source Code Pro Semibold:size=10;1";
         font-1 = "Font Awesome 5 Free:style=Solid:size=10;1";
         font-2 = "Font Awesome 5 Brands:size=10;1";
         font-3 = "Font Awesome 5:size=13;0";
 
-        modules-left = "wlan eth cpu memory";
+        modules-left = "wlan eth sep cpu sep memory";
         modules-center = "i3";
-        modules-right = "battery date powermenu";
+        modules-right = "battery sep date sep powermenu";
 
         tray-position = "right";
         tray-detached = false;
         tray-offset-x = 0;
         tray-offset-y = 0;
-        tray-padding = 2;
+        tray-padding = 0;
         tray-maxsize = 20;
         tray-scale = 1;
-        tray-background = "${base01}";
+        tray-background = "${base0A}";
 
         cursor-click = "pointer";
         cursor-scroll = "ns-resize";
@@ -129,7 +129,7 @@ in {
         format-prefix = "  ";
         format-foreground = "${base01}";
         format-background = "${base0A}";
-        format-padding = 2;
+        format-padding = 0;
 
         label = "%time% %date%";
       };
@@ -142,13 +142,13 @@ in {
         format-spacing = 1;
 
         label-open = "";
-        label-open-foreground = "${base0A}";
-        label-open-background = "${base01}";
+        label-open-foreground = "${base01}";
+        label-open-background = "${base0A}";
         label-close = " cancel";
-        label-close-foreground = "${base0A}";
-        label-close-background = "${base01}";
+        label-close-foreground = "${base01}";
+        label-close-background = "${base0A}";
         label-separator = "|";
-        label-separator-foreground = "${base0A}";
+        label-separator-foreground = "${base01}";
 
         menu-0-0 = "reboot";
         menu-0-0-exec = "menu-open-1";
@@ -191,6 +191,13 @@ in {
       "module/battery" = {
         type = "internal/batter";
         # TODO add in future colors to the batter module
+      };
+
+      "module/sep" = {
+        type = "custom/text";
+        content = "|";
+        content-foreground = "${base01}";
+        content-background = "${base0A}";
       };
 
       "settings" = {

@@ -83,6 +83,7 @@ in {
      wget
      git
      base16-schemes
+     networkmanagerapplet
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

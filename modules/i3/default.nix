@@ -71,6 +71,10 @@ in {
           notification = false;
           always = true;
         }
+        {
+          command = "nm-applet";
+          notification = false;
+        }
       ];
 
       # Set to empty to remove default i3bar
