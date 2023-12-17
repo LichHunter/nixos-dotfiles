@@ -53,9 +53,26 @@
     };
   in {
     nixosConfigurations = {
+#     nixos = mkComputer
+#       ./machines/vm
+#       "test"
+#       [
+#         ./modules/xserver/i3
+#         ./modules/xserver/plasma
+#       ] # extra modules
+#       [
+#         ./modules/polybar
+#         ./modules/i3
+#         ./modules/zsh
+#         ./modules/fish
+#         ./modules/firefox
+#         ./modules/git
+#         ./modules/alacritty
+#       ] # extra modules to be loaded by home-manager
+#       ;
       nixos = mkComputer
-        ./machines/vm
-        "test"
+        ./machines/laptop
+        "omen"
         [
           ./modules/xserver/i3
           ./modules/xserver/plasma
