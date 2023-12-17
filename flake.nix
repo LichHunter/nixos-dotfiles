@@ -57,7 +57,6 @@
         ;
       laptop = mkComputer
         ./machines/laptop
-        "omen"
         [
           ./modules/xserver/i3
           ./modules/xserver/plasma

@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -15,9 +11,11 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./variables.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
 
-  system.stateVersion = "23.11"; 
+  system.stateVersion = "${config.variables.stateVersion}";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -66,7 +64,7 @@ in {
     pulse.enable = true;
   };
 
-  users.users.omen = {
+  users.users."${config.variables.username}" = {
     isNormalUser = true;
     description = "omen";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -190,5 +188,11 @@ in {
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users."${config.variables.username}" = {
+    imports = [ ./home.nix ] ++ extraHomeModules;
   };
 }

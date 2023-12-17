@@ -1,14 +1,21 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   mod = "Mod4";
-  lib = pkgs.lib;
-  username = "omen";
+
   colors = config.lib.stylix.colors;
 in {
+  imports = [
+    ./variables.nix
+    ./../../modules/zsh
+    ./../../modules/firefox
+    ./../../modules/git
+    ./../../modules/alacritty
+  ];
+
   home = {
-    stateVersion = "23.05";
-    username = username;
-    homeDirectory = "/home/${username}";
+    stateVersion = "${config.variables.stateVersion}";
+    username = config.variables.username;
+    homeDirectory = "/home/${config.variables.username}";
   };
 
   dov = {
@@ -76,7 +83,6 @@ in {
     targets.alacritty.enable = true;
   };
 
-
   # home.packages = with pkgs; [
   #   waybar
   #   swww
@@ -100,7 +106,7 @@ in {
     # TODO install nm-applet
     #exec-once = nm-applet
 
-    source = /home/${username}/.config/hypr/colors
+    source = /home/${config.variables.username}/.config/hypr/colors
     #exec = pkill waybar & sleep 0.5 && waybar
     #exec-once = swww init & sleep 0.5 && exec wallpaper_random
     # exec-once = wallpaper_random
@@ -281,4 +287,3 @@ in {
     $color15 = ${colors.base0F}
   '';
 }
-
