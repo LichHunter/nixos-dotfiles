@@ -11,9 +11,10 @@
 
     stylix.url = "github:danth/stylix";
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -49,6 +50,8 @@
               imports = [ (./. + "/users/${username}/home.nix") ] ++ extraHomeModules;
             };
         }
+
+        hyprland.nixosModules.default
       ] ++ extraModules;
     };
   in {
@@ -76,6 +79,7 @@
         [
           ./modules/xserver/i3
           ./modules/xserver/plasma
+          ./modules/xserver/hypr
         ] # extra modules
         [
           ./modules/polybar

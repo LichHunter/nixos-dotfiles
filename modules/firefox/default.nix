@@ -5,16 +5,6 @@
     firefox = {
       enable = true;
       profiles.default = {
-	 extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          decentraleyes
-          keepassxc-browser
-          ublock-origin
-
-          # # Missing:
-          # cloudhole
-          # devtools-adb-extension
-          # firefox-sticky-window-containers
-        ];
         bookmarks = [
           {
             name = "google";

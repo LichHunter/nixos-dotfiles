@@ -22,7 +22,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; 
+  networking.hostName = "nixos";
+  # TODO network isn't conecting automatically
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Warsaw";
@@ -56,6 +57,7 @@ in {
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -87,11 +89,29 @@ in {
     neovim
     base16-schemes
     htop
+    brightnessctl
+
+    # TODO move out to another file with other configs
+    #hyprland packages
+    waybar
+    (pkgs.waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    #eww
+    mako
+    libnotify
+    kitty
+    rofi-wayland
+    wofi
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    light.enable = true;
+  };
 
   
   fonts.packages = with pkgs; [
@@ -145,6 +165,30 @@ in {
     xserver = {
       i3.enable = true;
       plasma.enable = false;
+      hypr.enable = false;
     };
+  };
+
+  # TODO move it out to separate file
+  # Hyprland
+  programs.hyprland = {
+    enable = true;
+    # seems to be removed
+    #nvidiaPatches = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    WLR_NO_HARWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }
