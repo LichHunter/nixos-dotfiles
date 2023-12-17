@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 
+# TODO add battery for laptop bar
 let
   bar-name = "main-bar";
   inherit (config.lib.stylix.colors) base01 base04 base08 base0A;
