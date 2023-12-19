@@ -47,8 +47,8 @@ in {
   services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    layout = "us,ru";
+    xkbOptions = "grp:grp:shifts_toggle";
   };
 
   services.printing.enable = true;
@@ -88,6 +88,9 @@ in {
     base16-schemes
     htop
     brightnessctl
+    networkmanagerapplet
+    arandr
+    zip
 
     # TODO move out to another file with other configs
     #hyprland packages
@@ -109,6 +112,7 @@ in {
   programs = {
     zsh.enable = true;
     light.enable = true;
+    nm-applet.enable = true;
   };
 
   
@@ -161,34 +165,14 @@ in {
 
   dov = {
     xserver = {
-      i3.enable = true;
+      i3.enable = false;
       plasma.enable = false;
-      hypr.enable = false;
+      hypr.enable = true;
     };
   };
 
   # TODO move it out to separate file
   # Hyprland
-  programs.hyprland = {
-    enable = true;
-    # seems to be removed
-    #nvidiaPatches = true;
-    xwayland.enable = true;
-  };
-
-  environment.sessionVariables = {
-    WLR_NO_HARWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-
-  hardware = {
-    opengl.enable = true;
-    nvidia.modesetting.enable = true;
-  };
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

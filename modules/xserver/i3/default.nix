@@ -10,8 +10,6 @@ in {
   config = mkIf cfg.enable {
     services.xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = "";
 
       windowManager.i3.enable = true;
 

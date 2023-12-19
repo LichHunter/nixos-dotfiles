@@ -8,6 +8,12 @@
       save = 10000;
     };
 
+    initExtra = ''
+      export JAVA_HOME=${pkgs.jdk17}
+      export PATH=$PATH:$JAVA_HOME/bin
+    '';
+      #export JDTLS_PATH=${pkgs.jdt-language-server}/share/java
+
     shellAliases = {
       ll = "exa -al";
       nixos-build = "sudo nixos-rebuild build";
@@ -15,6 +21,8 @@
       sc = "source $HOME/.zshrc";
       doom = "$HOME/.config/emacs/bin/doom";
       vim = "nvim";
+      java17 = "export JAVA_HOME='/home/omen/jdk/openjdk17' && mvn -v";
+      java11 = "export JAVA_HOME='/home/omen/jdk/openjdk11' && mvn -v";
     };
 
     plugins = [

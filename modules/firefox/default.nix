@@ -12,6 +12,18 @@
             keyword = "google";
             url = "https://google.com";
           }
+          {
+            name = "Appendix A. Home Manager Configuration Options";
+            tags = [];
+            keyword = "appendix-a";
+            url = "https://nix-community.github.io/home-manager/options.xhtml";
+          }
+          {
+            name = "Advent code";
+            tags = [];
+            keyword = "adventcode";
+            url = "https://adventofcode.com/";
+          }
         ];
         settings = {
           "widget.use-xdg-desktop-portal.file-picker" = 1;
