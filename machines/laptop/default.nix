@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -12,6 +12,7 @@ in {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./variables.nix
+      ./hardware.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 

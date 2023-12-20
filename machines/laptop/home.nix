@@ -96,4 +96,7 @@ in {
     targets.rofi.enable = true;
     targets.alacritty.enable = true;
   };
+
+  # Enable autorandra for auto detection of connected displays
+  programs.autorandr.enable = true;
 }
