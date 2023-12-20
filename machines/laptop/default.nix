@@ -171,8 +171,6 @@ in {
     };
   };
 
-  # TODO move it out to separate file
-  # Hyprland
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

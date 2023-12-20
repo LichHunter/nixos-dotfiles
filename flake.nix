@@ -70,6 +70,8 @@
           ./modules/firefox
           ./modules/git
           ./modules/alacritty
+          ./modules/hypr
+          ./modules/waybar
         ] # extra modules to be loaded by home-manager
         ;
     };
