@@ -92,8 +92,7 @@ in {
     networkmanagerapplet
     arandr
     zip
-    # TODO it takes a bunch of time to build, maybe its just stuck
-    #nvtop
+    nvtop
 
     # TODO move out to another file with other configs
     #hyprland packages
