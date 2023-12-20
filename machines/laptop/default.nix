@@ -91,6 +91,8 @@ in {
     networkmanagerapplet
     arandr
     zip
+    # TODO it takes a bunch of time to build, maybe its just stuck
+    #nvtop
 
     # TODO move out to another file with other configs
     #hyprland packages
@@ -105,6 +107,9 @@ in {
     kitty
     rofi-wayland
     wofi
+
+    # Gaming
+    steam
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -176,5 +181,9 @@ in {
   home-manager.useUserPackages = true;
   home-manager.users."${config.variables.username}" = {
     imports = [ ./home.nix ] ++ extraHomeModules;
+  };
+
+  programs.steam = {
+    enable = true;
   };
 }
