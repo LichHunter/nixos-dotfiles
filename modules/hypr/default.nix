@@ -6,6 +6,11 @@ in {
   home.packages = with pkgs; [
     waybar
     swww
+    mako
+    pipewire
+    wireplumber
+    libsForQt5.polkit-kde-agent
+    xdg-desktop-portal-hyprland
   ];
 
   wayland.windowManager.hyprland = {
@@ -23,9 +28,8 @@ in {
     # Autostart
 
     #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
-    #exec-once = dunst
-    # TODO install nm-applet
-    #exec-once = nm-applet
+    exec-once = mako
+    exec-once = polkit-kde-agent
 
     source = /home/${config.variables.username}/.config/hypr/colors
     exec = pkill waybar & sleep 0.5 && waybar
@@ -181,6 +185,8 @@ in {
     bindm = $mainMod, mouse:272, movewindow
     bindm = $mainMod, mouse:273, resizewindow
     bindm = ALT, mouse:272, resizewindow
+
+    bind = $mainMod,SPACE, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next
         '';
   };
   home.file.".config/hypr/colors".text = ''
