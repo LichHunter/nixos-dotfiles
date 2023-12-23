@@ -74,6 +74,7 @@
           ./modules/hypr
           ./modules/waybar
           ./modules/options.nix
+          ./modules/mako
         ] # extra modules to be loaded by home-manager
         ;
     };
