@@ -27,5 +27,11 @@ in {
       enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
+
+  security.pam.services.kwallet = {
+    name = "kwallet";
+    enableKwallet = true;
+  };
+
   };
 }

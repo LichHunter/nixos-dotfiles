@@ -24,6 +24,12 @@
             keyword = "adventcode";
             url = "https://adventofcode.com/";
           }
+          {
+            name = "Nixos Packages";
+            tags = [];
+            keyword = "nixos";
+            url = "https://search.nixos.org/packages";
+          }
         ];
         settings = {
           "widget.use-xdg-desktop-portal.file-picker" = 1;

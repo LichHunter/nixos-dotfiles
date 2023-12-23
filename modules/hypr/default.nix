@@ -9,8 +9,12 @@ in {
     mako
     pipewire
     wireplumber
-    libsForQt5.polkit-kde-agent
     xdg-desktop-portal-hyprland
+
+    # libsForQt5.polkit-kde-agent
+    # libsForQt5.kwalletmanager
+    # libsForQt5.kwallet
+    # libsForQt5.kwallet-pam
   ];
 
   wayland.windowManager.hyprland = {

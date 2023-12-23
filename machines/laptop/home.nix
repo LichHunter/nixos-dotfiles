@@ -99,4 +99,11 @@ in {
 
   # Enable autorandra for auto detection of connected displays
   programs.autorandr.enable = true;
+
+  # blutooth applet
+  services.blueman-applet.enable = true;
+
+  dov = {
+    polybar.enable = false;
+  };
 }
