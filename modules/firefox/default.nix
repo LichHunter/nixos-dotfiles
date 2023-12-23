@@ -32,9 +32,27 @@
             url = "https://search.nixos.org/packages";
           }
         ];
+
         settings = {
           "widget.use-xdg-desktop-portal.file-picker" = 1;
         };
+
+        containers = {
+          personal = {
+            icon = "fingerprint";
+            color = "blue";
+            id = 1;
+          };
+          work = {
+            icon = "briefcase";
+            color = "orange";
+            id = 2;
+          };
+        };
+
+        # extenstions = with pkgs; [
+        #   nur.repos.rycee.firefox-addons.privacy-badger
+        # ];
       };
     };
   };

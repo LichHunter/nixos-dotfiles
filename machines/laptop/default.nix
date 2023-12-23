@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -182,7 +182,10 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users."${config.variables.username}" = {
-    imports = [ ./home.nix ] ++ extraHomeModules;
+    imports = [ ./home.nix
+
+          inputs.nur.hmModules.nur
+              ] ++ extraHomeModules;
   };
 
   programs.steam = {

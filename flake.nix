@@ -12,9 +12,10 @@
     stylix.url = "github:danth/stylix";
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
     hyprland.url = "github:hyprwm/Hyprland";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, nur, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {

@@ -16,9 +16,9 @@
 
     shellAliases = {
       ll = "exa -al";
-      nixos-build = "sudo nixos-rebuild build";
-      nixos-switch = "sudo nixos-rebuild switch";
-      nixos-test = "sudo nixos-rebuild test";
+      nixos-build = "sudo nixos-rebuild build --show-trace --flake";
+      nixos-switch = "sudo nixos-rebuild switch --flake";
+      nixos-test = "sudo nixos-rebuild test --flake";
       sc = "source $HOME/.zshrc";
       doom = "$HOME/.config/emacs/bin/doom";
       vim = "nvim";
