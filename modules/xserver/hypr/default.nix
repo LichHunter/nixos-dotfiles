@@ -4,7 +4,6 @@ with lib;
 let
   cfg = config.dov.xserver.hypr;
 in {
-  options.dov.xserver.hypr.enable = mkEnableOption "hypr config";
 
   config = mkIf cfg.enable {
     programs.hyprland = {
@@ -28,10 +27,10 @@ in {
       extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     };
 
-  security.pam.services.kwallet = {
-    name = "kwallet";
-    enableKwallet = true;
-  };
+  # security.pam.services.kwallet = {
+  #   name = "kwallet";
+  #   enableKwallet = true;
+  # };
 
   };
 }

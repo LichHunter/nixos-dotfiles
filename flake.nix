@@ -61,6 +61,7 @@
           ./modules/xserver/i3
           ./modules/xserver/plasma
           ./modules/xserver/hypr
+          ./modules/options.nix
           #<nixos-hardware/omen/15-en0010ca>
         ] # extra modules
         [
@@ -73,6 +74,7 @@
           ./modules/alacritty
           ./modules/hypr
           ./modules/waybar
+          ./modules/options.nix
         ] # extra modules to be loaded by home-manager
         ;
     };

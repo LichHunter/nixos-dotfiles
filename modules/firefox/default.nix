@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }:
 
+# TODO add config that duckduckgo will be search engine
 {
   programs = {
     firefox = {
