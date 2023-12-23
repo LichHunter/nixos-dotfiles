@@ -20,6 +20,7 @@ in {
 
   dov = {
     fish.enable = false;
+    hypr.enable = true;
   };
 
   programs.home-manager.enable = true;

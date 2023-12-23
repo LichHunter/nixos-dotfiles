@@ -62,7 +62,6 @@
           ./modules/xserver/plasma
           ./modules/xserver/hypr
           ./modules/options.nix
-          #<nixos-hardware/omen/15-en0010ca>
         ] # extra modules
         [
           ./modules/polybar

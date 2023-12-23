@@ -3,7 +3,6 @@
 with lib;
 
 let
-  cfg = config.dov;
 in {
-  options.dov.xserver.hypr.enable = mkEnableOption "hypr config";
+  options.dov.hypr.enable = mkEnableOption "hypr config";
 }

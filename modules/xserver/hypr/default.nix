@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.dov.xserver.hypr;
+  cfg = config.dov.hypr;
 in {
 
   config = mkIf cfg.enable {

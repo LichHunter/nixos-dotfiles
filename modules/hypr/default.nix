@@ -4,9 +4,9 @@ with lib;
 
 let
   colors = config.lib.stylix.colors;
-  cfg = config.dov.xserver.hypr;
+  cfg = config.dov.hypr;
 in {
-#  config = mkIf cfg.enable {
+  config = mkIf cfg.enable {
     home.packages = with pkgs; [
       waybar
       swww
@@ -218,5 +218,5 @@ in {
       $color14 = ${colors.base0E}
       $color15 = ${colors.base0F}
     '';
-#  };
+  };
 }

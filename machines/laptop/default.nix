@@ -174,8 +174,8 @@ in {
     xserver = {
       i3.enable = false;
       plasma.enable = false;
-      hypr.enable = true;
     };
+    hypr.enable = true;
   };
 
 
