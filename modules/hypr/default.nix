@@ -127,7 +127,6 @@ in {
       $mainMod = SUPER
       bind = $mainMod, G, fullscreen,
 
-
       #bind = $mainMod, RETURN, exec, kitty
       bind = $mainMod, RETURN, exec, alacritty
       bind = SUPER_SHIFT, q, killactive,

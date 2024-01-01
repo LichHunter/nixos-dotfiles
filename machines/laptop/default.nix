@@ -120,7 +120,13 @@ in {
     zsh.enable = true;
     light.enable = true;
     nm-applet.enable = true;
+
+    # needed for thunar
+    thunar.enable = true;
+    xfconf.enable = true; # needed to save preferences
   };
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
 
   
   fonts.packages = with pkgs; [

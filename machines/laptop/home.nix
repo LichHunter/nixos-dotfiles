@@ -36,7 +36,7 @@ in {
     dconf
     eza
     #i3
-    dolphin
+    #dolphin
     picom
     nitrogen
     rxvt-unicode
