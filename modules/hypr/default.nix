@@ -129,6 +129,7 @@ in {
 
       #bind = $mainMod, RETURN, exec, kitty
       bind = $mainMod, RETURN, exec, alacritty
+      bind = SUPER_SHIFT, RETURN, exec, thunar
       bind = SUPER_SHIFT, q, killactive,
       #bind = $mainMod, M, exit,
       bind = $mainMod, V, togglefloating,

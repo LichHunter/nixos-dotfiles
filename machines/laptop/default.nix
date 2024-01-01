@@ -95,6 +95,9 @@ in {
     nvtop
     blueman
     killall
+    # TODO move this to hypr config?
+    pavucontrol
+    pamixer
 
     # TODO move out to another file with other configs
     #hyprland packages
