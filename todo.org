@@ -1,3 +1,4 @@
 #+title: Todo
 
 - [X] Add doas
+- [ ] Fix color scheme of calendar
