@@ -129,7 +129,9 @@ in {
 
       #bind = $mainMod, RETURN, exec, kitty
       bind = $mainMod, RETURN, exec, alacritty
+      bind = $mainMod, o, exec, emacsclient -c
       bind = SUPER_SHIFT, RETURN, exec, thunar
+
       bind = SUPER_SHIFT, q, killactive,
       #bind = $mainMod, M, exit,
       bind = $mainMod, V, togglefloating,

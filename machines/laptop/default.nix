@@ -98,6 +98,8 @@ in {
     # TODO move this to hypr config?
     pavucontrol
     pamixer
+    # thunar plugin to manager archives
+    xfce.thunar-archive-plugin
 
     # TODO move out to another file with other configs
     #hyprland packages
@@ -123,11 +125,11 @@ in {
     zsh.enable = true;
     light.enable = true;
     nm-applet.enable = true;
-
-    # needed for thunar
-    thunar.enable = true;
-    xfconf.enable = true; # needed to save preferences
   };
+
+  # needed for thunar
+  programs.thunar.enable = true;
+  programs.xfconf.enable = true; # needed to save preferences
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
