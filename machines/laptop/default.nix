@@ -206,4 +206,12 @@ in {
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
+
+  security.doas.enable = true;
+  security.sudo.enable = false;
+  security.doas.extraRules = [{
+    users = ["${config.variables.username}"];
+    keepEnv = true;  # Optional, retains environment variables while running commands
+    #persist = true;  # Optional, only require password verification a single time
+  }];
 }
