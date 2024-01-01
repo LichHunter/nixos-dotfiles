@@ -2,3 +2,7 @@
 
 - [X] Add doas
 - [ ] Fix color scheme of calendar
+- [X] Add lock screen
+- [ ] Add autolock after some time
+- [ ] Fix wifi connection, as you need always enter passwords
+- [ ] Fix image of battery in waybar when laptop is charging

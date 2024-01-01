@@ -76,6 +76,7 @@
           ./modules/waybar
           ./modules/options.nix
           ./modules/mako
+          ./modules/swaylock
         ] # extra modules to be loaded by home-manager
         ;
     };

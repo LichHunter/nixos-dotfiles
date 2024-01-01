@@ -43,6 +43,7 @@ in {
       exec = pkill waybar & sleep 0.5 && waybar
       #exec-once = swww init & sleep 0.5 && exec wallpaper_random
       # exec-once = wallpaper_random
+      exec = sh ~/.config/swaylock/idle.sh
 
       # Set en layout at startup
 
@@ -131,6 +132,7 @@ in {
       bind = $mainMod, RETURN, exec, alacritty
       bind = $mainMod, o, exec, emacsclient -c
       bind = SUPER_SHIFT, RETURN, exec, thunar
+      bind = $mainMod, x, exec, sh ~/.config/swaylock/lock.sh
 
       bind = SUPER_SHIFT, q, killactive,
       #bind = $mainMod, M, exit,
