@@ -22,8 +22,9 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
-  # TODO network isn't conecting automatically
   networking.networkmanager.enable = true;
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   time.timeZone = "Europe/Warsaw";
 
