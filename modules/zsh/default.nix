@@ -25,6 +25,7 @@
       java17 = "export JAVA_HOME='/home/omen/jdk/openjdk17' && mvn -v";
       java11 = "export JAVA_HOME='/home/omen/jdk/openjdk11' && mvn -v";
       sudo = "doas";
+      psax = "ps ax | grep";
     };
 
     plugins = [

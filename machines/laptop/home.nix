@@ -44,6 +44,7 @@ in {
     mate.mate-power-manager
     font-awesome_5
     source-code-pro
+    vlc
 
     # emacs
     ((pkgs.emacsPackagesFor pkgs.emacs28NativeComp).emacsWithPackages (epkgs: [
@@ -65,6 +66,9 @@ in {
     jetbrains.webstorm
     direnv
     jdt-language-server
+
+    #torrent
+    qbittorrent
   ];
 
   # fix collision between java17 and 11

@@ -215,5 +215,8 @@ in {
     #persist = true;  # Optional, only require password verification a single time
   }];
 
+  # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};
+
+  #services.gnome3.gnome-keyring.enable = true;
 }

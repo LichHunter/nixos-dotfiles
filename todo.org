@@ -1,8 +1,10 @@
 #+title: Todo
 
 - [X] Add doas
-- [ ] Fix color scheme of calendar
+- [X] Fix color scheme of calendar
 - [X] Add lock screen
 - [ ] Add autolock after some time
 - [ ] Fix wifi connection, as you need always enter passwords
 - [ ] Fix image of battery in waybar when laptop is charging
+- [ ] Add hyprland tabbed layout
+- [ ] Fix icon on 3-d screen in waybar
