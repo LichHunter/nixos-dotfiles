@@ -1,10 +1,16 @@
 #+title: Todo
 
-- [X] Add doas
-- [X] Fix color scheme of calendar
-- [X] Add lock screen
-- [ ] Add autolock after some time
-- [ ] Fix wifi connection, as you need always enter passwords
-- [ ] Fix image of battery in waybar when laptop is charging
-- [ ] Add hyprland tabbed layout
-- [ ] Fix icon on 3-d screen in waybar
+* DONE Add doas
+CLOSED: [2024-01-02 Tue 21:54]
+* DONE Fix color scheme of calendar
+* DONE Add lock screen
+CLOSED: [2024-01-02 Tue 21:54]
+* TODO Add autolock after some time
+* TODO Fix wifi connection, as you need always enter passwords
+* TODO Fix image of battery in waybar when laptop is charging
+* TODO Add hyprland tabbed layout
+* DONE Fix icon on 3-d screen in waybar
+CLOSED: [2024-01-02 Tue 21:54]
+* TODO Fix suggesstion window in IDEA for hypr
+* DONE Fix bluetooth | some what done but I need to connect though terminall - [[file:wiki.org][wiki]]
+CLOSED: [2024-01-02 Tue 21:55]
