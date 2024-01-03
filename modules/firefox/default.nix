@@ -31,6 +31,12 @@
             keyword = "nixos";
             url = "https://search.nixos.org/packages";
           }
+          {
+            name = "Google Translate";
+            tags = [];
+            keyword = "translate";
+            url = "https://translate.google.com/";
+          }
         ];
 
         settings = {

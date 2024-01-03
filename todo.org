@@ -18,3 +18,7 @@ CLOSED: [2024-01-02 Tue 21:54]
 * TODO Fix suggesstion window in IDEA for hypr
 * DONE Fix bluetooth | some what done but I need to connect though terminall - [[file:wiki.org][wiki]]
 CLOSED: [2024-01-02 Tue 21:55]
+* TODO Add firefox addons from nur
+* DONE Add docker
+CLOSED: [2024-01-03 Wed 18:31]
+* TODO Fix icom of sound in waybar

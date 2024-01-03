@@ -12,6 +12,9 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  # allow perf as user | needed for intellij to run profiler
+  boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
+  boot.kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/c1a2fb13-47d8-429f-9e92-5f0e93fd9764";

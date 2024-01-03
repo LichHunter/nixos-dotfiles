@@ -69,7 +69,7 @@ in {
   users.users."${config.variables.username}" = {
     isNormalUser = true;
     description = "omen";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -101,6 +101,7 @@ in {
     pamixer
     # thunar plugin to manager archives
     xfce.thunar-archive-plugin
+    async-profiler
 
     # TODO move out to another file with other configs
     #hyprland packages
@@ -220,4 +221,7 @@ in {
   security.pam.services.swaylock = {};
 
   #services.gnome3.gnome-keyring.enable = true;
+
+  # enabling docker
+  virtualisation.docker.enable = true;
 }
