@@ -37,6 +37,12 @@
             keyword = "translate";
             url = "https://translate.google.com/";
           }
+          {
+            name = "youtube";
+            tags = [ "google" ];
+            keyword = "youtube";
+            url = "https://youtube.com";
+          }
         ];
 
         settings = {

@@ -69,7 +69,7 @@ in {
   users.users."${config.variables.username}" = {
     isNormalUser = true;
     description = "omen";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -77,6 +77,7 @@ in {
       keepassxc
       ripgrep
       fd
+      virt-manager
     ];
   };
 
@@ -93,6 +94,7 @@ in {
     networkmanagerapplet
     arandr
     zip
+    unzip
     nvtop
     blueman
     killall
@@ -102,6 +104,7 @@ in {
     # thunar plugin to manager archives
     xfce.thunar-archive-plugin
     async-profiler
+    gparted
 
     # TODO move out to another file with other configs
     #hyprland packages
@@ -119,6 +122,14 @@ in {
 
     # Gaming
     steam
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+         # List package dependencies here
+      ];
+    })
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -224,4 +235,13 @@ in {
 
   # enabling docker
   virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "${config.variables.username}" ];
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
 }
