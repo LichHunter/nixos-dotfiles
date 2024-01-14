@@ -13,6 +13,11 @@ in {
       ./hardware-configuration.nix
       ./variables.nix
       ./hardware.nix
+      ./doas.nix
+      ./docker.nix
+      ./bluetooth.nix
+      ./virtmanager.nix
+      ./thunar.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -122,12 +127,14 @@ in {
 
     # Gaming
     steam
+    wine
     (lutris.override {
       extraLibraries =  pkgs: [
         # List library dependencies here
       ];
       extraPkgs = pkgs: [
          # List package dependencies here
+         wine
       ];
     })
   ];
@@ -138,15 +145,9 @@ in {
     zsh.enable = true;
     light.enable = true;
     nm-applet.enable = true;
+    steam.enable = true;
   };
 
-  # needed for thunar
-  programs.thunar.enable = true;
-  programs.xfconf.enable = true; # needed to save preferences
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
-
-  
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
@@ -212,36 +213,6 @@ in {
               ] ++ extraHomeModules;
   };
 
-  programs.steam = {
-    enable = true;
-  };
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
-
-  security.doas.enable = true;
-  security.sudo.enable = false;
-  security.doas.extraRules = [{
-    users = ["${config.variables.username}"];
-    keepEnv = true;  # Optional, retains environment variables while running commands
-    #persist = true;  # Optional, only require password verification a single time
-  }];
-
   # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};
-
-  #services.gnome3.gnome-keyring.enable = true;
-
-  # enabling docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "${config.variables.username}" ];
-  virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
 }
