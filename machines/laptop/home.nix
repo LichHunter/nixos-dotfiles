@@ -6,6 +6,7 @@ let
 in {
   imports = [
     ./variables.nix
+    #default modules
     ./../../modules/zsh
     ./../../modules/firefox
     ./../../modules/git
@@ -87,13 +88,6 @@ in {
         recursive = true;
       };
     };
-  };
-
-  gtk = {
-    enable = true;
-    theme.name = "adw-gtk3";
-    cursorTheme.name = "Bibata-Modern-Ice";
-    iconTheme.name = "GruvboxPlus";
   };
 
   stylix = {

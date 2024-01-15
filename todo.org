@@ -23,3 +23,4 @@ CLOSED: [2024-01-02 Tue 21:55]
 CLOSED: [2024-01-03 Wed 18:31]
 * TODO Fix icom of sound in waybar
 * TODO Try this rice https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/
+* TODO Upgrade to 25.11

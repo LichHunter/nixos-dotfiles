@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, lib, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -83,6 +83,20 @@ in {
       ripgrep
       fd
       virt-manager
+      tor-browser
+
+      # Gaming
+      steam
+      wine
+      (lutris.override {
+        extraLibraries =  pkgs: [
+          # List library dependencies here
+        ];
+        extraPkgs = pkgs: [
+          # List package dependencies here
+          wine
+        ];
+      })
     ];
   };
 
@@ -125,18 +139,6 @@ in {
     rofi-wayland
     wofi
 
-    # Gaming
-    steam
-    wine
-    (lutris.override {
-      extraLibraries =  pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-         # List package dependencies here
-         wine
-      ];
-    })
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -211,7 +213,9 @@ in {
 
           inputs.nur.hmModules.nur
               ] ++ extraHomeModules;
+    #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
   };
+
 
   # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};

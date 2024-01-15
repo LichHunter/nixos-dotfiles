@@ -11,3 +11,7 @@ $ bluetoothctl
 [bluetooth] # pair [hex-address]
 [bluetooth] # connect [hex-address]
 #+end_example
+* Garbage collection
+#+begin_src bash
+nix-collect-garbage
+#+end_src

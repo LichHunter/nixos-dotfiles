@@ -54,6 +54,8 @@
           ./modules/polybar
           ./modules/i3
           ./modules/fish
+          # TODO in default.nix we have hardcode config of dconf and this need to be extracted
+          #./modules/rice/Frost-Phoenix/gtk/config.nix
         ] # extra modules to be loaded by home-manager
         ;
       laptop = mkComputer
@@ -72,11 +74,14 @@
           ./modules/firefox
           ./modules/git
           ./modules/alacritty
-          ./modules/hypr
-          ./modules/waybar
           ./modules/options.nix
           ./modules/mako
           ./modules/swaylock
+          #./modules/gtk
+          #./modules/hypr
+          #./modules/waybar
+          #./modules/rice/Frost-Phoenix
+          ./modules/rice/my
         ] # extra modules to be loaded by home-manager
         ;
     };
