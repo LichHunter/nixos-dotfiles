@@ -22,5 +22,40 @@ CLOSED: [2024-01-02 Tue 21:55]
 * DONE Add docker
 CLOSED: [2024-01-03 Wed 18:31]
 * TODO Fix icom of sound in waybar
-* TODO Try this rice https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/
+* DONE Try this rice https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/
+CLOSED: [2024-01-15 Mon 23:46]
+* TODO Fix for the rice config of dconf
+In the [[file:machines/laptop/default.nix][default.nix]] we have a config of dconf which is setting font-name property, this needed for the rice but it needs to be extracted to be able to enable it by toggle
 * TODO Upgrade to 25.11
+** DONE Update dependencies
+CLOSED: [2024-01-16 Tue 23:18]
+** CANCELLED Fix home-manager nixos-switch error
+CLOSED: [2024-01-16 Tue 23:28]
+
+Fixed by removing plasma from default.nix for laptop config. Perhaps we should fix it some how else
+
+<<error>>
+#+begin_example
+warning: the following units failed: home-manager-omen.service
+
+× home-manager-omen.service - Home Manager environment for omen
+     Loaded: loaded (/etc/systemd/system/home-manager-omen.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Tue 2024-01-16 23:16:35 CET; 54ms ago
+    Process: 3389 ExecStart=/nix/store/nr3bd4qcyrx1n00m8bpsca9swfxfvlvx-hm-setup-env /nix/store/69nwmh08z425yb3xrbw9h582c8pm8wsm-home-manager-generation (code=exited, status=255/EXCEPTION)
+   Main PID: 3389 (code=exited, status=255/EXCEPTION)
+         IP: 0B in, 0B out
+        CPU: 282ms
+
+Jan 16 23:16:35 nixos hm-activate-omen[3389]: Creating home file links in /home/omen
+Jan 16 23:16:35 nixos hm-activate-omen[3389]: Activating onFilesChange
+Jan 16 23:16:35 nixos hm-activate-omen[3389]: Activating reloadSystemd
+Jan 16 23:16:35 nixos hm-activate-omen[3389]: User systemd daemon not running. Skipping reload.
+Jan 16 23:16:35 nixos hm-activate-omen[3389]: Activating stylixLookAndFeel
+Jan 16 23:16:35 nixos hm-activate-omen[3779]: An error occurred while attempting to set the Plasma wallpaper:
+Jan 16 23:16:35 nixos hm-activate-omen[3779]: The name org.kde.plasmashell was not provided by any .service files
+Jan 16 23:16:35 nixos systemd[1]: home-manager-omen.service: Main process exited, code=exited, status=255/EXCEPTION
+Jan 16 23:16:35 nixos systemd[1]: home-manager-omen.service: Failed with result 'exit-code'.
+Jan 16 23:16:35 nixos systemd[1]: Failed to start Home Manager environment for omen.
+#+end_example
+** TODO Fix alacritty cofig as it needs to be toml
+* TODO Fix plasma as we have this error [[error]]
