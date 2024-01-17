@@ -29,6 +29,8 @@ In the [[file:machines/laptop/default.nix][default.nix]] we have a config of dco
 * TODO Upgrade to 25.11
 ** DONE Update dependencies
 CLOSED: [2024-01-16 Tue 23:18]
+** DONE Upgrade system staleVersion to 25.11
+CLOSED: [2024-01-16 Tue 23:44]
 ** CANCELLED Fix home-manager nixos-switch error
 CLOSED: [2024-01-16 Tue 23:28]
 
@@ -58,4 +60,7 @@ Jan 16 23:16:35 nixos systemd[1]: home-manager-omen.service: Failed with result 
 Jan 16 23:16:35 nixos systemd[1]: Failed to start Home Manager environment for omen.
 #+end_example
 ** TODO Fix alacritty cofig as it needs to be toml
+This has a open bug to fix in stylix - https://github.com/danth/stylix/issues/214
+We just need to wait for it
 * TODO Fix plasma as we have this error [[error]]
+* TODO Add theme for sddm
