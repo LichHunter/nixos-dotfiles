@@ -65,6 +65,7 @@
           ./modules/xserver/plasma
           ./modules/xserver/hypr
           ./modules/options.nix
+          ./modules/sddm
         ] # extra modules
         [
           ./modules/polybar

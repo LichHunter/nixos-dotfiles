@@ -50,7 +50,6 @@ in {
 
   services.xserver.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
 
   services.xserver = {
     layout = "us,ru";
@@ -137,7 +136,6 @@ in {
     kitty
     rofi-wayland
     wofi
-
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
