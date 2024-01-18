@@ -5,22 +5,69 @@ CLOSED: [2024-01-02 Tue 21:54]
 * DONE Fix color scheme of calendar
 * DONE Add lock screen
 CLOSED: [2024-01-02 Tue 21:54]
-* TODO Add autolock after some time
 * DONE Fix wifi connection, as you need always enter passwords
 CLOSED: [2024-01-02 Tue 22:18]
 Seems like this is not easy to do without gnome-keyring or kde stuff
 UPD fixed with usage of IWD
 * DONE Fix image of battery in waybar when laptop is charging
 CLOSED: [2024-01-02 Tue 21:58]
-* TODO Add hyprland tabbed layout
 * DONE Fix icon on 3-d screen in waybar
 CLOSED: [2024-01-02 Tue 21:54]
-* TODO Fix suggesstion window in IDEA for hypr
 * DONE Fix bluetooth | some what done but I need to connect though terminall - [[file:wiki.org][wiki]]
 CLOSED: [2024-01-02 Tue 21:55]
-* TODO Add firefox addons from nur
 * DONE Add docker
 CLOSED: [2024-01-03 Wed 18:31]
+* DONE Upgrade to 24.05
+CLOSED: [2024-01-18 Thu 20:04]
+* DONE Fix vm build of nixos
+CLOSED: [2024-01-18 Thu 20:59]
++This is somewhat fixed, at least I can login to it but it is immidiatly crashes+
+Update: this issue seems to be related to this [[issue]] which in turn is some issue related to hypr and DE (kde)
+* DONE Add firefox addons +from nur+
+CLOSED: [2024-01-18 Thu 23:26]
+Could not setup to use nur, so getting extensions some other way like specified [[https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265][here]]
+* TODO Add autolock after some time
+* TODO Add hyprland tabbed layout
+* TODO Fix suggesstion window in IDEA for hypr
 * TODO Fix icom of sound in waybar
-* TODO Try this rice https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/
-* TODO Upgrade to 25.11
+* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
+* TODO Add theme for sddm
+* TODO Hypr crashes on login if kde is removed <<issue>>
+Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
+Possible this error somewhat related to xdg-portals and gtk...
+* TODO Add default search engine for firefox
+Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
+* TODO Add shortcut for comment/uncomment code for emacs
+* TODO Clean up in firefox_custom.nix
+* TODO Fix nixos-test
+I'm getting this error when rebuild config
+#+begin_example
+activating the configuration...
+setting up /etc...
+reloading user units for omen...
+setting up tmpfiles
+the following new units were started: libvirtd.service
+warning: the following units failed: home-manager-omen.service
+
+× home-manager-omen.service - Home Manager environment for omen
+     Loaded: loaded (/etc/systemd/system/home-manager-omen.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Thu 2024-01-18 23:23:49 CET; 61ms ago
+    Process: 26628 ExecStart=/nix/store/nr3bd4qcyrx1n00m8bpsca9swfxfvlvx-hm-setup-env /nix/store/xnbql26lj8rd9pn1a96rzb8nfq5ps9c2-home-manager-generation (code=exited, status=255/EXCEPTION)
+   Main PID: 26628 (code=exited, status=255/EXCEPTION)
+         IP: 0B in, 0B out
+        CPU: 392ms
+
+Jan 18 23:23:49 nixos hm-activate-omen[26628]: Creating profile generation 174
+Jan 18 23:23:49 nixos hm-activate-omen[26628]: Creating home file links in /home/omen
+Jan 18 23:23:49 nixos hm-activate-omen[26628]: Activating onFilesChange
+Jan 18 23:23:49 nixos hm-activate-omen[26628]: Activating reloadSystemd
+Jan 18 23:23:49 nixos hm-activate-omen[26628]: Activating stylixLookAndFeel
+Jan 18 23:23:49 nixos hm-activate-omen[27199]: An error occurred while attempting to set the Plasma wallpaper:
+Jan 18 23:23:49 nixos hm-activate-omen[27199]: The name org.kde.plasmashell was not provided by any .service files
+Jan 18 23:23:49 nixos systemd[1]: home-manager-omen.service: Main process exited, code=exited, status=255/EXCEPTION
+Jan 18 23:23:49 nixos systemd[1]: home-manager-omen.service: Failed with result 'exit-code'.
+Jan 18 23:23:49 nixos systemd[1]: Failed to start Home Manager environment for omen.
+warning: error(s) occurred while switching to the new configuration
+#+end_example
+
+Need to be fixed

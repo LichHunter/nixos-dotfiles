@@ -76,6 +76,7 @@ in {
     description = "omen";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
+    initialPassword = "test";
     packages = with pkgs; [
       firefox
       kate
@@ -205,18 +206,25 @@ in {
     hypr.enable = true;
   };
 
-
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users."${config.variables.username}" = {
-    imports = [ ./home.nix
+    imports = [
+      ./home.nix
+    ] ++ extraHomeModules;
 
-          inputs.nur.hmModules.nur
-              ] ++ extraHomeModules;
     #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
   };
 
 
   # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};
+
+  virtualisation.vmVariant = {
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize =  8192; # Use 2048MiB memory.
+      cores = 6;
+    };
+  };
 }

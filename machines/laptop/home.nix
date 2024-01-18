@@ -8,7 +8,8 @@ in {
     ./variables.nix
     #default modules
     ./../../modules/zsh
-    ./../../modules/firefox
+    #./../../modules/firefox
+    ./../../modules/firefox/firefox_custom.nix
     ./../../modules/git
     ./../../modules/alacritty
   ];
@@ -105,4 +106,6 @@ in {
   dov = {
     polybar.enable = false;
   };
+
+
 }

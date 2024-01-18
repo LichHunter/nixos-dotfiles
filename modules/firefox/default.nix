@@ -1,7 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
-# TODO add config that duckduckgo will be search engine
-{
+let
+in {
   programs = {
     firefox = {
       enable = true;
@@ -62,10 +62,23 @@
           };
         };
 
-        # extenstions = with pkgs; [
-        #   nur.repos.rycee.firefox-addons.privacy-badger
-        # ];
+        extensions = (with pkgs.nur.repos.rycee.firefox-addons; [
+          darkreader
+          privacy-badger
+          reddit-enhancement-suite
+          ublock-origin
+          https-everywhere
+          multi-account-containers
+          keepassxc-browser
+          vimium
+          octotree
+          refined-github
+          sponsorblock
+          # pkgs.nur.repos.ethancedwards8.firefox-addons.enhancer-for-youtube
+        ]);
       };
     };
   };
+
+
 }

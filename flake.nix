@@ -34,7 +34,7 @@
 
     mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules ; };
 
       modules = [
         stylix.nixosModules.stylix
@@ -54,8 +54,6 @@
           ./modules/polybar
           ./modules/i3
           ./modules/fish
-          # TODO in default.nix we have hardcode config of dconf and this need to be extracted
-          #./modules/rice/Frost-Phoenix/gtk/config.nix
         ] # extra modules to be loaded by home-manager
         ;
       laptop = mkComputer
@@ -71,17 +69,18 @@
           ./modules/i3
           ./modules/zsh
           ./modules/fish
-          ./modules/firefox
+          #./modules/firefox
           ./modules/git
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
           ./modules/swaylock
-          #./modules/gtk
-          #./modules/hypr
-          #./modules/waybar
+
+          #Themes
+          # TODO in default.nix we have hardcode config of dconf and this need to be extracted
           #./modules/rice/Frost-Phoenix
           ./modules/rice/my
+
         ] # extra modules to be loaded by home-manager
         ;
     };
