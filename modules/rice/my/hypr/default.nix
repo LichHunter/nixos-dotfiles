@@ -23,7 +23,6 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
-      enableNvidiaPatches = true;
       extraConfig = ''
 
       # Monitor
