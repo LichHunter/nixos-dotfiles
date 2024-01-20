@@ -26,20 +26,8 @@ Update: this issue seems to be related to this [[issue]] which in turn is some i
 * DONE Add firefox addons +from nur+
 CLOSED: [2024-01-18 Thu 23:26]
 Could not setup to use nur, so getting extensions some other way like specified [[https://discourse.nixos.org/t/declare-firefox-extensions-and-settings/36265][here]]
-* TODO Add autolock after some time
-* TODO Add hyprland tabbed layout
-* TODO Fix suggesstion window in IDEA for hypr
-* TODO Fix icom of sound in waybar
-* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
-* TODO Add theme for sddm
-* TODO Hypr crashes on login if kde is removed <<issue>>
-Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
-Possible this error somewhat related to xdg-portals and gtk...
-* TODO Add default search engine for firefox
-Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
-* TODO Add shortcut for comment/uncomment code for emacs
-* TODO Clean up in firefox_custom.nix
-* TODO Fix nixos-test
+* DONE Fix nixos-test
+CLOSED: [2024-01-20 Sat 21:37]
 I'm getting this error when rebuild config
 #+begin_example
 activating the configuration...
@@ -71,3 +59,32 @@ warning: error(s) occurred while switching to the new configuration
 #+end_example
 
 Need to be fixed
+
+Fixed by removing plasma completly :)
+* DONE Hypr crashes on login if kde is removed <<issue>>
+CLOSED: [2024-01-20 Sat 21:39]
+Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
+Possible this error somewhat related to xdg-portals and gtk...
+
+Seems to be fixes by removing from xserver hyprland config
+#+begin_src nix
+xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+};
+#+end_src
+
+* TODO Add autolock after some time
+* TODO Add hyprland tabbed layout
+* TODO Fix suggesstion window in IDEA for hypr
+* TODO Fix icom of sound in waybar
+* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
+* TODO Add theme for sddm
+* TODO Add default search engine for firefox
+Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
+* TODO Add bitwarden extension for firefox
+* TODO Add shortcut for comment/uncomment code for emacs
+* TODO Clean up in firefox_custom.nix
+* TODO Fix emacs
+Currently after upgrade by default we are running emacs 29.1 but our emacs from terminal is version 28.2
+So we can't use shortcut to open it

@@ -27,8 +27,13 @@
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
               installation_mode = "force_installed";
             };
-            # add extensions here...
+            # TODO seems not work...
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              install_url = "https://addons.mozilla.org/firefox/downloads/file/4211087/bitwarden_password_manager-2023.12.1.xpi";
+              installation_mode = "force_installed";
+            };
           };
+          #https://addons.mozilla.org/firefox/downloads/file/4211087/bitwarden_password_manager-2023.12.1.xpi
 
           /* ---- PREFERENCES ---- */
           # Set preferences shared by all profiles.
@@ -118,7 +123,7 @@
         #     # add preferences for profile_0 here...
         #   };
         # };
-
+        
         profile_1 = {
           id = 1;
           name = "profile_1";
