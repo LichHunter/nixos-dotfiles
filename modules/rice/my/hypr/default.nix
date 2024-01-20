@@ -28,21 +28,20 @@ in {
       # Monitor
       monitor=,highres,auto,1
 
+      source = /home/${config.variables.username}/.config/hypr/colors
+
+      # Autostart
       # Fix slow startup
       exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
-      # Autostart
-
+      exec = pkill waybar & sleep 0.5 && waybar
+      exec = sh ~/.config/swaylock/idle.sh
+      exec = emacs --fg-daemon
       #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
       exec-once = mako
       exec-once = polkit-kde-agent
-
-      source = /home/${config.variables.username}/.config/hypr/colors
-      exec = pkill waybar & sleep 0.5 && waybar
       #exec-once = swww init & sleep 0.5 && exec wallpaper_random
       # exec-once = wallpaper_random
-      exec = sh ~/.config/swaylock/idle.sh
 
       # Set en layout at startup
 

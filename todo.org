@@ -61,8 +61,7 @@ warning: error(s) occurred while switching to the new configuration
 Need to be fixed
 
 Fixed by removing plasma completly :)
-* DONE Hypr crashes on login if kde is removed <<issue>>
-CLOSED: [2024-01-20 Sat 21:39]
+* TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
 Possible this error somewhat related to xdg-portals and gtk...
 
@@ -73,6 +72,11 @@ xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 };
 #+end_src
+
+Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashing again but other times are ok
+
+Or not, just rebuilt and everything is ok...
+No Idea what is going on
 
 * TODO Add autolock after some time
 * TODO Add hyprland tabbed layout
@@ -88,3 +92,5 @@ Seems like duckduckgo now is not as good, so I think we can setup some searchx e
 * TODO Fix emacs
 Currently after upgrade by default we are running emacs 29.1 but our emacs from terminal is version 28.2
 So we can't use shortcut to open it
+
+For now I'm just going to add emacs daemon to the hyprland config, to start it on login

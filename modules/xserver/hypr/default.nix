@@ -11,6 +11,11 @@ in {
       # seems to be removed
       #nvidiaPatches = true;
       xwayland.enable = true;
+
+      package = pkgs.hyprland.override {
+        debug = true;
+      };
+
     };
 
     environment.sessionVariables = {
