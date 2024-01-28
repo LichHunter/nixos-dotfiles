@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
   # allow perf as user | needed for intellij to run profiler
   boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
   boot.kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;

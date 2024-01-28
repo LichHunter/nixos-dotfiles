@@ -17,6 +17,7 @@
     shellAliases = {
       ll = "exa -al";
       nixos-build = "sudo nixos-rebuild build --show-trace --flake";
+      nixos-boot = "sudo nixos-rebuild boot --flake";
       nixos-switch = "sudo nixos-rebuild switch --flake";
       nixos-test = "sudo nixos-rebuild test --flake";
       sc = "source $HOME/.zshrc";

@@ -74,7 +74,8 @@
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          ./modules/swaylock
+          #./modules/swaylock
+          #./modules/swayidle
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

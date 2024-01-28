@@ -71,6 +71,9 @@ in {
 
     #torrent
     qbittorrent
+
+    #browsers
+    brave
   ];
 
   # fix collision between java17 and 11
@@ -107,5 +110,17 @@ in {
     polybar.enable = false;
   };
 
+  # services.swayidle = {
+  #   enable = true;
 
+  #   events = [
+  #     { event = "before-sleep"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
+  #     { event = "lock"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
+  #   ];
+
+  #   timeouts = [
+  #     { timeout = 60; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F"; }
+  #     #{ timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+  #   ];
+  # };
 }

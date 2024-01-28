@@ -35,13 +35,13 @@ in {
       exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec = pkill waybar & sleep 0.5 && waybar
-      exec = sh ~/.config/swaylock/idle.sh
       exec = emacs --fg-daemon
-      #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
+      #exec = sh ~/.config/swaylock/idle.sh
       exec-once = mako
       exec-once = polkit-kde-agent
       #exec-once = swww init & sleep 0.5 && exec wallpaper_random
-      # exec-once = wallpaper_random
+      #exec-once = wallpaper_random
+      #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
 
       # Set en layout at startup
 
