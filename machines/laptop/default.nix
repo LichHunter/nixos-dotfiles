@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, lib, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -51,7 +51,6 @@ in {
   services.xserver.enable = true;
 
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   services.xserver = {
     layout = "us,ru";
@@ -76,6 +75,7 @@ in {
     description = "omen";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
+    initialPassword = "test";
     packages = with pkgs; [
       firefox
       kate
@@ -83,6 +83,20 @@ in {
       ripgrep
       fd
       virt-manager
+      tor-browser
+
+      # Gaming
+      steam
+      wine
+      (lutris.override {
+        extraLibraries =  pkgs: [
+          # List library dependencies here
+        ];
+        extraPkgs = pkgs: [
+          # List package dependencies here
+          wine
+        ];
+      })
     ];
   };
 
@@ -125,18 +139,6 @@ in {
     rofi-wayland
     wofi
 
-    # Gaming
-    steam
-    wine
-    (lutris.override {
-      extraLibraries =  pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-         # List package dependencies here
-         wine
-      ];
-    })
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -203,16 +205,28 @@ in {
     hypr.enable = true;
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users."${config.variables.username}" = {
-    imports = [ ./home.nix
+    users."${config.variables.username}" = {
+      imports = [
+        ./home.nix
+      ] ++ extraHomeModules;
 
-          inputs.nur.hmModules.nur
-              ] ++ extraHomeModules;
+      #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
+    };
   };
 
   # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};
+
+  virtualisation.vmVariant = {
+    # following configuration is added only when building VM with build-vm
+    virtualisation = {
+      memorySize =  8192; # Use 2048MiB memory.
+      cores = 6;
+    };
+  };
 }

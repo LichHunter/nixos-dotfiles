@@ -11,6 +11,11 @@ in {
       # seems to be removed
       #nvidiaPatches = true;
       xwayland.enable = true;
+
+      package = pkgs.hyprland.override {
+        debug = true;
+      };
+
     };
 
     environment.sessionVariables = {
@@ -22,15 +27,5 @@ in {
       opengl.enable = true;
       nvidia.modesetting.enable = true;
     };
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    };
-
-  # security.pam.services.kwallet = {
-  #   name = "kwallet";
-  #   enableKwallet = true;
-  # };
-
   };
 }

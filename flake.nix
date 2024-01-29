@@ -13,9 +13,17 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
     hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, nur, ... }:
+  outputs = inputs@{ self, nixpkgs,
+                     home-manager,
+                     stylix,
+                     nixos-hardware,
+                     emacs-overlay,
+                     hyprland,
+                     nur,
+                     arkenfox, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -25,6 +33,7 @@
       };
       overlays = [
         emacs-overlay.overlay
+        nur.overlay
       ];
     };
 
@@ -34,7 +43,7 @@
 
     mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules ; };
 
       modules = [
         stylix.nixosModules.stylix
@@ -69,14 +78,20 @@
           ./modules/i3
           ./modules/zsh
           ./modules/fish
-          ./modules/firefox
+          #./modules/firefox
           ./modules/git
           ./modules/alacritty
-          ./modules/hypr
-          ./modules/waybar
           ./modules/options.nix
           ./modules/mako
-          ./modules/swaylock
+          #./modules/swaylock
+          #./modules/swayidle
+
+          #Themes
+          # TODO in default.nix we have hardcode config of dconf and this need to be extracted
+          #./modules/rice/Frost-Phoenix
+          ./modules/rice/my
+
+          arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
         ;
     };
