@@ -12,12 +12,8 @@ in {
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./variables.nix
-      ./hardware.nix
-      ./doas.nix
-      ./docker.nix
-      ./bluetooth.nix
-      ./virtmanager.nix
-      ./thunar.nix
+      ./hardware
+      ./nixos-modules
       inputs.home-manager.nixosModules.home-manager
     ];
 

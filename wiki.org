@@ -15,3 +15,8 @@ $ bluetoothctl
 #+begin_src bash
 nix-collect-garbage
 #+end_src
+* Get info for fetchFromGitHub
+#+begin_src bash
+nix shell nixpkgs#nix-prefetch-git
+nix-prefetch-git https://github.com/MarianArlt/sddm-sugar-dark
+#+end_src

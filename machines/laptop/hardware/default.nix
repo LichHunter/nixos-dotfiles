@@ -4,10 +4,8 @@
   imports = [
       ./cpu/amd
       ./cpu/amd/pstate.nix
-      #./gpu/amd
       ./gpu/nvidia/prime.nix
       ./pc/laptop
-      #./pc/ssd
   ];
 
   hardware.nvidia.prime = {
