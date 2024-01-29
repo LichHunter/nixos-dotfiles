@@ -94,5 +94,6 @@ Will leave it as it is
 * TODO Add default search engine for firefox
 Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
 * TODO Add bitwarden extension for firefox
+* TODO Add config.json for firefox [[https://github.com/arkenfox/user.js][link]]
 * TODO Add shortcut for comment/uncomment code for emacs
 * TODO Clean up in firefox_custom.nix

@@ -13,9 +13,11 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
     hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
+    arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, nur,
+                     arkenfox, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -82,6 +84,7 @@
           #./modules/rice/Frost-Phoenix
           ./modules/rice/my
 
+          arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
         ;
     };

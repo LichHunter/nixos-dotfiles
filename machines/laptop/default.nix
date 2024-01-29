@@ -200,7 +200,7 @@ in {
   dov = {
     xserver = {
       i3.enable = false;
-      plasma.enable = true;
+      plasma.enable = false;
     };
     hypr.enable = true;
   };

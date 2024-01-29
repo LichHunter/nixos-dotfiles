@@ -8,8 +8,8 @@ in {
     ./variables.nix
     #default modules
     ./../../modules/zsh
-    #./../../modules/firefox
-    ./../../modules/firefox/firefox_custom.nix
+    ./../../modules/firefox
+    #./../../modules/firefox/firefox_custom.nix
     ./../../modules/git
     ./../../modules/alacritty
   ];
