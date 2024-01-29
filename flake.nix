@@ -16,7 +16,13 @@
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, stylix, nixos-hardware, emacs-overlay, hyprland, nur,
+  outputs = inputs@{ self, nixpkgs,
+                     home-manager,
+                     stylix,
+                     nixos-hardware,
+                     emacs-overlay,
+                     hyprland,
+                     nur,
                      arkenfox, ... }:
   let
     system = "x86_64-linux";
@@ -27,6 +33,7 @@
       };
       overlays = [
         emacs-overlay.overlay
+        nur.overlay
       ];
     };
 
