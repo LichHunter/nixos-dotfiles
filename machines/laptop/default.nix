@@ -205,16 +205,19 @@ in {
     hypr.enable = true;
   };
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users."${config.variables.username}" = {
-    imports = [
-      ./home.nix
-    ] ++ extraHomeModules;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
 
-    #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
+    users."${config.variables.username}" = {
+      imports = [
+        ./home.nix
+      ] ++ extraHomeModules;
+
+      #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
+    };
   };
-
 
   # needed to fix swaylock not unlocking
   security.pam.services.swaylock = {};

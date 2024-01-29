@@ -82,6 +82,9 @@ in {
       ];
 
       search = {
+        default = "SearxNG";
+        force = true;
+
         engines = {
           "Nix Packages" = {
             urls = [{
@@ -105,11 +108,22 @@ in {
 
           "Bing".metaData.hidden = true;
           "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+
+          "SearxNG" = {
+            urls = [{
+              template = "https://freesearch.club/search";
+              params = [
+                { name = "q"; value = "{searchTerms}"; }
+              ];
+            }];
+            definedAleases = [ "@srx" ];
+          };
         };
       };
 
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
+        bitwarden
       ];
     };
   };
