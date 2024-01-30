@@ -3,16 +3,22 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix.url = "github:danth/stylix";
+
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
+
     hyprland.url = "github:hyprwm/Hyprland";
+
     nur.url = "github:nix-community/NUR";
+
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
   };
 
@@ -84,7 +90,7 @@
           ./modules/options.nix
           ./modules/mako
           #./modules/swaylock
-          #./modules/swayidle
+          ./modules/swayidle
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

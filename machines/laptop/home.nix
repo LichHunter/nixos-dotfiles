@@ -37,8 +37,6 @@ in {
     # this is needed to fix "error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files"
     dconf
     eza
-    #i3
-    #dolphin
     picom
     nitrogen
     rxvt-unicode
@@ -53,7 +51,6 @@ in {
       epkgs.vterm
     ]))
     coreutils
-    fd
     libtool
     ispell
     mu
@@ -74,6 +71,32 @@ in {
 
     #browsers
     brave
+    firefox
+    tor-browser
+
+    #eww
+    mako
+    libnotify
+    kitty
+    rofi-wayland
+    wofi
+
+    kate
+    keepassxc
+    virt-manager
+
+    # Gaming
+    steam
+    wine
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+        # List package dependencies here
+        wine
+      ];
+    })
   ];
 
   # fix collision between java17 and 11
@@ -109,18 +132,4 @@ in {
   dov = {
     polybar.enable = false;
   };
-
-  # services.swayidle = {
-  #   enable = true;
-
-  #   events = [
-  #     { event = "before-sleep"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
-  #     { event = "lock"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
-  #   ];
-
-  #   timeouts = [
-  #     { timeout = 60; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F"; }
-  #     #{ timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
-  #   ];
-  # };
 }

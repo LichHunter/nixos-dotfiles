@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, lib, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -9,8 +9,8 @@ let
   '';
 in {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      ./hardware-configuration.nix # Include the results of the hardware scan.
       ./variables.nix
       ./hardware
       ./nixos-modules
@@ -73,32 +73,15 @@ in {
     shell = pkgs.zsh;
     initialPassword = "test";
     packages = with pkgs; [
-      firefox
-      kate
-      keepassxc
-      ripgrep
-      fd
-      virt-manager
-      tor-browser
-
-      # Gaming
-      steam
-      wine
-      (lutris.override {
-        extraLibraries =  pkgs: [
-          # List library dependencies here
-        ];
-        extraPkgs = pkgs: [
-          # List package dependencies here
-          wine
-        ];
-      })
+      waybar
     ];
   };
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    ripgrep
+    fd
     vim 
     wget
     git
@@ -120,21 +103,6 @@ in {
     xfce.thunar-archive-plugin
     async-profiler
     gparted
-
-    # TODO move out to another file with other configs
-    #hyprland packages
-    waybar
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    #eww
-    mako
-    libnotify
-    kitty
-    rofi-wayland
-    wofi
-
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
