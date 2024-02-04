@@ -19,8 +19,6 @@ in {
 
   system.stateVersion = "${config.variables.stateVersion}";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -56,7 +54,11 @@ in {
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    xone.enable = true; #for xbox controller
+    xpadneo.enable = true;
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {

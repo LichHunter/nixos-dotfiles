@@ -97,6 +97,11 @@ in {
         wine
       ];
     })
+
+    #vpn
+    #protonvpn-gui
+    #python311Packages.protonvpn-nm-lib
+    #protonvpn-cli
   ];
 
   # fix collision between java17 and 11
