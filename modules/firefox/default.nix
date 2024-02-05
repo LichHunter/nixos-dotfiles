@@ -79,6 +79,12 @@ in {
           keyword = "youtube";
           url = "https://youtube.com";
         }
+        {
+          name = "Z-Library";
+          tags = [ "z-lib" ];
+          keyword = "z-lib";
+          url = "https://singlelogin.re";
+        }
       ];
 
       search = {

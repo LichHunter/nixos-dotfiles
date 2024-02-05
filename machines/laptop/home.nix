@@ -99,9 +99,14 @@ in {
     })
 
     #vpn
-    #protonvpn-gui
-    #python311Packages.protonvpn-nm-lib
-    #protonvpn-cli
+    protonvpn-gui
+    python311Packages.protonvpn-nm-lib
+    protonvpn-cli
+
+    #libsForQt5.spectacle
+    #flameshot
+
+    libreoffice
   ];
 
   # fix collision between java17 and 11
@@ -137,4 +142,6 @@ in {
   dov = {
     polybar.enable = false;
   };
+
+  services.gnome-keyring.enable = true;
 }

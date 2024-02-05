@@ -105,6 +105,10 @@ in {
     xfce.thunar-archive-plugin
     async-profiler
     gparted
+
+    # for lutris winetriks
+    libsForQt5.kdialog
+    cabextract
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
