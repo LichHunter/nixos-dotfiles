@@ -95,6 +95,7 @@ in {
     arandr
     zip
     unzip
+    p7zip
     nvtop
     blueman
     killall

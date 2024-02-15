@@ -55,6 +55,7 @@ in {
     ispell
     mu
     pandoc
+    #python3
 
     # social
     telegram-desktop
@@ -97,6 +98,7 @@ in {
         wine
       ];
     })
+    protontricks
 
     #vpn
     protonvpn-gui
