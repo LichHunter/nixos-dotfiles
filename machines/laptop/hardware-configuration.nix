@@ -17,20 +17,6 @@
   boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
   boot.kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c1a2fb13-47d8-429f-9e92-5f0e93fd9764";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/AE5E-35BA";
-      fsType = "vfat";
-    };
-
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/81f05356-a903-445b-944f-9a3b8d5c7917"; }
-    ];
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
