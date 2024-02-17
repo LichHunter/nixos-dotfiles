@@ -20,6 +20,13 @@
     nur.url = "github:nix-community/NUR";
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -78,6 +85,10 @@
           ./modules/xserver/plasma
           ./modules/xserver/hypr
           ./modules/options.nix
+
+          inputs.disko.nixosModules.default
+          (import ./disko.nix { device = "/dev/nvme0n1"; })
+          inputs.impermanence.nixosModules.impermanence
         ] # extra modules
         [
           ./modules/polybar

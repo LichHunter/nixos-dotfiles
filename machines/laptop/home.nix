@@ -145,5 +145,43 @@ in {
     polybar.enable = false;
   };
 
-  services.gnome-keyring.enable = true;
+  # services.swayidle = {
+  #   enable = true;
+
+  #   events = [
+  #     { event = "before-sleep"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
+  #     { event = "lock"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
+  #   ];
+
+  #   timeouts = [
+  #     { timeout = 60; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F"; }
+  #     #{ timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
+  #   ];
+  # };
+
+  home.persistence."/persist/home" = {
+    directories = [
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Documents"
+      "Videos"
+      "VirtualBox VMs"
+      ".gnupg"
+      ".ssh"
+      ".nixops"
+      ".local/share/keyrings"
+      ".local/share/direnv"
+      "nixos-dotfiles"
+      {
+        directory = ".local/share/Steam";
+        method = "symlink";
+      }
+    ];
+    files = [
+      ".screenrc"
+    ];
+    allowOther = true;
+  };
+
 }
