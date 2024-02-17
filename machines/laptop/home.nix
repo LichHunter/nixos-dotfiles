@@ -137,6 +137,7 @@ in {
       ".nixops"
       ".local/share/keyrings"
       ".local/share/direnv"
+      "nixos-dotfiles"
       {
         directory = ".local/share/Steam";
         method = "symlink";
