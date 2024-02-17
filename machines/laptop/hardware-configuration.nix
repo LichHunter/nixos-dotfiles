@@ -5,17 +5,26 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-  boot.extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
-  # allow perf as user | needed for intellij to run profiler
-  boot.kernel.sysctl."kernel.perf_event_paranoid" = 1;
-  boot.kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+    extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
+    # allow perf as user | needed for intellij to run profiler
+    kernel.sysctl."kernel.perf_event_paranoid" = 1;
+    kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

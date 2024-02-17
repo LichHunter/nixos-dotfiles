@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, nur, lib, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -9,22 +9,16 @@ let
   '';
 in {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [
+      ./hardware-configuration.nix # Include the results of the hardware scan.
       ./variables.nix
-      ./hardware.nix
-      ./doas.nix
-      ./docker.nix
-      ./bluetooth.nix
-      ./virtmanager.nix
-      ./thunar.nix
+      ./hardware
+      ./nixos-modules
       inputs.home-manager.nixosModules.home-manager
     ];
 
   system.stateVersion = "${config.variables.stateVersion}";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -60,7 +54,11 @@ in {
   services.printing.enable = true;
 
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    xone.enable = true; #for xbox controller
+    xpadneo.enable = true;
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -77,32 +75,15 @@ in {
     shell = pkgs.zsh;
     initialPassword = "test";
     packages = with pkgs; [
-      firefox
-      kate
-      keepassxc
-      ripgrep
-      fd
-      virt-manager
-      tor-browser
-
-      # Gaming
-      steam
-      wine
-      (lutris.override {
-        extraLibraries =  pkgs: [
-          # List library dependencies here
-        ];
-        extraPkgs = pkgs: [
-          # List package dependencies here
-          wine
-        ];
-      })
+      waybar
     ];
   };
 
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    ripgrep
+    fd
     vim 
     wget
     git
@@ -114,6 +95,7 @@ in {
     arandr
     zip
     unzip
+    p7zip
     nvtop
     blueman
     killall
@@ -125,20 +107,9 @@ in {
     async-profiler
     gparted
 
-    # TODO move out to another file with other configs
-    #hyprland packages
-    waybar
-    (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    #eww
-    mako
-    libnotify
-    kitty
-    rofi-wayland
-    wofi
-
+    # for lutris winetriks
+    libsForQt5.kdialog
+    cabextract
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

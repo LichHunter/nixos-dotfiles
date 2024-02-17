@@ -37,8 +37,6 @@ in {
     # this is needed to fix "error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files"
     dconf
     eza
-    #i3
-    #dolphin
     picom
     nitrogen
     rxvt-unicode
@@ -53,11 +51,11 @@ in {
       epkgs.vterm
     ]))
     coreutils
-    fd
     libtool
     ispell
     mu
     pandoc
+    #python3
 
     # social
     telegram-desktop
@@ -74,6 +72,43 @@ in {
 
     #browsers
     brave
+    firefox
+    tor-browser
+
+    #eww
+    mako
+    libnotify
+    kitty
+    rofi-wayland
+    wofi
+
+    kate
+    keepassxc
+    virt-manager
+
+    # Gaming
+    steam
+    wine
+    (lutris.override {
+      extraLibraries =  pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+        # List package dependencies here
+        wine
+      ];
+    })
+    protontricks
+
+    #vpn
+    protonvpn-gui
+    python311Packages.protonvpn-nm-lib
+    protonvpn-cli
+
+    #libsForQt5.spectacle
+    #flameshot
+
+    libreoffice
   ];
 
   # fix collision between java17 and 11
@@ -148,4 +183,5 @@ in {
     ];
     allowOther = true;
   };
+
 }

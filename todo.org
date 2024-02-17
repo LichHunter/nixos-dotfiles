@@ -71,6 +71,13 @@ For now I'm just going to add emacs daemon to the hyprland config, to start it o
 CLOSED: [2024-01-29 Mon 14:16]
 * DONE Add bitwarden extension for firefox
 CLOSED: [2024-01-29 Mon 14:16]
+* DONE Add default search engine for firefox
+CLOSED: [2024-01-29 Mon 14:26]
+Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
+* DONE Add theme for sddm
+CLOSED: [2024-01-29 Mon 16:19]
+* DONE Change hyprland config as nix config
+CLOSED: [2024-01-29 Mon 21:14]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
 Possible this error somewhat related to xdg-portals and gtk...
@@ -88,14 +95,17 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-
+* TODO Login crashes some times after first time password is entered
 * TODO Add autolock after some time
 * TODO Add hyprland tabbed layout
+Seems not going to be fixed for now
+In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
 * TODO Fix suggesstion window in IDEA for hypr
-* TODO Fix icom of sound in waybar
+Possible solution
+https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
+* TODO Fix icon of sound in waybar
 * TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
-* TODO Add theme for sddm
-* TODO Add default search engine for firefox
-Seems like duckduckgo now is not as good, so I think we can setup some searchx engine
 * TODO Add shortcut for comment/uncomment code for emacs
-* TODO Clean up in firefox_custom.nix
+* TODO [#C] Clean up in firefox_custom.nix
+This is not a priority as I've updated main config and this can be removed at all
+* TODO Turn off password save for firefox

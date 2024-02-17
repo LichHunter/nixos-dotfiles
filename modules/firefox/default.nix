@@ -79,10 +79,16 @@ in {
           keyword = "youtube";
           url = "https://youtube.com";
         }
+        {
+          name = "Z-Library";
+          tags = [ "z-lib" ];
+          keyword = "z-lib";
+          url = "https://singlelogin.re";
+        }
       ];
 
       search = {
-        default = "SearxNG";
+        default = "Search.Broker (Searxng)";
         force = true;
 
         engines = {
@@ -109,14 +115,24 @@ in {
           "Bing".metaData.hidden = true;
           "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
 
-          "SearxNG" = {
+          "Freesearch (Searxng)" = {
             urls = [{
               template = "https://freesearch.club/search";
               params = [
                 { name = "q"; value = "{searchTerms}"; }
               ];
             }];
-            definedAleases = [ "@srx" ];
+            definedAleases = [ "@fsrx" ];
+          };
+
+          "Search.Broker (Searxng)" = {
+            urls = [{
+              template = "https://search.broker/search";
+              params = [
+                { name = "q"; value = "{searchTerms}"; }
+              ];
+            }];
+            definedAleases = [ "@bsrx" ];
           };
         };
       };
