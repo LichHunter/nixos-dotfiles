@@ -5,4 +5,5 @@ Checkout impermanence branch and follow readme in it
 
 After nixos is installed follow next steps
 1. clone repo again
-2. run emacs/install.sh
+2. create hashedPassword file in /persistance
+3. run emacs/install.sh

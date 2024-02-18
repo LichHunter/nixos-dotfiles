@@ -73,7 +73,8 @@ in {
     description = "omen";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
-    initialPassword = "test";
+    #initialPassword = "test";
+    hashedPasswordFile = "/persist/hashedPassword";
     packages = with pkgs; [
       waybar
     ];
