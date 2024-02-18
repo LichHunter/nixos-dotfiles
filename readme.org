@@ -1,0 +1,8 @@
+#+title: Readme
+
+* Instlation
+Checkout impermanence branch and follow readme in it
+
+After nixos is installed follow next steps
+1. clone repo again
+2. run emacs/install.sh
