@@ -17,8 +17,8 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 
 ## move confuration to /mnt/persist/nixos
 ```bash
-mkdir -p /mnt/persist/nixos
-cp -r /home/user/nixos-dotfiles /mnt/persist/nixos
+mkdir -p /mnt/persist/nixos 
+cp -r /home/nixos/nixos-dotfiles /mnt/persist/nixos
 ```
 
 ## installing nixos
