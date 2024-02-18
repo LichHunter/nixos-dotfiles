@@ -145,20 +145,6 @@ in {
     polybar.enable = false;
   };
 
-  # services.swayidle = {
-  #   enable = true;
-
-  #   events = [
-  #     { event = "before-sleep"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
-  #     { event = "lock"; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F\""; }
-  #   ];
-
-  #   timeouts = [
-  #     { timeout = 60; command = "\"${pkgs.swaylock-effects}/bin/swaylock -f -F"; }
-  #     #{ timeout = 90; command = "${pkgs.systemd}/bin/systemctl suspend"; }
-  #   ];
-  # };
-
   home.persistence."/persist/home" = {
     directories = [
       "Downloads"
@@ -166,13 +152,12 @@ in {
       "Pictures"
       "Documents"
       "Videos"
-      "VirtualBox VMs"
       ".gnupg"
       ".ssh"
-      ".nixops"
       ".local/share/keyrings"
       ".local/share/direnv"
       "nixos-dotfiles"
+      ".config/emacs"
       {
         directory = ".local/share/Steam";
         method = "symlink";
@@ -180,6 +165,7 @@ in {
     ];
     files = [
       ".screenrc"
+      ".zsh_history"
     ];
     allowOther = true;
   };
