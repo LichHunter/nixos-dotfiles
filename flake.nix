@@ -86,22 +86,18 @@
           ./modules/xserver/hypr
           ./modules/options.nix
 
-          inputs.disko.nixosModules.default
-          (import ./disko.nix { device = "/dev/nvme0n1"; })
-          inputs.impermanence.nixosModules.impermanence
         ] # extra modules
         [
           ./modules/polybar
           ./modules/i3
           ./modules/zsh
           ./modules/fish
-          #./modules/firefox
           ./modules/git
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          #./modules/swaylock
           ./modules/swayidle
+          ./modules/impermanence
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

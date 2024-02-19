@@ -144,30 +144,4 @@ in {
   dov = {
     polybar.enable = false;
   };
-
-  home.persistence."/persist/home" = {
-    directories = [
-      "Downloads"
-      "Music"
-      "Pictures"
-      "Documents"
-      "Videos"
-      ".gnupg"
-      ".ssh"
-      ".local/share/keyrings"
-      ".local/share/direnv"
-      "nixos-dotfiles"
-      ".config/emacs"
-      {
-        directory = ".local/share/Steam";
-        method = "symlink";
-      }
-    ];
-    files = [
-      ".screenrc"
-      ".zsh_history"
-    ];
-    allowOther = true;
-  };
-
 }

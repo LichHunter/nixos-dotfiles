@@ -8,5 +8,6 @@
     ./virtmanager.nix
     ./thunar.nix
     ./sddm.nix
+    ./impermanence.nix
   ];
 }

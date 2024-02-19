@@ -109,3 +109,10 @@ https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO [#C] Clean up in firefox_custom.nix
 This is not a priority as I've updated main config and this can be removed at all
 * TODO Turn off password save for firefox
+* TODO Fix emacs versions
+Current state after login
+#+begin_example
+   2897 ?        Ss     0:00 /nix/store/bzy21v2cd5sq1djzwa9b19q08wpp9mm0-emacs-29.1/bin/emacs --fg-daemon
+   3711 tty1     Sl+    0:15 /nix/store/br4n8s60jgvym7mnvrirksrs5r3i56pb-emacs-28.2/bin/emacs --fg-daemon
+#+end_example
+* TODO Fix hyprland crashing on start
