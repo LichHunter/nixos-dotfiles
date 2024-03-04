@@ -116,3 +116,5 @@ Current state after login
    3711 tty1     Sl+    0:15 /nix/store/br4n8s60jgvym7mnvrirksrs5r3i56pb-emacs-28.2/bin/emacs --fg-daemon
 #+end_example
 * TODO Fix hyprland crashing on start
+* TODO Fix multi monitors
+Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself

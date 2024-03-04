@@ -3,6 +3,7 @@
 {
   home.persistence."/persist/home" = {
     directories = [
+      "Games"
       "Downloads"
       "Music"
       "Pictures"
@@ -16,6 +17,7 @@
       ".config/emacs"
       "org"
       ".mozilla" # need to make it more specific I think
+      ".thunderbird"
       {
         directory = ".local/share/Steam";
         method = "symlink";

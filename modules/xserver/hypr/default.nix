@@ -18,9 +18,16 @@ in {
 
     };
 
-    environment.sessionVariables = {
+    environment = {
+      systemPackages = with pkgs; [
+        wlr-randr
+        wdisplays
+      ];
+
+      sessionVariables = {
       WLR_NO_HARWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
+      };
     };
 
     hardware = {

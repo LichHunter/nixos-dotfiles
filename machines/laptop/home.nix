@@ -59,6 +59,7 @@ in {
 
     # social
     telegram-desktop
+    thunderbird
 
     # development
     maven
@@ -136,7 +137,30 @@ in {
   };
 
   # Enable autorandra for auto detection of connected displays
-  programs.autorandr.enable = true;
+  programs.autorandr = {
+    enable = false;
+    profiles = {
+      "work" = {
+        fingerprint = {
+          eDP1 = "<EDID>";
+          DP1 = "<EDID>";
+        };
+        config = {
+          eDP1.enable = false;
+          DP1 = {
+            enable = true;
+            crtc = 0;
+            primary = true;
+            position = "0x0";
+            mode = "3840x2160";
+            gamma = "1.0:0.909:0.833";
+            rate = "60.00";
+            rotate = "left";
+          };
+        };
+      };
+    };
+  };
 
   # blutooth applet
   services.blueman-applet.enable = true;
