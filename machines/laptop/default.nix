@@ -110,6 +110,7 @@ in {
     # for lutris winetriks
     libsForQt5.kdialog
     cabextract
+    libreoffice
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -172,6 +173,7 @@ in {
     xserver = {
       i3.enable = false;
       plasma.enable = false;
+      plasma6.enable = true;
     };
     hypr.enable = true;
   };

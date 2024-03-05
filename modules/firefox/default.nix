@@ -21,7 +21,7 @@ in {
         "0600".enable = true;
         "0700".enable = true;
         "0800".enable = false;
-        "0900".enable = true;
+        "0900".enable = false;
         "1000".enable = true;
         "1200".enable = true;
         "1600".enable = true;

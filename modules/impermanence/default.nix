@@ -9,15 +9,18 @@
       "Pictures"
       "Documents"
       "Videos"
+      "nixos-dotfiles"
+      "org"
+      "Code"
+      ".config/emacs"
+      ".mozilla" # need to make it more specific I think
+      ".thunderbird"
+      ".m2"
+      ".java"
       ".gnupg"
       ".ssh"
       ".local/share/keyrings"
       ".local/share/direnv"
-      "nixos-dotfiles"
-      ".config/emacs"
-      "org"
-      ".mozilla" # need to make it more specific I think
-      ".thunderbird"
       {
         directory = ".local/share/Steam";
         method = "symlink";

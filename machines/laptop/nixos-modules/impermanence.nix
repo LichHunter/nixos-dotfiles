@@ -37,6 +37,7 @@
     hideMounts = true;
     directories = [
       "/etc/nixos"
+      "/var/lib/libvirt"
       #"/var/log"
       #"/var/lib/bluetooth"
       #"/var/lib/nixos"
