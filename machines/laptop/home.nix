@@ -27,9 +27,9 @@ in {
 
   programs.home-manager.enable = true;
 
-  services = {
-    emacs.enable = true;
-  };
+  # services = {
+  #   emacs.enable = true;
+  # };
 
   home.packages = with pkgs; [
     hello

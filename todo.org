@@ -1,5 +1,7 @@
 #+title: Todo
 
+* CANCELLED Add shortcut for comment/uncomment code for emacs
+CLOSED: [2024-03-05 Tue 10:03]
 * DONE Add doas
 CLOSED: [2024-01-02 Tue 21:54]
 * DONE Fix color scheme of calendar
@@ -83,8 +85,13 @@ CLOSED: [2024-03-05 Tue 09:32]
 Probably fixed
 * DONE Make firefox default browser
 CLOSED: [2024-03-05 Tue 09:41]
-* CANCELLED Add shortcut for comment/uncomment code for emacs
-CLOSED: [2024-03-05 Tue 10:03]
+* DONE Fix emacs versions
+CLOSED: [2024-03-06 Wed 10:10]
+Current state after login
+#+begin_example
+   2897 ?        Ss     0:00 /nix/store/bzy21v2cd5sq1djzwa9b19q08wpp9mm0-emacs-29.1/bin/emacs --fg-daemon
+   3711 tty1     Sl+    0:15 /nix/store/br4n8s60jgvym7mnvrirksrs5r3i56pb-emacs-28.2/bin/emacs --fg-daemon
+#+end_example
 * TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
@@ -113,12 +120,6 @@ Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Fix icon of sound in waybar
 Specifically icon when sound is turned off and when you connect headphones
-* TODO Fix emacs versions
-Current state after login
-#+begin_example
-   2897 ?        Ss     0:00 /nix/store/bzy21v2cd5sq1djzwa9b19q08wpp9mm0-emacs-29.1/bin/emacs --fg-daemon
-   3711 tty1     Sl+    0:15 /nix/store/br4n8s60jgvym7mnvrirksrs5r3i56pb-emacs-28.2/bin/emacs --fg-daemon
-#+end_example
 * TODO Fix hyprland crashing on start
 * TODO Fix multi monitors
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
