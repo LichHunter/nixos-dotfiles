@@ -78,6 +78,14 @@ Seems like duckduckgo now is not as good, so I think we can setup some searchx e
 CLOSED: [2024-01-29 Mon 16:19]
 * DONE Change hyprland config as nix config
 CLOSED: [2024-01-29 Mon 21:14]
+* DONE Turn off password save for firefox
+CLOSED: [2024-03-05 Tue 09:32]
+Probably fixed
+* DONE Make firefox default browser
+CLOSED: [2024-03-05 Tue 09:41]
+* CANCELLED Add shortcut for comment/uncomment code for emacs
+CLOSED: [2024-03-05 Tue 10:03]
+* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
 Possible this error somewhat related to xdg-portals and gtk...
@@ -104,11 +112,7 @@ In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sw
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Fix icon of sound in waybar
-* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
-* TODO Add shortcut for comment/uncomment code for emacs
-* TODO [#C] Clean up in firefox_custom.nix
-This is not a priority as I've updated main config and this can be removed at all
-* TODO Turn off password save for firefox
+Specifically icon when sound is turned off and when you connect headphones
 * TODO Fix emacs versions
 Current state after login
 #+begin_example
@@ -118,3 +122,4 @@ Current state after login
 * TODO Fix hyprland crashing on start
 * TODO Fix multi monitors
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
+* TODO Try out plasma 6

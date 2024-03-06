@@ -88,7 +88,7 @@ in {
       ];
 
       search = {
-        default = "Search.Broker (Searxng)";
+        default = "Searxng Site (Searxng)";
         force = true;
 
         engines = {
@@ -125,9 +125,9 @@ in {
             definedAleases = [ "@fsrx" ];
           };
 
-          "Search.Broker (Searxng)" = {
+          "Searxng Site (Searxng)" = {
             urls = [{
-              template = "https://search.broker/search";
+              template = "https://searxng.site/search";
               params = [
                 { name = "q"; value = "{searchTerms}"; }
               ];

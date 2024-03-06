@@ -20,3 +20,14 @@ nix-collect-garbage
 nix shell nixpkgs#nix-prefetch-git
 nix-prefetch-git https://github.com/MarianArlt/sddm-sugar-dark
 #+end_src
+* Update flake
+#+begin_src bash
+# Update flake.lock
+sudo nix flake update
+
+# Or replace only the specific input, such as home-manager:
+sudo nix flake lock --update-input home-manager
+
+# Apply the updates
+sudo nixos-rebuild switch --flake .
+#+end_src

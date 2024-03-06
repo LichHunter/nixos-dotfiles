@@ -173,7 +173,7 @@ in {
     xserver = {
       i3.enable = false;
       plasma.enable = false;
-      plasma6.enable = true;
+      #plasma6.enable = true;
     };
     hypr.enable = true;
   };
