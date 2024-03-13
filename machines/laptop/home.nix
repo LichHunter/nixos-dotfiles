@@ -132,8 +132,15 @@ in {
 
   stylix = {
     autoEnable = true;
-    targets.rofi.enable = true;
-    targets.alacritty.enable = true;
+    targets = {
+      rofi.enable = true;
+      alacritty.enable = true;
+      #wofi.enable = true;
+      firefox.enable = true;
+      gtk.enable = true;
+      hyprland.enable = true;
+      kde.enable = false;
+    };
   };
 
   # Enable autorandra for auto detection of connected displays

@@ -21,10 +21,11 @@
       ".ssh"
       ".local/share/keyrings"
       ".local/share/direnv"
-      {
-        directory = ".local/share/Steam";
-        method = "symlink";
-      }
+      ".cache/keepassxc"
+      ".cache/lutris"
+      ".local/share/TelegramDesktop"
+      ".local/share/Steam"
+      ".local/share/lutris"
     ];
     files = [
       ".screenrc"
