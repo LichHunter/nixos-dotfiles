@@ -51,6 +51,7 @@
       overlays = [
         emacs-overlay.overlay
         nur.overlay
+        (import ./my-overlays.nix)
       ];
     };
 

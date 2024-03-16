@@ -55,7 +55,8 @@ in {
     ispell
     mu
     pandoc
-    #python3
+    python3
+    semgrep #this needed for lsp
 
     # social
     telegram-desktop
@@ -131,7 +132,7 @@ in {
   };
 
   stylix = {
-    autoEnable = true;
+    autoEnable = false;
     targets = {
       rofi.enable = true;
       alacritty.enable = true;
