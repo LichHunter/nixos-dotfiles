@@ -45,9 +45,9 @@ in {
 
   services.xserver.displayManager.sddm.enable = true;
 
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us,ru";
-    xkbOptions = "grp:grp:shifts_toggle";
+    options = "grp:grp:shifts_toggle";
   };
 
   services.printing.enable = true;
