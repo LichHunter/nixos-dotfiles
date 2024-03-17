@@ -110,6 +110,9 @@ in {
     #flameshot
 
     libreoffice
+
+    rar
+    r2modman
   ];
 
   # fix collision between java17 and 11
