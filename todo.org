@@ -92,6 +92,8 @@ Current state after login
    2897 ?        Ss     0:00 /nix/store/bzy21v2cd5sq1djzwa9b19q08wpp9mm0-emacs-29.1/bin/emacs --fg-daemon
    3711 tty1     Sl+    0:15 /nix/store/br4n8s60jgvym7mnvrirksrs5r3i56pb-emacs-28.2/bin/emacs --fg-daemon
 #+end_example
+* DONE Try out plasma 6
+CLOSED: [2024-03-20 Wed 18:08]
 * TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
@@ -123,4 +125,5 @@ Specifically icon when sound is turned off and when you connect headphones
 * TODO Fix hyprland crashing on start
 * TODO Fix multi monitors
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
-* TODO Try out plasma 6
+So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
+* TODO Fix sddm theme

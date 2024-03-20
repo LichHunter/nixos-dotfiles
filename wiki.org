@@ -32,7 +32,7 @@ sudo nix flake lock --update-input home-manager
 sudo nixos-rebuild switch --flake .
 #+end_src
 
-# Screenshots
+* Screenshots
 grim -g "$(slurp)" - | wl-copy
 wl-paste > ~/Pictures/screen.png
 * Doom emacs java
