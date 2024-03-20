@@ -31,3 +31,38 @@ sudo nix flake lock --update-input home-manager
 # Apply the updates
 sudo nixos-rebuild switch --flake .
 #+end_src
+
+# Screenshots
+grim -g "$(slurp)" - | wl-copy
+wl-paste > ~/Pictures/screen.png
+* Doom emacs java
+So I had a bunch of problems with java in doom + nix but now everything seems to be working
+Steps I took:
+1. Turn on java in doom
+2. Create dummy project with maven
+3. Open java class in it and wait for lsp to download all it needs
+4. Configure spring like this
+  #+begin_src elisp
+(after! lsp-java
+  (require 'lsp-java-boot)
+  (require 'dap-java)
+
+  ;; to enable the lenses
+  (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
+  (setq lsp-java-vmargs `(
+                          "-XX:+UseParallelGC"
+                          "-XX:GCTimeRatio=4"
+                          "-XX:AdaptiveSizePolicyWeight=90"
+                          "-Dsun.zip.disableMemoryMapping=true"
+                          "-Xmx1G"
+                          "-Xms100m"
+                          ,(concat "-javaagent:" lombok-jar-path)
+                          )
+        )
+  )
+  #+end_src
+5. Create dummy project with spring in it. DO NOT USE lsp stuff to generate it (seems like it is broken some way)
+6. Open some class in project and wait for lsp do update some stuff

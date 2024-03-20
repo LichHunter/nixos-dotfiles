@@ -27,10 +27,6 @@ in {
 
   programs.home-manager.enable = true;
 
-  # services = {
-  #   emacs.enable = true;
-  # };
-
   home.packages = with pkgs; [
     hello
     # if you enable gtk theames 
@@ -46,17 +42,13 @@ in {
     source-code-pro
     vlc
 
-    # emacs
-    ((pkgs.emacsPackagesFor pkgs.emacs28NativeComp).emacsWithPackages (epkgs: [
-      epkgs.vterm
-    ]))
     coreutils
     libtool
     ispell
     mu
     pandoc
     python3
-    semgrep #this needed for lsp
+    gradle
 
     # social
     telegram-desktop
@@ -73,7 +65,7 @@ in {
     qbittorrent
 
     #browsers
-    #brave
+    brave
     firefox
     tor-browser
 
@@ -111,6 +103,9 @@ in {
     #flameshot
 
     libreoffice
+    grim
+    slurp
+    wl-clipboard
   ];
 
   # fix collision between java17 and 11
@@ -129,7 +124,7 @@ in {
         recursive = true;
       };
     };
-  };
+ };
 
   stylix = {
     autoEnable = false;

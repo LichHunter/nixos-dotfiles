@@ -75,28 +75,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; (after! lsp-java
-;;   (require 'lsp-java-boot)
-;;   (require 'dap-java)
-
-;;   ;; to enable the lenses
-;;   (add-hook 'lsp-mode-hook #'lsp-lens-mode)
-;;   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-;;   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-;;   (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
-;;   (setq lsp-java-vmargs `(
-;;                           "-XX:+UseParallelGC"
-;;                           "-XX:GCTimeRatio=4"
-;;                           "-XX:AdaptiveSizePolicyWeight=90"
-;;                           "-Dsun.zip.disableMemoryMapping=true"
-;;                           "-Xmx1G"
-;;                           "-Xms100m"
-;;                           ,(concat "-javaagent:" lombok-jar-path)
-;;                           )
-;;         )
-;;   ;; (delete-directory lsp-java-workspace-dir t)
-;;   )
-
 (general-auto-unbind-keys)
 (map! :leader
       (:prefix ("m" . "my")
@@ -114,7 +92,7 @@
                )
       )
 
-(setq lsp-java-format-settings-url "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml")
+;; (setq lsp-java-format-settings-url "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml")
 
 ;; add map for lsp-jt-browser
 ;; + lsp-jt-browser
@@ -122,17 +100,6 @@
 ;; + dap-java-run-test-method
 
 (setq git-commit-summary-max-length 1000)
-
-(after! lsp-java
-  (defun lsp-java--ls-command ()
-    (list "jdt-language-server"
-          "-configuration" "../config-linux"
-          "-data" "../java-workspace")))
-
-(after! cc-mode
-  (defun my-set-lsp-path ()
-    (setq lsp-java-server-install-dir (getenv "JDTLS_PATH")))
-  (add-hook 'java-mode-hook #'my-set-lsp-path))
 
 
 (after! org
@@ -161,3 +128,25 @@
 
 (after! org
   (setq org-agenda-files '("~/nc/Org/agenda.org")))
+
+(after! lsp-java
+  (require 'lsp-java-boot)
+  (require 'dap-java)
+
+  ;; to enable the lenses
+  (add-hook 'lsp-mode-hook #'lsp-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  ;; (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
+  ;; (setq lsp-java-vmargs `(
+  ;;                         "-XX:+UseParallelGC"
+  ;;                         "-XX:GCTimeRatio=4"
+  ;;                         "-XX:AdaptiveSizePolicyWeight=90"
+  ;;                         "-Dsun.zip.disableMemoryMapping=true"
+  ;;                         "-Xmx1G"
+  ;;                         "-Xms100m"
+  ;;                         ,(concat "-javaagent:" lombok-jar-path)
+  ;;                         )
+  ;;       )
+  ;; (delete-directory lsp-java-workspace-dir t)
+  )
