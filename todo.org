@@ -94,6 +94,10 @@ Current state after login
 #+end_example
 * DONE Try out plasma 6
 CLOSED: [2024-03-20 Wed 18:08]
+* DONE Add script to backup
+CLOSED: [2024-03-21 Thu 13:05]
+* DONE Add screenshot button
+CLOSED: [2024-03-21 Thu 13:05]
 * TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]

@@ -57,7 +57,7 @@ in {
           "$mainMod, SPACE, exec, hyprctl switchxkblayout teclado-gamer-husky-blizzard next"
 
           ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
-          "SHIFT, Print, exec, grim -g \"$(slurp)\""
+          "SHIFT, Print, exec, IMG=~/Pictures/$(date +%Y-%m-%d_%H-%m-%s).png && grim -g \"$(slurp)\" $IMG"
 
           # Functional keybinds
           ",XF86AudioMicMute,exec,pamixer --default-source -t"
