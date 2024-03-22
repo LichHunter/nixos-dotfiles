@@ -101,7 +101,7 @@
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          ./modules/swayidle
+          ./modules/swaylock
           ./modules/impermanence
 
           #Themes

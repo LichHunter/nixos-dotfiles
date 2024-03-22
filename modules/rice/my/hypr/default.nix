@@ -46,7 +46,7 @@ in {
           "$mainMod, RETURN, exec, alacritty"
           "$mainMod, o, exec, emacsclient -c"
           "SUPER_SHIFT, RETURN, exec, thunar"
-          "$mainMod, x, exec, sh ~/.config/swaylock/lock.sh"
+          "SUPER_SHIFT, l, exec, ~/.config/swaylock/lock.sh"
 
           #bind = $mainMod, M, exit,
           "SUPER_SHIFT, q, killactive,"
