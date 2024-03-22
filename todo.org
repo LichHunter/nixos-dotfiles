@@ -98,7 +98,16 @@ CLOSED: [2024-03-20 Wed 18:08]
 CLOSED: [2024-03-21 Thu 13:05]
 * DONE Add screenshot button
 CLOSED: [2024-03-21 Thu 13:05]
-* TODO Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
+* DONE Fix icon of sound in waybar
+CLOSED: [2024-03-22 Fri 14:29]
+Specifically icon when sound is turned off and when you connect headphones
+* TODO [#C] Fix hyprland crashing on start
+Stoped now..
+No idea what is going on
+* TODO [#C] Login crashes some times after first time password is entered
+Stoped now...
+No idea what is going on here either
+* TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Hypr crashes on login if kde is removed <<issue>>
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
 Possible this error somewhat related to xdg-portals and gtk...
@@ -116,7 +125,6 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-* TODO Login crashes some times after first time password is entered
 * TODO Add autolock after some time
 * TODO Add hyprland tabbed layout
 Seems not going to be fixed for now
@@ -124,9 +132,6 @@ In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sw
 * TODO Fix suggesstion window in IDEA for hypr
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
-* TODO Fix icon of sound in waybar
-Specifically icon when sound is turned off and when you connect headphones
-* TODO Fix hyprland crashing on start
 * TODO Fix multi monitors
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
 So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
