@@ -135,6 +135,8 @@ in {
     xfce.thunar-archive-plugin
     async-profiler
     gparted
+    #gnupg
+    #pinentry
 
     # for lutris winetriks
     libsForQt5.kdialog
@@ -149,6 +151,10 @@ in {
     light.enable = true;
     nm-applet.enable = true;
     steam.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 
   fonts.packages = with pkgs; [
@@ -211,6 +217,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+    extraSpecialArgs = { inherit inputs; };
 
     users."${config.variables.username}" = {
       imports = [
@@ -233,15 +240,11 @@ in {
     };
   };
 
-    #env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
-
-    system.userActivationScripts = {
-      installDoomEmacs = ''
-        if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-           ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-        fi
-      '';
-    };
-
-
+  system.userActivationScripts = {
+    installDoomEmacs = ''
+      if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
+          ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+      fi
+    '';
+  };
 }

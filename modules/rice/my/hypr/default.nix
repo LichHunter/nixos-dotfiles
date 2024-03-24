@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 with lib;
 
@@ -14,10 +14,17 @@ in {
       pipewire
       wireplumber
       xdg-desktop-portal-hyprland
+
+      #hyprland extensions
+      hyprlock
+      hypridle
     ];
 
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = [
+        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      ];
 
       settings = {
         monitor = ",highres,auto,1";
@@ -29,12 +36,13 @@ in {
           "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "pkill waybar & sleep 0.5 && waybar"
-          "emacs --fg-daemon"
         ];
 
         exec-once = [
           "mako"
           "polkit-kde-agent"
+          "emacs --fg-daemon"
+          "hypridle"
         ];
 
         "$mainMod" = "SUPER";
@@ -46,7 +54,7 @@ in {
           "$mainMod, RETURN, exec, alacritty"
           "$mainMod, o, exec, emacsclient -c"
           "SUPER_SHIFT, RETURN, exec, thunar"
-          "SUPER_SHIFT, l, exec, ~/.config/swaylock/lock.sh"
+          "SUPER_SHIFT, l, exec, hyprlock"
 
           #bind = $mainMod, M, exit,
           "SUPER_SHIFT, q, killactive,"
@@ -217,5 +225,8 @@ in {
       $color14 = ${colors.base0E}
       $color15 = ${colors.base0F}
     '';
+
+    xdg.configFile."hypr/hyprlock.conf".source = ./hyprlock.conf;
+    xdg.configFile."hypr/hypridle.conf".source = ./hypridle.conf;
   };
 }

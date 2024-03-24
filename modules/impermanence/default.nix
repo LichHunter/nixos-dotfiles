@@ -13,6 +13,7 @@
       "org"
       "Code"
       ".config/emacs"
+      ".config/keepassxc"
       ".mozilla" # need to make it more specific I think
       ".thunderbird"
       ".m2"

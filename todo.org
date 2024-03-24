@@ -101,6 +101,8 @@ CLOSED: [2024-03-21 Thu 13:05]
 * DONE Fix icon of sound in waybar
 CLOSED: [2024-03-22 Fri 14:29]
 Specifically icon when sound is turned off and when you connect headphones
+* DONE Add autolock after some time
+CLOSED: [2024-03-24 Sun 22:38]
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -125,7 +127,6 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-* TODO Add autolock after some time
 * TODO Add hyprland tabbed layout
 Seems not going to be fixed for now
 In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
