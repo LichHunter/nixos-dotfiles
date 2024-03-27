@@ -107,6 +107,7 @@
           ./modules/mako
           ./modules/swaylock
           ./modules/impermanence
+          ./modules/kanshi
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

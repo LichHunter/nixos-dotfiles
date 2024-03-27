@@ -172,6 +172,7 @@ in {
 
   dov = {
     polybar.enable = false;
+    kanshi.enable = true;
   };
 
 
