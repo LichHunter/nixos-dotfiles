@@ -4,8 +4,7 @@ let
 in {
   imports = [
     ./variables.nix
-    ./../../modules/zsh
-    ./../../modules/firefox
+    ./../../modules/shell/zsh
     ./../../modules/git
     ./../../modules/alacritty
   ];
@@ -17,7 +16,9 @@ in {
   };
 
   dov = {
-    fish.enable = false;
+    shell.fish.enable = false;
+    shell.zsh.enable = true;
+    browser.firefox.enable = true;
   };
 
   programs.home-manager.enable = true;

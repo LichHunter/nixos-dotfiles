@@ -5,6 +5,7 @@
     ./hypr
     ./waybar
     ./gtk
+    ./i3
     ./packages.nix
   ];
 }

@@ -84,7 +84,7 @@
         [
           ./modules/polybar
           ./modules/i3
-          ./modules/fish
+          ./modules/shell/fish
         ] # extra modules to be loaded by home-manager
         ;
       laptop = mkComputer
@@ -98,16 +98,16 @@
         ] # extra modules
         [
           ./modules/polybar
-          ./modules/i3
-          ./modules/zsh
-          ./modules/fish
           ./modules/git
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          ./modules/swaylock
           ./modules/impermanence
           ./modules/kanshi
+          ./modules/shell/zsh
+          ./modules/shell/fish
+          ./modules/browser/firefox
+          ./modules/browser/brave
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

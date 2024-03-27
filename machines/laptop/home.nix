@@ -8,8 +8,6 @@ in {
     ./variables.nix
 
     #default modules
-    ./../../modules/zsh
-    ./../../modules/firefox
     ./../../modules/git
     ./../../modules/alacritty
   ];
@@ -21,8 +19,17 @@ in {
   };
 
   dov = {
-    fish.enable = false;
+    shell = {
+      fish.enable = false;
+      zsh.enable = true;
+    };
+    browser = {
+      brave.enable = false;
+      firefox.enable = true;
+    };
     hypr.enable = true;
+    polybar.enable = false;
+    kanshi.enable = true;
   };
 
   programs.home-manager.enable = true;
@@ -63,11 +70,6 @@ in {
 
     #torrent
     qbittorrent
-
-    #browsers
-    brave
-    firefox
-    tor-browser
 
     #eww
     mako
@@ -141,40 +143,8 @@ in {
     };
   };
 
-  # Enable autorandra for auto detection of connected displays
-  programs.autorandr = {
-    enable = false;
-    profiles = {
-      "work" = {
-        fingerprint = {
-          eDP1 = "<EDID>";
-          DP1 = "<EDID>";
-        };
-        config = {
-          eDP1.enable = false;
-          DP1 = {
-            enable = true;
-            crtc = 0;
-            primary = true;
-            position = "0x0";
-            mode = "3840x2160";
-            gamma = "1.0:0.909:0.833";
-            rate = "60.00";
-            rotate = "left";
-          };
-        };
-      };
-    };
-  };
-
   # blutooth applet
   services.blueman-applet.enable = true;
-
-  dov = {
-    polybar.enable = false;
-    kanshi.enable = true;
-  };
-
 
   xdg.mimeApps = {
       enable = true;
