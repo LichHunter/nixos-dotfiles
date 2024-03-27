@@ -31,6 +31,7 @@
     files = [
       ".screenrc"
       ".zsh_history"
+      ".authinfo.gpg"
     ];
     allowOther = true;
   };

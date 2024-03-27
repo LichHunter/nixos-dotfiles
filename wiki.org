@@ -66,3 +66,27 @@ Steps I took:
   #+end_src
 5. Create dummy project with spring in it. DO NOT USE lsp stuff to generate it (seems like it is broken some way)
 6. Open some class in project and wait for lsp do update some stuff
+
+* Encrypt pdf
+#+begin_example
+qpdf --verbose --encrypt USER_PASSWORD OWNER_PASSWORD 256 -- file_in.pdf file_out.pdf
+#+end_example
+
+* Running maven+spring in nixos
+So if you just try to run src_bash[:exports code]{mvn clean install} in terminal you would get errors for running integration test. For this to work you would need to use this shell.nix
+#+begin_src nix
+{ pkgs ? import <nixpkgs> {} }:
+
+(pkgs.buildFHSEnv {
+  name = "simple-x11-env";
+  targetPkgs = pkgs: (with pkgs; [
+    maven
+    jdk17
+  ]);
+  multiPkgs = pkgs: (with pkgs; [
+    maven
+    jdk17
+  ]);
+  runScript = "zsh";
+}).env
+#+end_src

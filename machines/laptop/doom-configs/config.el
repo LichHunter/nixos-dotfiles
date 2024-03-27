@@ -137,16 +137,7 @@
   (add-hook 'lsp-mode-hook #'lsp-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-  ;; (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
-  ;; (setq lsp-java-vmargs `(
-  ;;                         "-XX:+UseParallelGC"
-  ;;                         "-XX:GCTimeRatio=4"
-  ;;                         "-XX:AdaptiveSizePolicyWeight=90"
-  ;;                         "-Dsun.zip.disableMemoryMapping=true"
-  ;;                         "-Xmx1G"
-  ;;                         "-Xms100m"
-  ;;                         ,(concat "-javaagent:" lombok-jar-path)
-  ;;                         )
-  ;;       )
-  ;; (delete-directory lsp-java-workspace-dir t)
   )
+
+(add-to-list 'safe-local-variable-values #'stringp)
+(advice-add 'risky-local-variable-p :override #'ignore)

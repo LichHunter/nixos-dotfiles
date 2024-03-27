@@ -106,6 +106,8 @@ in {
     grim
     slurp
     wl-clipboard
+
+    qpdf
   ];
 
   # fix collision between java17 and 11
