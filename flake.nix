@@ -108,6 +108,8 @@
           ./modules/shell/fish
           ./modules/browser/firefox
           ./modules/browser/brave
+          ./modules/vpn
+          ./modules/gaming
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

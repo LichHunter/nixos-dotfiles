@@ -14,6 +14,9 @@ in {
       pipewire
       wireplumber
       xdg-desktop-portal-hyprland
+      libnotify
+      kitty
+      wofi
 
       #hyprland extensions
       hyprlock
@@ -43,6 +46,7 @@ in {
           "polkit-kde-agent"
           "emacs --fg-daemon"
           "hypridle"
+          "kanshi"
         ];
 
         "$mainMod" = "SUPER";

@@ -55,60 +55,33 @@ in {
     mu
     pandoc
     python3
-    gradle
 
     # social
     telegram-desktop
     thunderbird
 
     # development
+    gradle
     maven
     jetbrains.idea-ultimate
     jetbrains.webstorm
     direnv
     jdt-language-server
+    yarn
+    nodejs
+    semgrep
 
     #torrent
     qbittorrent
-
-    #eww
-    mako
-    libnotify
-    kitty
-    rofi-wayland
-    wofi
 
     kate
     keepassxc
     virt-manager
 
-    # Gaming
-    steam
-    wine
-    (lutris.override {
-      extraLibraries =  pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-        # List package dependencies here
-        wine
-      ];
-    })
-    protontricks
-
-    #vpn
-    protonvpn-gui
-    python311Packages.protonvpn-nm-lib
-    protonvpn-cli
-
-    #libsForQt5.spectacle
-    #flameshot
-
     libreoffice
     grim
     slurp
     wl-clipboard
-
     qpdf
   ];
 

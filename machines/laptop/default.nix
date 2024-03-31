@@ -17,54 +17,31 @@ in {
       inputs.home-manager.nixosModules.home-manager
     ];
 
-  system.stateVersion = "${config.variables.stateVersion}";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Warsaw";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.sddm.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:grp:shifts_toggle";
-  };
-
-  services.printing.enable = true;
-
   sound.enable = true;
+
+  security.rtkit.enable = true;
+
   hardware = {
     pulseaudio.enable = false;
     xone.enable = true; #for xbox controller
     xpadneo.enable = true;
   };
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  system = {
+    stateVersion = "${config.variables.stateVersion}";
+    userActivationScripts = {
+      installDoomEmacs = ''
+        if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
+            ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+        fi
+      '';
+    };
   };
 
   users.users."${config.variables.username}" = {
@@ -75,8 +52,6 @@ in {
     #initialPassword = "test";
     hashedPasswordFile = "/persist/hashedPassword";
     packages = with pkgs; [
-      waybar
-
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
@@ -108,12 +83,10 @@ in {
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
     ripgrep
     fd
-    vim 
+    vim
     wget
     git
     neovim
@@ -135,8 +108,6 @@ in {
     xfce.thunar-archive-plugin
     async-profiler
     gparted
-    #gnupg
-    #pinentry
 
     # for lutris winetriks
     libsForQt5.kdialog
@@ -144,7 +115,6 @@ in {
     libreoffice
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs = {
     zsh.enable = true;
@@ -155,6 +125,13 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
+  };
+  dov = {
+    xserver = {
+      i3.enable = false;
+      plasma.enable = true;
+    };
+    hypr.enable = true;
   };
 
   fonts.packages = with pkgs; [
@@ -205,13 +182,6 @@ in {
     };
   };
 
-  dov = {
-    xserver = {
-      i3.enable = false;
-      plasma.enable = true;
-    };
-    hypr.enable = true;
-  };
 
   home-manager = {
     useGlobalPkgs = true;
@@ -229,22 +199,11 @@ in {
     };
   };
 
-  # needed to fix swaylock not unlocking
-  security.pam.services.swaylock = {};
-
   virtualisation.vmVariant = {
     # following configuration is added only when building VM with build-vm
     virtualisation = {
       memorySize =  8192; # Use 2048MiB memory.
       cores = 6;
     };
-  };
-
-  system.userActivationScripts = {
-    installDoomEmacs = ''
-      if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-          ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-      fi
-    '';
   };
 }

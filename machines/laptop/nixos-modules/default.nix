@@ -9,5 +9,8 @@
     ./thunar.nix
     ./sddm.nix
     ./impermanence.nix
+    ./services.nix
+    ./i18n.nix
+    ./networking.nix
   ];
 }
