@@ -107,6 +107,9 @@ CLOSED: [2024-03-24 Sun 22:38]
 CLOSED: [2024-03-30 Sat 10:53]
 * DONE Add .authinfo.gpg + gpg export and backup to script
 CLOSED: [2024-03-30 Sat 10:53]
+* DONE Add mvnrepo to the firefox search engines
+CLOSED: [2024-04-02 Tue 21:23]
+https://mvnrepository.com/search?q=maven-resources-plugin
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -141,5 +144,3 @@ https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
 So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
 * TODO Fix sddm theme
-* TODO Add mvnrepo to the firefox search engines
-https://mvnrepository.com/search?q=maven-resources-plugin

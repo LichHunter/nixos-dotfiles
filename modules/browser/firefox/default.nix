@@ -140,6 +140,14 @@ in {
               }];
               definedAleases = [ "@bsrx" ];
             };
+
+            "Maven repository" = {
+              urls = [{
+                template = "https://mvnrepository.com/search?q={searchTerms}";
+              }];
+
+              definedAliases = [ "@mvn" ];
+            };
           };
         };
 
