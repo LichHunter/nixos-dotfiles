@@ -6,7 +6,7 @@ let
   cfg = config.dov.browser.firefox;
 in {
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ firefox ];
+    home.packages = [(pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})];
 
     programs.firefox = {
       enable = true;
