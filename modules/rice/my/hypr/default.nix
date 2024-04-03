@@ -53,6 +53,9 @@ in {
 
         bind = [
           "$mainMod, G, fullscreen,"
+          "$mainMod, t, togglegroup"
+          "$mainMod, v, togglefloating"
+          "$mainMod, s, togglesplit"
 
           #bind = $mainMod, RETURN, exec, kitty
           "$mainMod, RETURN, exec, alacritty"
@@ -62,7 +65,6 @@ in {
 
           #bind = $mainMod, M, exit,
           "SUPER_SHIFT, q, killactive,"
-          "$mainMod, V, togglefloating,"
           "$mainMod, p, exec, wofi --show drun"
 
           # Switch Keyboard Layouts
@@ -82,8 +84,8 @@ in {
           ",XF86AudioPause,exec,playerctl play-pause"
 
           # to switch between windows in a floating workspace
-          "SUPER,Tab,cyclenext,"
-          "SUPER,Tab,bringactivetotop,"
+          "SUPER,Tab,changegroupactive, f"
+          "SUPER_SHIFT,Tab,changegroupactive, b"
 
           # Move focus with mainMod + arrow keys
           "$mainMod, h, movefocus, l"

@@ -59,6 +59,7 @@ in {
     # social
     telegram-desktop
     thunderbird
+    signal-desktop
 
     # development
     gradle

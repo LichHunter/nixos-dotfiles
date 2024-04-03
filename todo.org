@@ -114,6 +114,13 @@ https://mvnrepository.com/search?q=maven-resources-plugin
 CLOSED: [2024-04-03 Wed 17:39]
 Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
 So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
+* DONE Add hyprland tabbed layout
+CLOSED: [2024-04-03 Wed 18:27]
+Seems not going to be fixed for now
+In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
+
+Added shortcuts for dwindle layout as it called in hyprland
+But it still bad
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -138,9 +145,6 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-* TODO Add hyprland tabbed layout
-Seems not going to be fixed for now
-In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
 * TODO Fix suggesstion window in IDEA for hypr
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
