@@ -56,7 +56,7 @@ in {
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacsNativeComp).emacsWithPackages
-        (epkgs: [ epkgs.vterm ]))
+        (epkgs: [ epkgs.vterm epkgs.treesit-grammars.with-all-grammars ]))
 
       ## Doom dependencies
       git

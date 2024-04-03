@@ -44,7 +44,7 @@ in {
         exec-once = [
           "mako"
           "polkit-kde-agent"
-          "emacs --fg-daemon"
+          #"emacs --fg-daemon"
           "hypridle"
           "kanshi"
         ];
