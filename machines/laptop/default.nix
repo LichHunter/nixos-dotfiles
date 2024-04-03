@@ -78,8 +78,12 @@ in {
       sqlite
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-medium
-      # :lang beancount
-      beancount
+      # :lang nix
+      nixfmt
+      # :lang lisp
+      sbcl
+      # :lang sh
+      shellcheck
     ];
   };
 
