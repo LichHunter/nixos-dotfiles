@@ -26,6 +26,7 @@ in {
     browser = {
       brave.enable = false;
       firefox.enable = true;
+      chrome.enable = false;
     };
     hypr.enable = true;
     polybar.enable = false;
