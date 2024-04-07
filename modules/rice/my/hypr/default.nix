@@ -47,6 +47,7 @@ in {
           "emacs --fg-daemon"
           "hypridle"
           "kanshi"
+          "virsh net-start default"
         ];
 
         "$mainMod" = "SUPER";
