@@ -87,6 +87,7 @@
                         "j" #'lsp-jt-browser
                         "i" #'lsp-java-organize-imports
                         "r" #'lsp-rename
+                        "f" #'lsp-format-buffer
                         "g d" #'lsp-goto-type-definition
                         )
                )
@@ -141,3 +142,4 @@
 
 (add-to-list 'safe-local-variable-values #'stringp)
 (advice-add 'risky-local-variable-p :override #'ignore)
+

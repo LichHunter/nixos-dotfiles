@@ -55,7 +55,7 @@ in {
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
-      ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+      ((emacsPackagesFor emacs-unstable).emacsWithPackages
         (epkgs: [ epkgs.vterm epkgs.treesit-grammars.with-all-grammars ]))
 
       ## Doom dependencies
@@ -84,6 +84,9 @@ in {
       sbcl
       # :lang sh
       shellcheck
+      # :lang typescript
+      javascript-typescript-langserver
+      deno
     ];
   };
 
@@ -102,7 +105,7 @@ in {
     zip
     unzip
     p7zip
-    nvtop
+    nvtopPackages.full
     blueman
     killall
     # TODO move this to hypr config?
