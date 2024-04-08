@@ -58,6 +58,17 @@
         (import ./my-overlays.nix)
       ];
     };
+    spkgs = import inputs.nixpkgs-stable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+      overlays = [
+        emacs-overlay.overlay
+        nur.overlay
+        (import ./my-overlays.nix)
+      ];
+    };
 
     defaultNixOptions = {
       nix.settings.auto-optimise-store = true;
@@ -65,7 +76,7 @@
 
     mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules ; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules spkgs ; };
 
       modules = [
         stylix.nixosModules.stylix
