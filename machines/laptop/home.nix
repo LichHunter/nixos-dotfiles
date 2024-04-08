@@ -60,7 +60,7 @@ in {
     # social
     telegram-desktop
     thunderbird
-    signal-desktop
+    element-desktop
 
     # development
     gradle
