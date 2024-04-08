@@ -79,7 +79,7 @@ in {
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-medium
       # :lang nix
-      nixfmt
+      nixfmt-classic
       # :lang lisp
       sbcl
       # :lang sh
