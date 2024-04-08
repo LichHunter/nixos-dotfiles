@@ -121,6 +121,9 @@ In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sw
 
 Added shortcuts for dwindle layout as it called in hyprland
 But it still bad
+* DONE Issue when locking in other then english language
+CLOSED: [2024-04-08 Mon 15:33]
+After you lock with other then english language you won't be able to login again
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -150,3 +153,5 @@ Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Fix sddm theme
 * TODO Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
+* TODO Issue when laptop sits for a while
+After some time laptop will freez and stop respond

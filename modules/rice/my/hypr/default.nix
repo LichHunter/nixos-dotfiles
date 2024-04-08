@@ -17,6 +17,7 @@ in {
       libnotify
       kitty
       wofi
+      jq # used in lock to get language
 
       #hyprland extensions
       hyprlock
@@ -62,7 +63,7 @@ in {
           "$mainMod, RETURN, exec, alacritty"
           "$mainMod, o, exec, emacsclient -c"
           "SUPER_SHIFT, RETURN, exec, thunar"
-          "SUPER_SHIFT, l, exec, hyprlock"
+          "SUPER_SHIFT, l, exec, hyprctl switchxkblayout at-translated-set-2-keyboard 0 && hyprlock"
 
           #bind = $mainMod, M, exit,
           "SUPER_SHIFT, q, killactive,"
