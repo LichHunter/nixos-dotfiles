@@ -20,8 +20,8 @@ in {
       jq # used in lock to get language
 
       #hyprland extensions
-      hyprlock
-      hypridle
+      #hyprlock
+      #hypridle
     ];
 
     wayland.windowManager.hyprland = {

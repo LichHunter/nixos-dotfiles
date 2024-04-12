@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, spkgs, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -79,7 +79,7 @@ in {
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-medium
       # :lang nix
-      nixfmt-classic
+      nixfmt
       # :lang lisp
       sbcl
       # :lang sh
@@ -116,7 +116,7 @@ in {
     zip
     unzip
     p7zip
-    nvtopPackages.full
+    nvtop
     blueman
     killall
     # TODO move this to hypr config?
@@ -206,7 +206,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs spkgs; };
+    extraSpecialArgs = { inherit inputs; };
 
     users."${config.variables.username}" = {
       imports = [

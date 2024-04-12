@@ -2,19 +2,18 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
+      #url = "github:nix-community/home-manager/release-23.11";
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
       url = "github:danth/stylix";
-      # inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
@@ -58,17 +57,6 @@
         (import ./my-overlays.nix)
       ];
     };
-    spkgs = import inputs.nixpkgs-stable {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-      overlays = [
-        emacs-overlay.overlay
-        nur.overlay
-        (import ./my-overlays.nix)
-      ];
-    };
 
     defaultNixOptions = {
       nix.settings.auto-optimise-store = true;
@@ -76,7 +64,7 @@
 
     mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules spkgs ; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules ; };
 
       modules = [
         stylix.nixosModules.stylix

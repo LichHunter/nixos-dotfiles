@@ -7,5 +7,5 @@ in {
   ];
 
   config.variables.username = "omen";
-  config.variables.stateVersion = "24.05";
+  config.variables.stateVersion = "23.11";
 }
