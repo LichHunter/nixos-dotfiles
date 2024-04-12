@@ -14,6 +14,7 @@
       "Code"
       ".config/emacs"
       ".config/keepassxc"
+      ".config/Element"
       ".mozilla" # need to make it more specific I think
       ".thunderbird"
       ".m2"
