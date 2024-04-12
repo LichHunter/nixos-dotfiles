@@ -87,6 +87,17 @@ in {
       # :lang typescript
       javascript-typescript-langserver
       deno
+      # :lang go
+      # go
+      # gopls
+      # gotests
+      # gomodifytags
+      # gore
+      # gotools
+      # :lang ruby
+      ruby
+      rbenv
+      rubocop
     ];
   };
 
