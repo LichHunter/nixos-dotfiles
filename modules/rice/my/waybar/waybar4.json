@@ -35,6 +35,14 @@
         "on-click": "kitty -e 'btm'",
     },
 
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "us",
+        "format-ru": "ru",
+        "format-ua": "ua",
+        "keyboard-name": "at-translated-set-2-keyboard"
+    },
+
     "custom/keyboard-layout": {
         "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
         // Interval set only as a fallback, as the value is updated by signal
@@ -176,12 +184,6 @@
         "tooltip": false,
     },
 
-    "custom/power": {
-        "format":"⏻",
-        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
-    },
-
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
@@ -192,5 +194,10 @@
         },
         "escape": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout"
     }
 }

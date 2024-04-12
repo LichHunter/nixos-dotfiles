@@ -32,6 +32,7 @@ in {
         modules-right = [
             "tray"
             # "idle_inhibitor"
+            "hyprland/language"
             "memory"
             "cpu"
             # "custom/keyboard-layout"
@@ -40,6 +41,7 @@ in {
             "pulseaudio#microphone"
             "network"
             "battery"
+            "custom/power"
         ];
 
         "clock" = {
@@ -128,16 +130,16 @@ in {
       #tray,
       #idle_inhibitor,
       #window,
-      #custom-power,
       #workspaces,
       #custom-media,
+      #language,
+      #custom-power,
       #custom-PBPbattery {
           padding:0.25rem 0.75rem;
           margin: 1px 6px;
           background-color: #${backgound-color};
           border-radius: 20px;
       }
-
 
       #clock {
           color: #${icon-color};
