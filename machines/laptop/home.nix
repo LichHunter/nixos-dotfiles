@@ -85,6 +85,7 @@ in {
     slurp
     wl-clipboard
     qpdf
+    cloudflared
   ];
 
   # fix collision between java17 and 11
