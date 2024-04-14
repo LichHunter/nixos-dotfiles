@@ -155,3 +155,4 @@ https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
 * TODO Issue when laptop sits for a while
 After some time laptop will freez and stop respond
+* TODO Add qbitorrent folder to impermanence

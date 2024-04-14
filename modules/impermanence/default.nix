@@ -28,6 +28,7 @@
       ".local/share/TelegramDesktop"
       ".local/share/Steam"
       ".local/share/lutris"
+      "syncthing"
     ];
     files = [
       ".screenrc"
