@@ -91,3 +91,7 @@ So if you just try to run src_bash[:exports code]{mvn clean install} in terminal
 }).env
 #+end_src
 * [[https://stackoverflow.com/questions/46283647/how-to-move-a-running-process-to-background-unix][Run a process in background]]
+* Copy with progress
+#+begin_src bash
+rsync -ah --progress source destination
+#+end_src

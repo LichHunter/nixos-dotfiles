@@ -31,6 +31,7 @@ in {
         java11 = "export JAVA_HOME='/home/omen/jdk/openjdk11' && mvn -v";
         sudo = "doas";
         psax = "ps ax | grep";
+        cp = "rsync -ah --progress";
       };
 
       plugins = [
