@@ -1,14 +1,6 @@
 // Global
 {
     // Modules
-    "idle_inhibitor": {
-        "format": "{icon} ",
-        "format-icons":{
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
     "battery": {
         "states": {
             "warning": 30,
@@ -199,5 +191,13 @@
     "custom/power": {
         "format": "",
         "on-click": "wlogout"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     }
 }
