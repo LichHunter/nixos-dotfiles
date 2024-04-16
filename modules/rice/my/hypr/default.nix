@@ -49,6 +49,8 @@ in {
           "hypridle"
           "kanshi"
           "virsh net-start default"
+          "thunderbird"
+	  "element-desktop"
         ];
 
         "$mainMod" = "SUPER";
@@ -194,21 +196,19 @@ in {
           workspace_swipe = false;
         };
 
+        workspace = [
+          "0, monitor:DP-1"
+          "1, monitor:e-DP-1"
+          #"9, on-created-empty:[tiled] thunderbird"
+        ];
 
-        # Example windowrule v1
-        # windowrule = float, ^(kitty)$
-        # Example windowrule v2
-        # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-
-        #windowrule=float,^(kitty)$
-        #windowrule=float,^(pavucontrol)$
-        #windowrule=center,^(kitty)$
-        #windowrule=float,^(blueman-manager)$
-        #windowrule=size 600 500,^(kitty)$
-        #windowrule=size 934 525,^(mpv)$
-        #windowrule=float,^(mpv)$
-        #windowrule=center,^(mpv)$
-        ##windowrule=pin,^(firefox)$
+        windowrulev2 = [
+          "workspace 9, class:^(.*thunderbird.*)$"
+          "group, class:^(.*thunderbird.*)$"
+          "workspace 9, class:^(.*Element.*)$"
+          "group, class:^(.*Element.*)$"
+          "workspace 8, title:^(.*KeePassXC.*)$"
+        ];
       };
     };
 
