@@ -13,5 +13,6 @@
     ./i18n.nix
     ./networking.nix
     ./jellyfin.nix
+    ./syncthing.nix
   ];
 }

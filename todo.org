@@ -124,6 +124,11 @@ But it still bad
 * DONE Issue when locking in other then english language
 CLOSED: [2024-04-08 Mon 15:33]
 After you lock with other then english language you won't be able to login again
+* DONE Add qbitorrent folder to impermanence
+CLOSED: [2024-04-16 Tue 13:02]
+* DONE Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
+CLOSED: [2024-04-16 Tue 13:02]
+Some what fixed by not allowing to go to sleep....
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -152,7 +157,5 @@ Will leave it as it is
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Fix sddm theme
-* TODO Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
 * TODO Issue when laptop sits for a while
 After some time laptop will freez and stop respond
-* TODO Add qbitorrent folder to impermanence
