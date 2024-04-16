@@ -208,6 +208,7 @@ in {
           "workspace 9, class:^(.*Element.*)$"
           "group, class:^(.*Element.*)$"
           "workspace 8, title:^(.*KeePassXC.*)$"
+          "float, class:^(.*steam.*)$"
         ];
       };
     };

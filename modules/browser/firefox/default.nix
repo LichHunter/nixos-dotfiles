@@ -38,26 +38,18 @@ in {
           "2700".enable = false;
           "2800".enable = false;
           "4500".enable = false; # RFP (resist fingerprinting)
-          # "0001" = {
-          #   enable = true;
-          #   "0101"."browser.shell.checkDefaultBrowser".value = true;
-          # };
-          # "0002" = {
-          #   enable = true;
-          #   "0204"."browser.search.region".enable = true;
-          # };
         };
 
         bookmarks = [
           {
-            name = "google";
+            name = "Google";
             tags = [ "google" ];
             keyword = "google";
             url = "https://google.com";
           }
           {
             name = "Appendix A. Home Manager Configuration Options";
-            tags = [];
+            tags = [ "nixos" "home-manager" ];
             keyword = "appendix-a";
             url = "https://nix-community.github.io/home-manager/options.xhtml";
           }
@@ -69,18 +61,18 @@ in {
           }
           {
             name = "Nixos Packages";
-            tags = [];
+            tags = [ "nixos" ];
             keyword = "nixos";
             url = "https://search.nixos.org/packages";
           }
           {
             name = "Google Translate";
-            tags = [];
+            tags = [ "google" ];
             keyword = "translate";
             url = "https://translate.google.com/";
           }
           {
-            name = "youtube";
+            name = "YouTube";
             tags = [ "google" ];
             keyword = "youtube";
             url = "https://youtube.com";
@@ -155,6 +147,8 @@ in {
           ublock-origin
           bitwarden
           keepassxc-browser
+          darkreader
+          cookie-autodelete
         ];
       };
     };
