@@ -150,6 +150,10 @@ in {
       plasma.enable = true;
     };
     hypr.enable = true;
+
+    services = {
+      jellyfin.enable = false;
+    };
   };
 
   fonts.packages = with pkgs; [
