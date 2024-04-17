@@ -77,6 +77,7 @@ in {
     qbittorrent
 
     kate
+    ark
     keepassxc
     virt-manager
 

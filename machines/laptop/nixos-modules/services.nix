@@ -4,7 +4,6 @@
   services = {
     xserver = {
       enable = true;
-      displayManager.sddm.enable = true;
       xkb = {
         layout = "us,ru";
         options = "grp:grp:shifts_toggle";

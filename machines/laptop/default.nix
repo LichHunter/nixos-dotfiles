@@ -147,9 +147,11 @@ in {
   dov = {
     xserver = {
       i3.enable = false;
-      plasma.enable = false;
+      plasma6.enable = false;
+      hypr.enable = true;
+      xmonad.enable = false;
+      plasma5.enable = false;
     };
-    hypr.enable = true;
 
     services = {
       jellyfin.enable = false;
