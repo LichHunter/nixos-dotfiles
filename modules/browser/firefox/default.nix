@@ -26,8 +26,8 @@ in {
           "0400".enable = true;
           "0600".enable = true;
           "0700".enable = true;
-          "0800".enable = false;
-          "0900".enable = false;
+          "0800".enable = true;
+          "0900".enable = true;
           "1000".enable = true;
           "1200".enable = true;
           "1600".enable = true;
@@ -38,60 +38,52 @@ in {
           "2700".enable = false;
           "2800".enable = false;
           "4500".enable = false; # RFP (resist fingerprinting)
-          # "0001" = {
-          #   enable = true;
-          #   "0101"."browser.shell.checkDefaultBrowser".value = true;
-          # };
-          # "0002" = {
-          #   enable = true;
-          #   "0204"."browser.search.region".enable = true;
-          # };
         };
 
-        bookmarks = [
-          {
-            name = "google";
-            tags = [ "google" ];
-            keyword = "google";
-            url = "https://google.com";
-          }
-          {
-            name = "Appendix A. Home Manager Configuration Options";
-            tags = [];
-            keyword = "appendix-a";
-            url = "https://nix-community.github.io/home-manager/options.xhtml";
-          }
-          {
-            name = "Advent code";
-            tags = [];
-            keyword = "adventcode";
-            url = "https://adventofcode.com/";
-          }
-          {
-            name = "Nixos Packages";
-            tags = [];
-            keyword = "nixos";
-            url = "https://search.nixos.org/packages";
-          }
-          {
-            name = "Google Translate";
-            tags = [];
-            keyword = "translate";
-            url = "https://translate.google.com/";
-          }
-          {
-            name = "youtube";
-            tags = [ "google" ];
-            keyword = "youtube";
-            url = "https://youtube.com";
-          }
-          {
-            name = "Z-Library";
-            tags = [ "z-lib" ];
-            keyword = "z-lib";
-            url = "https://singlelogin.re";
-          }
-        ];
+        # bookmarks = [
+        #   {
+        #     name = "Google";
+        #     tags = [ "google" ];
+        #     keyword = "google";
+        #     url = "https://google.com";
+        #   }
+        #   {
+        #     name = "Appendix A. Home Manager Configuration Options";
+        #     tags = [ "nixos" "home-manager" ];
+        #     keyword = "appendix-a";
+        #     url = "https://nix-community.github.io/home-manager/options.xhtml";
+        #   }
+        #   {
+        #     name = "Advent code";
+        #     tags = [];
+        #     keyword = "adventcode";
+        #     url = "https://adventofcode.com/";
+        #   }
+        #   {
+        #     name = "Nixos Packages";
+        #     tags = [ "nixos" ];
+        #     keyword = "nixos";
+        #     url = "https://search.nixos.org/packages";
+        #   }
+        #   {
+        #     name = "Google Translate";
+        #     tags = [ "google" ];
+        #     keyword = "translate";
+        #     url = "https://translate.google.com/";
+        #   }
+        #   {
+        #     name = "YouTube";
+        #     tags = [ "google" ];
+        #     keyword = "youtube";
+        #     url = "https://youtube.com";
+        #   }
+        #   {
+        #     name = "Z-Library";
+        #     tags = [ "z-lib" ];
+        #     keyword = "z-lib";
+        #     url = "https://singlelogin.re";
+        #   }
+        # ];
 
         search = {
           default = "Searxng Site (Searxng)";
@@ -155,6 +147,8 @@ in {
           ublock-origin
           bitwarden
           keepassxc-browser
+          darkreader
+          cookie-autodelete
         ];
       };
     };

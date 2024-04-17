@@ -89,9 +89,6 @@
       laptop = mkComputer
         ./machines/laptop
         [
-          ./modules/xserver/i3
-          ./modules/xserver/plasma
-          ./modules/xserver/hypr
           ./modules/options.nix
 
         ] # extra modules

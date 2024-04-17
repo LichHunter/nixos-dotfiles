@@ -147,9 +147,16 @@ in {
   dov = {
     xserver = {
       i3.enable = false;
-      plasma.enable = true;
+      plasma6.enable = false;
+      hypr.enable = true;
+      xmonad.enable = false;
+      plasma5.enable = false;
     };
-    hypr.enable = true;
+
+    services = {
+      jellyfin.enable = false;
+      syncthing.enable = true;
+    };
   };
 
   fonts.packages = with pkgs; [
@@ -225,4 +232,5 @@ in {
       cores = 6;
     };
   };
+
 }

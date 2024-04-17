@@ -31,11 +31,10 @@ in {
 
         modules-right = [
             "tray"
-            # "idle_inhibitor"
+            "idle_inhibitor"
             "hyprland/language"
             "memory"
             "cpu"
-            # "custom/keyboard-layout"
             "backlight#value"
             "pulseaudio"
             "pulseaudio#microphone"
