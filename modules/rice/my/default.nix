@@ -7,5 +7,8 @@
     ./gtk
     ./i3
     ./packages.nix
+    ./polybar
+    ./xmonad
+    ./picom
   ];
 }

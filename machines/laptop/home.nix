@@ -93,8 +93,9 @@ in {
   home.file."jdk/openjdk11".source = pkgs.jdk11;
   home.file."jdk/openjdk17".source = pkgs.jdk17;
 
-  home.file."Wallpapers/wallpaper.png" = {
-    source = ./wallpapers/wallpaper.png;
+  home.file."Wallpapers" = {
+    source = ./wallpapers;
+    recursive = true;
   };
 
   xdg = {
@@ -105,7 +106,7 @@ in {
         recursive = true;
       };
     };
- };
+  };
 
   stylix = {
     autoEnable = false;

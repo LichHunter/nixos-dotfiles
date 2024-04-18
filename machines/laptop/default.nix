@@ -131,6 +131,12 @@ in {
     libsForQt5.kdialog
     cabextract
     libreoffice
+
+
+    #xmonad
+    rofi
+    #xmobar
+    #polybar # now configured by home-manager
   ];
 
 
@@ -147,10 +153,10 @@ in {
   dov = {
     xserver = {
       i3.enable = false;
-      plasma6.enable = false;
-      hypr.enable = true;
-      xmonad.enable = false;
-      plasma5.enable = false;
+      plasma6.enable = false; # does not exist in stable yet
+      hypr.enable = false;
+      xmonad.enable = true;
+      plasma5.enable = true;
     };
 
     services = {
@@ -232,5 +238,4 @@ in {
       cores = 6;
     };
   };
-
 }

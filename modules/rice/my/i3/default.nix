@@ -1,8 +1,12 @@
 { config, lib, pkgs, ... }:
 
+with lib;
+
 let
   mod = "Mod4";
 in {
+  options.i3.enable = mkEnableOption "i3 configuration";
+  config = mkIf config.i3.enable {
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -95,5 +99,6 @@ in {
         smartGaps = true;
       };
     };
+  };
   };
 }

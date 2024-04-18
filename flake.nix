@@ -34,6 +34,11 @@
     };
 
     impermanence.url = "github:nix-community/impermanence";
+
+    # xmonad-contexts = {
+    #   url = "github:Procrat/xmonad-contexts";
+    #   flake = false;
+    # };
   };
 
   outputs = inputs@{ self, nixpkgs,
