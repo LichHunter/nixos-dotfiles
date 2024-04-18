@@ -109,7 +109,7 @@ in {
   };
 
   stylix = {
-    autoEnable = false;
+    autoEnable = true;
     targets = {
       rofi.enable = true;
       alacritty.enable = true;

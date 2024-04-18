@@ -242,6 +242,7 @@ myStartupHook = do
   spawnOnce "emacs --fg-daemon"
   --spawnOnce "picom"
   spawnOnce "feh --bg-fill ~/Wallpapers/laptop_1.png --bg-fill ~/Wallpapers/lg_1.png"
+  spawn "setxkbmap us,ru,ua -option grp:shifts_toggle"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
