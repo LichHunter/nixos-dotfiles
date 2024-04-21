@@ -129,6 +129,9 @@ CLOSED: [2024-04-16 Tue 13:02]
 * DONE Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
 CLOSED: [2024-04-16 Tue 13:02]
 Some what fixed by not allowing to go to sleep....
+* DONE Fix sddm theme
+CLOSED: [2024-04-19 Fri 20:12]
+Seems to be issue of KDE, its cofniguration had sddm config and it conflicted with mine
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -156,6 +159,6 @@ Will leave it as it is
 * TODO Fix suggesstion window in IDEA for hypr
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
-* TODO Fix sddm theme
 * TODO Issue when laptop sits for a while
 After some time laptop will freez and stop respond
+* TODO Fix hyprland mouse cursor on another display
