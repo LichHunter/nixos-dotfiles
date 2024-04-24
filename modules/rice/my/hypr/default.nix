@@ -59,6 +59,7 @@ in {
           "virsh net-start default"
           "thunderbird"
           "element-desktop"
+          "keepassxc"
         ];
 
         "$mainMod" = "SUPER";

@@ -87,11 +87,13 @@ in {
     wl-clipboard
     qpdf
     cloudflared
+    okular #pdf tool
   ];
 
   # fix collision between java17 and 11
   home.file."jdk/openjdk11".source = pkgs.jdk11;
   home.file."jdk/openjdk17".source = pkgs.jdk17;
+  home.file."jdk/openjdk21".source = pkgs.jdk21;
 
   home.file."Wallpapers/wallpaper.png" = {
     source = ./wallpapers/wallpaper.png;
