@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, spkgs, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, spkgs, username, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -213,7 +213,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs spkgs; };
+    extraSpecialArgs = { inherit inputs spkgs username; };
 
     users."${config.variables.username}" = {
       imports = [

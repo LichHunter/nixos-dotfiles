@@ -17,6 +17,7 @@
       ".config/keepassxc"
       ".config/Element"
       ".config/qBittorrent"
+      ".config/qutebrowser"
       ".mozilla" # need to make it more specific I think
       ".thunderbird"
       ".m2"
@@ -29,6 +30,7 @@
       ".local/share/Steam"
       ".local/share/lutris"
       ".local/share/qBittorrent"
+      ".local/share/qutebrowser"
       ".cache/keepassxc"
       ".cache/lutris"
 

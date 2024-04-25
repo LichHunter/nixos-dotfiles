@@ -11,6 +11,7 @@ in {
   options.dov.browser.firefox.enable = mkEnableOption "firefox config";
   options.dov.browser.brave.enable = mkEnableOption "brave config";
   options.dov.browser.chrome.enable = mkEnableOption "chrome config";
+  options.dov.browser.qutebrowser.enable = mkEnableOption "qutebrowser config";
   options.dov.vpn.enable = mkEnableOption "vpn config";
   options.dov.gaming.enable = mkEnableOption "gaming config";
 }

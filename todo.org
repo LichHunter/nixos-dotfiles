@@ -163,3 +163,5 @@ Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 * TODO Issue when laptop sits for a while
 After some time laptop will freez and stop respond
+* TODO User username parameter instead of variable
+I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable

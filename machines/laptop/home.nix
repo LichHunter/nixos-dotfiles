@@ -27,6 +27,7 @@ in {
       brave.enable = false;
       firefox.enable = true;
       chrome.enable = false;
+      qutebrowser.enable = true;
     };
     hypr.enable = true;
     polybar.enable = false;

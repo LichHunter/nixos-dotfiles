@@ -207,7 +207,8 @@ in {
 
         workspace = [
           #"0, monitor:DP-1"
-          #"1, monitor:e-DP-1"
+          "8, monitor:e-DP-1"
+          "9, monitor:e-DP-1"
           #"9, on-created-empty:[tiled] thunderbird"
         ];
 

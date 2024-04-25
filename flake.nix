@@ -78,9 +78,9 @@
       nix.settings.auto-optimise-store = true;
     };
 
-    mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
+    mkComputer = configurationNix: extraModules: extraHomeModules: username: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules spkgs ; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules spkgs username; };
 
       modules = [
         stylix.nixosModules.stylix
@@ -118,8 +118,7 @@
           ./modules/kanshi
           ./modules/shell/zsh
           ./modules/shell/fish
-          ./modules/browser/firefox
-          ./modules/browser/brave
+          ./modules/browser
           ./modules/vpn
           ./modules/gaming
 
@@ -130,6 +129,7 @@
 
           arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
+        "omen"
         ;
     };
   };
