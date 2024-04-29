@@ -109,7 +109,6 @@
 
         ] # extra modules
         [
-          ./modules/polybar
           ./modules/git
           ./modules/alacritty
           ./modules/options.nix
@@ -121,6 +120,7 @@
           ./modules/browser
           ./modules/vpn
           ./modules/gaming
+          ./modules/filemanager/ranger
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted
@@ -129,7 +129,7 @@
 
           arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
-        "omen"
+        "omen" # username
         ;
     };
   };

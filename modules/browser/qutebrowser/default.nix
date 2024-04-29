@@ -25,7 +25,7 @@ in {
         colors = {
           webpage = {
             darkmode = {
-              enabled = true;
+              enabled = false;
             };
           };
         };

@@ -122,8 +122,6 @@ in {
     # TODO move this to hypr config?
     pavucontrol
     pamixer
-    # thunar plugin to manager archives
-    xfce.thunar-archive-plugin
     async-profiler
     gparted
 
