@@ -91,8 +91,8 @@ in {
           ",XF86MonBrightnessDown,exec,brightnessctl s 20-"
           ",XF86MonBrightnessUp,exec,brightnessctl s 20+"
           ",XF86AudioMute,exec,amixer -q sset Master toggle"
-          ",XF86AudioLowerVolume,exec,amixer -q sset Master 10%-"
-          ",XF86AudioRaiseVolume,exec,amixer -q sset Master 10%+"
+          ",XF86AudioLowerVolume,exec,amixer -q sset Master 5%-"
+          ",XF86AudioRaiseVolume,exec,amixer -q sset Master 5%+"
           ",XF86AudioPlay,exec,playerctl play-pause"
           ",XF86AudioPause,exec,playerctl play-pause"
 
