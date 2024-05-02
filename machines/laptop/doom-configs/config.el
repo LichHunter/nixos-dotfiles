@@ -82,12 +82,25 @@
                (:prefix ("d" . "dap")
                         "c" #'dap-java-run-test-class
                         "m" #'dap-java-run-test-method
+                        "n" #'dap-next
+                        "i" #'dap-step-in
+                        "C" #'dap-continue
+                        "k" #'dap-disconnect
+                        "r" #'dap-debug-restart
+                        (:prefix ("b" . "breakpoint")
+                                 "a" #'dap-breakpoint-add
+                                 "d" #'dap-breakpoint-delete
+                                 "A" #'dap-breakpoint-delete-all
+                                 )
+                        (:prefix ("d" . "debug")
+                                 "c" #'dap-java-debug-test-class
+                                 "m" #'dap-java-debug-test-method
+                                 )
                         )
                (:prefix ("l" . "lsp")
                         "j" #'lsp-jt-browser
                         "i" #'lsp-java-organize-imports
                         "r" #'lsp-rename
-                        "f" #'lsp-format-buffer
                         "g d" #'lsp-goto-type-definition
                         )
                )
