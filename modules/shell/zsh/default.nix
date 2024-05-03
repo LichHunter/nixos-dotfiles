@@ -13,7 +13,7 @@ in {
       };
 
       initExtra = ''
-        export JAVA_HOME=${pkgs.jdk17}
+        export JAVA_HOME=${pkgs.jdk21}
         export PATH=$PATH:$JAVA_HOME/bin
         export JDTLS_PATH=${pkgs.jdt-language-server}/share/java
       '';
