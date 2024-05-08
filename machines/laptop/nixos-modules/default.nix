@@ -16,6 +16,7 @@
     #services
     ./jellyfin.nix
     ./syncthing.nix
+    ./printing.nix
 
     #xserver
     ./hypr.nix
