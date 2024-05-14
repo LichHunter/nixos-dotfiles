@@ -210,3 +210,13 @@
                                   :with-author nil
                                   :with-toc nil))
   (add-hook! 'message-send-hook 'org-mime-confirm-when-no-multipart))
+
+;; Music emms
+(use-package! emms
+  :config
+  (require 'emms-setup)
+  (require 'emms-player-mpd)
+  (emms-all)
+  (setq emms-seek-seconds 5
+        emms-player-list '(emms-player-mpd)
+        emms-info-functions '(emms-info-mpd)))

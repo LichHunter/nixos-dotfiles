@@ -90,6 +90,12 @@ in {
     qpdf
     cloudflared
     okular #pdf tool
+
+    #music
+    mpd
+    mpv
+    mpc-cli
+    ncmpcpp
   ];
 
   # fix collision between java17 and 11
