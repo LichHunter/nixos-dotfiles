@@ -13,11 +13,13 @@
       "org"
       "Code"
       "syncthing"
+      "Mail"
       ".config/emacs"
       ".config/keepassxc"
       ".config/Element"
       ".config/qBittorrent"
       ".config/qutebrowser"
+      ".config/mu4e"
       ".mozilla" # need to make it more specific I think
       ".thunderbird"
       ".m2"
@@ -33,7 +35,6 @@
       ".local/share/qutebrowser"
       ".cache/keepassxc"
       ".cache/lutris"
-
     ];
     files = [
       ".screenrc"

@@ -95,3 +95,14 @@ So if you just try to run src_bash[:exports code]{mvn clean install} in terminal
 #+begin_src bash
 rsync -ah --progress source destination
 #+end_src
+
+* Gpg authinfo issue
+Had some issues accessing `.authinfo.gpg` file.
+Needed to kill gpg-agent and start it again like:
+#+begin_src bash
+# kill agent
+gpgconf --kill gpg-agent
+
+# start it
+gpg-agent
+#+end_src

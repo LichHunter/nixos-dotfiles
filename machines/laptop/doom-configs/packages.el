@@ -49,3 +49,4 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+;;(package! mu4e :pin "b36e492")

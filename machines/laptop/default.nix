@@ -56,7 +56,12 @@ in {
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
       ((emacsPackagesFor emacs-unstable).emacsWithPackages
-        (epkgs: [ epkgs.vterm epkgs.treesit-grammars.with-all-grammars ]))
+        (epkgs: [
+          epkgs.vterm
+          epkgs.treesit-grammars.with-all-grammars
+          epkgs.mu4e
+          epkgs.org-mime
+        ]))
 
       ## Doom dependencies
       git
@@ -98,6 +103,8 @@ in {
       ruby
       rbenv
       rubocop
+
+      isync # mu4e related
     ];
   };
 

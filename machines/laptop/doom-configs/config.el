@@ -156,3 +156,56 @@
 (add-to-list 'safe-local-variable-values #'stringp)
 (advice-add 'risky-local-variable-p :override #'ignore)
 
+
+;; Email client seup
+(use-package! mu4e
+  ;; pull in org helpers
+  (require 'mu4e-org)
+  :config
+  (setq user-mail-address "alexander0derevianko@gmail.com"
+      user-full-name  "Alexander Derevianko"
+      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
+      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
+      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      ;; mu4e-compose-signature
+      ;;  (concat
+      ;;    "Derek Taylor\n"
+      ;;    "http://www.youtube.com/DistroTube\n")
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      mu4e-root-maildir "~/Mail"
+      ;; Make sure plain text mails flow correctly for recipients
+      mu4e-compose-format-flowed t
+      )
+
+  (setq mu4e-contexts
+        (list
+        (make-mu4e-context
+                :name "Personal"
+                :match-func
+                (lambda (msg)
+                (when msg
+                (string-prefix-p "/alex-derevianko" (mu4e-message-field msg :maildir))))
+                :vars '((user-mail-address . "alexander0derevianko@gmail.com")
+                        (user-full-name . "Alexander Derevianko")
+                        (smtpmail-smtp-server . "smtp.gmail.com")
+                        (smtpmail-smtp-service . 465)
+                        (smtpmail-stream-type . ssl)
+                        (mu4e-sent-folder . "/alex-derevianko/[Gmail]/Sent Mail")
+                        (mu4e-drafts-folder . "/alex-derevianko/[Gmail]/Drafts")
+                        (mu4e-trash-folder . "/alex-derevianko/[Gmail]/Trash")
+                        (mu4e-refile-folder . "/alex-derevianko/[Gmail]/All Mail")
+                        (mu4e-maildir-shortcuts . '(("/alex-derevianko/INBOX" . ?i)
+                                                ("/alex-derevianko/[Gmail]/Sent Mail" . ?s)))
+                        )))
+        )
+)
+(use-package! org-mime
+  :ensure t
+  :config
+  (setq org-mime-export-options '(:section-numbers nil
+                                  :with-author nil
+                                  :with-toc nil))
+  (add-hook! 'message-send-hook 'org-mime-confirm-when-no-multipart))
