@@ -6,6 +6,6 @@ let
   cfg = config.dov.browser.chrome;
 in {
   config = mkIf cfg.enable {
-    home.packages = with pgks; [ ungoogled-chromium ];
+    home.packages = with pkgs; [ chromium ];
   };
 }

@@ -26,7 +26,7 @@ in {
     browser = {
       brave.enable = false;
       firefox.enable = true;
-      chrome.enable = false;
+      chrome.enable = true;
       qutebrowser.enable = true;
     };
     hypr.enable = true;
@@ -62,6 +62,7 @@ in {
     telegram-desktop
     thunderbird
     element-desktop
+    teams-for-linux
 
     # development
     gradle
