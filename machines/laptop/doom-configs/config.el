@@ -117,11 +117,15 @@
 
 
 (after! org
+  (setq org-agenda-files '("~/org/agenda.org"
+                           "~/nixos-dotfiles/todo.org"))
   (setq org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
         org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-agenda-start-with-log-mode t
         org-log-done 'time
+        org-log-into-drawer t
         org-hide-emphasis-markers t
         ;; ex. of org-link-abbrev-alist in action
         ;; [[arch-wiki:Name_of_Page][Description]]
@@ -139,9 +143,6 @@
            "|"                 ; The pipe necessary to separate "active" states and "inactive" states
            "DONE(d)"           ; Task has been completed
            "CANCELLED(c)" )))) ; Task has been cancelled
-
-(after! org
-  (setq org-agenda-files '("~/nc/Org/agenda.org")))
 
 (after! lsp-java
   (require 'lsp-java-boot)
