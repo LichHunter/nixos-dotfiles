@@ -144,4 +144,29 @@ in {
           "x-scheme-handler/unknown" = [ "firefox.desktop" ];
       };
   };
+
+  programs.mbsync = {
+    enable = true;
+    extraConfig = ''
+      IMAPStore alex-derevianko-remote
+      Host imap.gmail.com
+      SSLType IMAPS
+      AuthMechs LOGIN
+      User alexander0derevianko@gmail.com
+      PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.config/mu4e/mbsyncpass-acc-alex-derevianko.gpg"
+
+      MaildirStore alex-derevianko-local
+      Path ~/Mail/alex-derevianko/
+      Inbox ~/Mail/alex-derevianko/INBOX
+      Subfolders Verbatim
+
+      Channel alex-derevianko
+      Far :alex-derevianko-remote:
+      Near :alex-derevianko-local:
+      Create Both
+      Expunge Both
+      Patterns * !"[Gmail]/All Mail" !"[Gmail]/Bin" !"[Gmail]/Spam"
+      SyncState *
+    '';
+  };
 }

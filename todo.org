@@ -167,3 +167,5 @@ https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 After some time laptop will freez and stop respond
 * TODO User username parameter instead of variable
 I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
+* TODO Fix emms in emacs
+For not I get some strage permission error but in ncmpcpp everything works fine

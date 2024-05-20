@@ -121,6 +121,8 @@
           ./modules/vpn
           ./modules/gaming
           ./modules/filemanager/ranger
+          ./modules/music/beets
+          ./modules/music/ncmpcpp
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

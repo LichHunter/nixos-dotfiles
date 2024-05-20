@@ -161,7 +161,7 @@
 ;; Email client seup
 (use-package! mu4e
   ;; pull in org helpers
-  (require 'mu4e-org)
+  ;;(require 'mu4e-org)
   :config
   (setq user-mail-address "alexander0derevianko@gmail.com"
       user-full-name  "Alexander Derevianko"
