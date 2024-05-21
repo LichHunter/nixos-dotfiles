@@ -8,7 +8,7 @@
     ./virtmanager.nix
     ./thunar.nix
     ./sddm.nix
-    ./impermanence.nix
+    #./impermanence.nix
     ./services.nix
     ./i18n.nix
     ./networking.nix

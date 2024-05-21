@@ -224,7 +224,7 @@ in {
     users."${config.variables.username}" = {
       imports = [
         ./home.nix
-        inputs.impermanence.nixosModules.home-manager.impermanence
+        #inputs.impermanence.nixosModules.home-manager.impermanence
       ] ++ extraHomeModules;
 
       #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";

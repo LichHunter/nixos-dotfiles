@@ -113,7 +113,7 @@
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          ./modules/impermanence
+          #./modules/impermanence
           ./modules/kanshi
           ./modules/shell/zsh
           ./modules/shell/fish
