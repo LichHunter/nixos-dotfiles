@@ -41,4 +41,6 @@
   nixpkgs.config.allowUnfree = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.virtualbox.guest.enable = true;
+
+  services.spice-vdagentd.enable = true;
 }
