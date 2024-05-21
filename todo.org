@@ -101,6 +101,41 @@ CLOSED: [2024-03-21 Thu 13:05]
 * DONE Fix icon of sound in waybar
 CLOSED: [2024-03-22 Fri 14:29]
 Specifically icon when sound is turned off and when you connect headphones
+* DONE Add autolock after some time
+CLOSED: [2024-03-24 Sun 22:38]
+* DONE Add GPG keyring
+CLOSED: [2024-03-30 Sat 10:53]
+* DONE Add .authinfo.gpg + gpg export and backup to script
+CLOSED: [2024-03-30 Sat 10:53]
+* DONE Add mvnrepo to the firefox search engines
+CLOSED: [2024-04-02 Tue 21:23]
+https://mvnrepository.com/search?q=maven-resources-plugin
+* DONE Fix multi monitors
+CLOSED: [2024-04-03 Wed 17:39]
+Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
+So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
+* DONE Add hyprland tabbed layout
+CLOSED: [2024-04-03 Wed 18:27]
+Seems not going to be fixed for now
+In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
+
+Added shortcuts for dwindle layout as it called in hyprland
+But it still bad
+* DONE Issue when locking in other then english language
+CLOSED: [2024-04-08 Mon 15:33]
+After you lock with other then english language you won't be able to login again
+* DONE Add qbitorrent folder to impermanence
+CLOSED: [2024-04-16 Tue 13:02]
+* DONE Create script like "[[https://github.com/hlissner/dotfiles/blob/master/bin/hey][hey]]"
+CLOSED: [2024-04-16 Tue 13:02]
+Some what fixed by not allowing to go to sleep....
+* DONE Fix sddm theme
+CLOSED: [2024-04-19 Fri 20:12]
+Seems to be issue of KDE, its cofniguration had sddm config and it conflicted with mine
+* DONE Fix hyprland mouse cursor on another display
+CLOSED: [2024-04-21 Sun 11:49]
+* DONE Add dap mode shortcuts
+CLOSED: [2024-05-02 Thu 09:58]
 * TODO [#C] Fix hyprland crashing on start
 Stoped now..
 No idea what is going on
@@ -125,14 +160,12 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-* TODO Add autolock after some time
-* TODO Add hyprland tabbed layout
-Seems not going to be fixed for now
-In wiki we have some kind of other tabbed layout but it sucks comparing to i3/sway
 * TODO Fix suggesstion window in IDEA for hypr
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
-* TODO Fix multi monitors
-Currently I added wlr-randr and [[https://github.com/cyclopsian/wdisplays][wdisplays]] but this needs to be done either with autorandr but for wayland or with hyprland (in this case) itself
-So when I've changed it like hypr wiki says using config - after reboot it crashed, so I think monitors option would not work here
-* TODO Fix sddm theme
+* TODO Issue when laptop sits for a while
+After some time laptop will freez and stop respond
+* TODO User username parameter instead of variable
+I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
+* TODO Fix emms in emacs
+For not I get some strage permission error but in ncmpcpp everything works fine

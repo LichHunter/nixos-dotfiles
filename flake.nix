@@ -20,17 +20,19 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    };
 
     nur.url = "github:nix-community/NUR";
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -54,14 +56,25 @@
         (import ./my-overlays.nix)
       ];
     };
+    spkgs = import inputs.nixpkgs-stable {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+      overlays = [
+        emacs-overlay.overlay
+        nur.overlay
+        (import ./my-overlays.nix)
+      ];
+    };
 
     defaultNixOptions = {
       nix.settings.auto-optimise-store = true;
     };
 
-    mkComputer = configurationNix: extraModules: extraHomeModules: inputs.nixpkgs.lib.nixosSystem {
+    mkComputer = configurationNix: extraModules: extraHomeModules: username: inputs.nixpkgs.lib.nixosSystem {
       inherit system ;
-      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules ; };
+      specialArgs = { inherit system inputs pkgs nixos-hardware extraHomeModules spkgs username; };
 
       modules = [
         stylix.nixosModules.stylix
@@ -80,29 +93,33 @@
         [
           ./modules/polybar
           ./modules/i3
-          ./modules/fish
+          ./modules/shell/fish
         ] # extra modules to be loaded by home-manager
         ;
       laptop = mkComputer
         ./machines/laptop
         [
-          ./modules/xserver/i3
-          ./modules/xserver/plasma
-          ./modules/xserver/hypr
           ./modules/options.nix
 
         ] # extra modules
         [
-          ./modules/polybar
-          ./modules/i3
-          ./modules/zsh
-          ./modules/fish
           ./modules/git
           ./modules/alacritty
           ./modules/options.nix
           ./modules/mako
-          ./modules/swaylock
-          ./modules/impermanence
+          #./modules/impermanence
+          ./modules/kanshi
+          ./modules/shell/zsh
+          ./modules/shell/fish
+          ./modules/browser
+          ./modules/vpn
+          ./modules/gaming
+          ./modules/filemanager/ranger
+          ./modules/music/beets
+          ./modules/music/ncmpcpp
+          # TODO not yet in my current homemanager, need to update it
+          #./modules/fastfetch
+          #./modules/distrobox
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted
@@ -111,6 +128,7 @@
 
           arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
+        "omen" # username
         ;
     };
   };

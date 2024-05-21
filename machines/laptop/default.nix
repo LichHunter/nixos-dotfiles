@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, ... }:
+{ inputs, config, pkgs, stylix, extraHomeModules, nixos-hardware, lib, spkgs, username, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -17,54 +17,31 @@ in {
       inputs.home-manager.nixosModules.home-manager
     ];
 
-  system.stateVersion = "${config.variables.stateVersion}";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Warsaw";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.sddm.enable = true;
-
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:grp:shifts_toggle";
-  };
-
-  services.printing.enable = true;
-
   sound.enable = true;
+
+  security.rtkit.enable = true;
+
   hardware = {
     pulseaudio.enable = false;
     xone.enable = true; #for xbox controller
     xpadneo.enable = true;
   };
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  system = {
+    stateVersion = "${config.variables.stateVersion}";
+    userActivationScripts = {
+      installDoomEmacs = ''
+        if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
+            ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+        fi
+      '';
+    };
   };
 
   users.users."${config.variables.username}" = {
@@ -73,15 +50,18 @@ in {
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
     #initialPassword = "test";
-    hashedPasswordFile = "/persist/hashedPassword";
+    #hashedPasswordFile = "/persist/hashedPassword";
     packages = with pkgs; [
-      waybar
-
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
       # 28.2 + native-comp
-      ((emacsPackagesFor emacsNativeComp).emacsWithPackages
-        (epkgs: [ epkgs.vterm ]))
+      ((emacsPackagesFor emacs-unstable).emacsWithPackages
+        (epkgs: [
+          epkgs.vterm
+          epkgs.treesit-grammars.with-all-grammars
+          epkgs.mu4e
+          epkgs.org-mime
+        ]))
 
       ## Doom dependencies
       git
@@ -103,17 +83,35 @@ in {
       sqlite
       # :lang latex & :lang org (latex previews)
       texlive.combined.scheme-medium
-      # :lang beancount
-      beancount
+      # :lang nix
+      nixfmt-classic
+      # :lang lisp
+      sbcl
+      # :lang sh
+      shellcheck
+      # :lang typescript
+      javascript-typescript-langserver
+      deno
+      # :lang go
+      # go
+      # gopls
+      # gotests
+      # gomodifytags
+      # gore
+      # gotools
+      # :lang ruby
+      ruby
+      rbenv
+      rubocop
+
+      isync # mu4e related
     ];
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     ripgrep
     fd
-    vim 
+    vim
     wget
     git
     neovim
@@ -125,16 +123,15 @@ in {
     zip
     unzip
     p7zip
-    nvtop
+    nvtopPackages.full
     blueman
     killall
     # TODO move this to hypr config?
     pavucontrol
     pamixer
-    # thunar plugin to manager archives
-    xfce.thunar-archive-plugin
     async-profiler
     gparted
+    distrobox
 
     # for lutris winetriks
     libsForQt5.kdialog
@@ -142,16 +139,34 @@ in {
     libreoffice
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs = {
     zsh.enable = true;
     light.enable = true;
     nm-applet.enable = true;
     steam.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+  dov = {
+    xserver = {
+      i3.enable = false;
+      plasma6.enable = false;
+      hypr.enable = true;
+      xmonad.enable = false;
+      plasma5.enable = false;
+    };
+
+    services = {
+      jellyfin.enable = false;
+      syncthing.enable = true;
+    };
   };
 
   fonts.packages = with pkgs; [
+    nerdfonts
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
@@ -199,31 +214,22 @@ in {
     };
   };
 
-  dov = {
-    xserver = {
-      i3.enable = false;
-      plasma.enable = true;
-    };
-    hypr.enable = true;
-  };
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+    extraSpecialArgs = { inherit inputs spkgs username; };
 
     users."${config.variables.username}" = {
       imports = [
         ./home.nix
-        inputs.impermanence.nixosModules.home-manager.impermanence
+        #inputs.impermanence.nixosModules.home-manager.impermanence
       ] ++ extraHomeModules;
 
       #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
     };
   };
-
-  # needed to fix swaylock not unlocking
-  security.pam.services.swaylock = {};
 
   virtualisation.vmVariant = {
     # following configuration is added only when building VM with build-vm
@@ -232,16 +238,4 @@ in {
       cores = 6;
     };
   };
-
-    #env.PATH = [ "$XDG_CONFIG_HOME/emacs/bin" ];
-
-    system.userActivationScripts = {
-      installDoomEmacs = ''
-        if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-           ${pkgs.git}/bin/git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-        fi
-      '';
-    };
-
-
 }

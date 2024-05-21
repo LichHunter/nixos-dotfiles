@@ -1,14 +1,6 @@
 // Global
 {
     // Modules
-    "idle_inhibitor": {
-        "format": "{icon} ",
-        "format-icons":{
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
     "battery": {
         "states": {
             "warning": 30,
@@ -33,6 +25,14 @@
             "critical": 90,
         },
         "on-click": "kitty -e 'btm'",
+    },
+
+    "hyprland/language": {
+        "format": "  {}",
+        "format-en": "us",
+        "format-ru": "ru",
+        "format-ua": "ua",
+        "keyboard-name": "at-translated-set-2-keyboard"
     },
 
     "custom/keyboard-layout": {
@@ -176,12 +176,6 @@
         "tooltip": false,
     },
 
-    "custom/power": {
-        "format":"⏻",
-        "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-        "tooltip": false,
-    },
-
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
@@ -192,5 +186,18 @@
         },
         "escape": true,
         "exec": "/usr/bin/python3 $HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null" // Script in resources folder
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     }
 }

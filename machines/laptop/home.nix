@@ -8,8 +8,6 @@ in {
     ./variables.nix
 
     #default modules
-    ./../../modules/zsh
-    ./../../modules/firefox
     ./../../modules/git
     ./../../modules/alacritty
   ];
@@ -21,8 +19,19 @@ in {
   };
 
   dov = {
-    fish.enable = false;
+    shell = {
+      fish.enable = false;
+      zsh.enable = true;
+    };
+    browser = {
+      brave.enable = false;
+      firefox.enable = true;
+      chrome.enable = true;
+      qutebrowser.enable = true;
+    };
     hypr.enable = true;
+    polybar.enable = false;
+    kanshi.enable = true;
   };
 
   programs.home-manager.enable = true;
@@ -48,69 +57,51 @@ in {
     mu
     pandoc
     python3
-    gradle
 
     # social
     telegram-desktop
     thunderbird
+    element-desktop
+    teams-for-linux
 
     # development
+    gradle
     maven
     jetbrains.idea-ultimate
     jetbrains.webstorm
     direnv
     jdt-language-server
+    yarn
+    nodejs
+    semgrep
 
     #torrent
     qbittorrent
 
-    #browsers
-    brave
-    firefox
-    tor-browser
-
-    #eww
-    mako
-    libnotify
-    kitty
-    rofi-wayland
-    wofi
-
     kate
+    ark
     keepassxc
     virt-manager
-
-    # Gaming
-    steam
-    wine
-    (lutris.override {
-      extraLibraries =  pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-        # List package dependencies here
-        wine
-      ];
-    })
-    protontricks
-
-    #vpn
-    protonvpn-gui
-    python311Packages.protonvpn-nm-lib
-    protonvpn-cli
-
-    #libsForQt5.spectacle
-    #flameshot
 
     libreoffice
     grim
     slurp
     wl-clipboard
+    qpdf
+    cloudflared
+    okular #pdf tool
+
+    #music
+    mpd
+    mpv
+    mpc-cli
+    ncmpcpp
   ];
 
   # fix collision between java17 and 11
   home.file."jdk/openjdk11".source = pkgs.jdk11;
   home.file."jdk/openjdk17".source = pkgs.jdk17;
+  home.file."jdk/openjdk21".source = pkgs.jdk21;
 
   home.file."Wallpapers/wallpaper.png" = {
     source = ./wallpapers/wallpaper.png;
@@ -139,39 +130,8 @@ in {
     };
   };
 
-  # Enable autorandra for auto detection of connected displays
-  programs.autorandr = {
-    enable = false;
-    profiles = {
-      "work" = {
-        fingerprint = {
-          eDP1 = "<EDID>";
-          DP1 = "<EDID>";
-        };
-        config = {
-          eDP1.enable = false;
-          DP1 = {
-            enable = true;
-            crtc = 0;
-            primary = true;
-            position = "0x0";
-            mode = "3840x2160";
-            gamma = "1.0:0.909:0.833";
-            rate = "60.00";
-            rotate = "left";
-          };
-        };
-      };
-    };
-  };
-
   # blutooth applet
   services.blueman-applet.enable = true;
-
-  dov = {
-    polybar.enable = false;
-  };
-
 
   xdg.mimeApps = {
       enable = true;
@@ -183,5 +143,31 @@ in {
           "x-scheme-handler/about" = [ "firefox.desktop" ];
           "x-scheme-handler/unknown" = [ "firefox.desktop" ];
       };
+  };
+
+  # TODO move to separate module
+  programs.mbsync = {
+    enable = true;
+    extraConfig = ''
+      IMAPStore alex-derevianko-remote
+      Host imap.gmail.com
+      SSLType IMAPS
+      AuthMechs LOGIN
+      User alexander0derevianko@gmail.com
+      PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.config/mu4e/mbsyncpass-acc-alex-derevianko.gpg"
+
+      MaildirStore alex-derevianko-local
+      Path ~/Mail/alex-derevianko/
+      Inbox ~/Mail/alex-derevianko/INBOX
+      Subfolders Verbatim
+
+      Channel alex-derevianko
+      Far :alex-derevianko-remote:
+      Near :alex-derevianko-local:
+      Create Both
+      Expunge Both
+      Patterns * !"[Gmail]/All Mail" !"[Gmail]/Bin" !"[Gmail]/Spam"
+      SyncState *
+    '';
   };
 }

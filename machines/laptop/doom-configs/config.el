@@ -82,6 +82,20 @@
                (:prefix ("d" . "dap")
                         "c" #'dap-java-run-test-class
                         "m" #'dap-java-run-test-method
+                        "n" #'dap-next
+                        "i" #'dap-step-in
+                        "C" #'dap-continue
+                        "k" #'dap-disconnect
+                        "r" #'dap-debug-restart
+                        (:prefix ("b" . "breakpoint")
+                                 "a" #'dap-breakpoint-add
+                                 "d" #'dap-breakpoint-delete
+                                 "A" #'dap-breakpoint-delete-all
+                                 )
+                        (:prefix ("d" . "debug")
+                                 "c" #'dap-java-debug-test-class
+                                 "m" #'dap-java-debug-test-method
+                                 )
                         )
                (:prefix ("l" . "lsp")
                         "j" #'lsp-jt-browser
@@ -103,11 +117,15 @@
 
 
 (after! org
+  (setq org-agenda-files '("~/org/agenda.org"
+                           "~/nixos-dotfiles/todo.org"))
   (setq org-default-notes-file (expand-file-name "notes.org" org-directory)
         org-ellipsis " ▼ "
         org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
         org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-agenda-start-with-log-mode t
         org-log-done 'time
+        org-log-into-drawer t
         org-hide-emphasis-markers t
         ;; ex. of org-link-abbrev-alist in action
         ;; [[arch-wiki:Name_of_Page][Description]]
@@ -126,9 +144,6 @@
            "DONE(d)"           ; Task has been completed
            "CANCELLED(c)" )))) ; Task has been cancelled
 
-(after! org
-  (setq org-agenda-files '("~/nc/Org/agenda.org")))
-
 (after! lsp-java
   (require 'lsp-java-boot)
   (require 'dap-java)
@@ -137,16 +152,71 @@
   (add-hook 'lsp-mode-hook #'lsp-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
-  ;; (setf lombok-jar-path "/home/omen/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar")
-  ;; (setq lsp-java-vmargs `(
-  ;;                         "-XX:+UseParallelGC"
-  ;;                         "-XX:GCTimeRatio=4"
-  ;;                         "-XX:AdaptiveSizePolicyWeight=90"
-  ;;                         "-Dsun.zip.disableMemoryMapping=true"
-  ;;                         "-Xmx1G"
-  ;;                         "-Xms100m"
-  ;;                         ,(concat "-javaagent:" lombok-jar-path)
-  ;;                         )
-  ;;       )
-  ;; (delete-directory lsp-java-workspace-dir t)
   )
+
+(add-to-list 'safe-local-variable-values #'stringp)
+(advice-add 'risky-local-variable-p :override #'ignore)
+
+
+;; Email client seup
+(use-package! mu4e
+  ;; pull in org helpers
+  ;;(require 'mu4e-org)
+  :config
+  (setq user-mail-address "alexander0derevianko@gmail.com"
+      user-full-name  "Alexander Derevianko"
+      ;; I have my mbsyncrc in a different folder on my system, to keep it separate from the
+      ;; mbsyncrc available publicly in my dotfiles. You MUST edit the following line.
+      ;; Be sure that the following command is: "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      ;; mu4e-compose-signature
+      ;;  (concat
+      ;;    "Derek Taylor\n"
+      ;;    "http://www.youtube.com/DistroTube\n")
+      message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      mu4e-root-maildir "~/Mail"
+      ;; Make sure plain text mails flow correctly for recipients
+      mu4e-compose-format-flowed t
+      )
+
+  (setq mu4e-contexts
+        (list
+        (make-mu4e-context
+                :name "Personal"
+                :match-func
+                (lambda (msg)
+                (when msg
+                (string-prefix-p "/alex-derevianko" (mu4e-message-field msg :maildir))))
+                :vars '((user-mail-address . "alexander0derevianko@gmail.com")
+                        (user-full-name . "Alexander Derevianko")
+                        (smtpmail-smtp-server . "smtp.gmail.com")
+                        (smtpmail-smtp-service . 465)
+                        (smtpmail-stream-type . ssl)
+                        (mu4e-sent-folder . "/alex-derevianko/[Gmail]/Sent Mail")
+                        (mu4e-drafts-folder . "/alex-derevianko/[Gmail]/Drafts")
+                        (mu4e-trash-folder . "/alex-derevianko/[Gmail]/Trash")
+                        (mu4e-refile-folder . "/alex-derevianko/[Gmail]/All Mail")
+                        (mu4e-maildir-shortcuts . '(("/alex-derevianko/INBOX" . ?i)
+                                                ("/alex-derevianko/[Gmail]/Sent Mail" . ?s)))
+                        )))
+        )
+)
+(use-package! org-mime
+  :ensure t
+  :config
+  (setq org-mime-export-options '(:section-numbers nil
+                                  :with-author nil
+                                  :with-toc nil))
+  (add-hook! 'message-send-hook 'org-mime-confirm-when-no-multipart))
+
+;; Music emms
+(use-package! emms
+  :config
+  (require 'emms-setup)
+  (require 'emms-player-mpd)
+  (emms-all)
+  (setq emms-seek-seconds 5
+        emms-player-list '(emms-player-mpd)
+        emms-info-functions '(emms-info-mpd)))
