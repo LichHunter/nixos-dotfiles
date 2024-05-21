@@ -50,7 +50,7 @@ in {
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
     #initialPassword = "test";
-    hashedPasswordFile = "/persist/hashedPassword";
+    #hashedPasswordFile = "/persist/hashedPassword";
     packages = with pkgs; [
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
