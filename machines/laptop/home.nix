@@ -145,6 +145,7 @@ in {
       };
   };
 
+  # TODO move to separate module
   programs.mbsync = {
     enable = true;
     extraConfig = ''

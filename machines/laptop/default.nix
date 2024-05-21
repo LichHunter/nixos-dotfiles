@@ -131,6 +131,7 @@ in {
     pamixer
     async-profiler
     gparted
+    distrobox
 
     # for lutris winetriks
     libsForQt5.kdialog
