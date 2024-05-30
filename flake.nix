@@ -19,7 +19,8 @@
 
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    #hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; # TODO temporary fix while hyprland won't be fixed - https://github.com/hyprwm/Hyprland/issues/5891
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

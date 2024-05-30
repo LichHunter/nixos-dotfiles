@@ -1,6 +1,5 @@
 #this should be temporary as for now default jdk is 21 and it deprecated source 7
 final: prev: {
-  async-profiler = prev.async-profiler.override {jdk=prev.jdk19;};
   mu = prev.mu.overrideAttrs (old: {
     version = "1.10.8";
     src = prev.fetchFromGitHub {
