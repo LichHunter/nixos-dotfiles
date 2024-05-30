@@ -18,6 +18,7 @@ in {
       kitty
       wofi
       jq # used in lock to get language
+      wayland-protocols
 
       #hyprland extensions
       hyprlock
@@ -144,7 +145,7 @@ in {
 
         input = {
           kb_layout = "us,ru,ua";
-          kb_options = "grp:grp:shifts_toggle";
+          kb_options = "grp:win_space_toggle";
 
           follow_mouse = 1;
 

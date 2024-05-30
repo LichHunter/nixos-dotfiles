@@ -169,3 +169,7 @@ After some time laptop will freez and stop respond
 I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
+* TODO Add distrobox.conf file to nixos configs
+* TODO Add vis config files to nixos
+* TODO Fix kanshi profiles to settings
+trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.

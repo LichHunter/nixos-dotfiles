@@ -137,6 +137,9 @@ in {
     libsForQt5.kdialog
     cabextract
     libreoffice
+
+    # backup
+    pika-backup
   ];
 
 

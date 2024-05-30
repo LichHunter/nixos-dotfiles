@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    fftw
+  ];
+
   programs.ncmpcpp = {
     enable = true;
     bindings = [
@@ -12,6 +16,12 @@
     settings = {
       user_interface = "alternative";
       colors_enabled = "yes";
+      visualizer_fifo_path = "/tmp/mpd.fifo";
+      visualizer_output_name = "my_fifo";
+      visualizer_sync_interval = "30";
+      visualizer_in_stereo = "yes";
+      visualizer_type = "wave";# (spectrum/wave)
+      #visualizer_type = "spectrum";
     };
   };
 }
