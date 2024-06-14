@@ -106,3 +106,8 @@ gpgconf --kill gpg-agent
 # start it
 gpg-agent
 #+end_src
+
+* Nix format
+#+begin_src bash
+sudo nix fmt
+#+end_src

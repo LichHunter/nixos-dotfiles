@@ -194,3 +194,4 @@ trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.s
 * TODO Fix split-workspaces are broken for now with latest version of hypland
 Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull/96 to be merged
 As I understood this will fix it
+* TODO Latest update broke theming...
