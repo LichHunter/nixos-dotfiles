@@ -221,7 +221,7 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "backup";
+    backupFileExtension = "home-backup";
     extraSpecialArgs = { inherit inputs spkgs username; };
 
     users."${config.variables.username}" = {

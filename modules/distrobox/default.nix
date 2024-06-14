@@ -5,5 +5,5 @@
     distrobox
   ];
 
-  #xdg.configFile."distrobox/distrobox.conf".source = ./distrobox.conf;
+  xdg.configFile."distrobox/distrobox.conf".source = ./distrobox.conf;
 }

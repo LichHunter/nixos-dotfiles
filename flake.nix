@@ -120,7 +120,7 @@
           ./modules/music/ncmpcpp
           # TODO not yet in my current homemanager, need to update it
           #./modules/fastfetch
-          #./modules/distrobox
+          ./modules/distrobox
 
           #Themes
           # TODO in default.nix we have hardcode config of dconf and this need to be extracted

@@ -136,14 +136,23 @@ Seems to be issue of KDE, its cofniguration had sddm config and it conflicted wi
 CLOSED: [2024-04-21 Sun 11:49]
 * DONE Add dap mode shortcuts
 CLOSED: [2024-05-02 Thu 09:58]
-* TODO [#C] Fix hyprland crashing on start
+* DONE Issue when laptop sits for a while
+CLOSED: [2024-06-14 Fri 11:16]
+After some time laptop will freez and stop respond
+
+Seems to be issue of impermanence, as now after migration to normal nixos issue was fixed
+* DONE [#C] Fix hyprland crashing on start
+CLOSED: [2024-06-14 Fri 11:19]
 Stoped now..
 No idea what is going on
-* TODO [#C] Login crashes some times after first time password is entered
+Seems to be fixed in late updates
+* DONE [#C] Login crashes some times after first time password is entered
+CLOSED: [2024-06-14 Fri 11:20]
 Stoped now...
 No idea what is going on here either
-* TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
-* TODO Hypr crashes on login if kde is removed <<issue>>
+Looks like fixed in late releases too
+* DONE Hypr crashes on login if kde is removed <<issue>>
+CLOSED: [2024-06-14 Fri 11:20]
 Possible [[https://www.reddit.com/r/hyprland/comments/16ls2pn/nixos_hyprland_crashing_on_startup/][solution]]
 Possible this error somewhat related to xdg-portals and gtk...
 
@@ -160,11 +169,14 @@ Sooo, seems like I havent fixed it at the end, as after nixos-switch I'm crashin
 Or not, just rebuilt and everything is ok...
 No Idea what is going on
 Will leave it as it is
-* TODO Fix suggesstion window in IDEA for hypr
+Looks like fixed in late update too
+* DONE Fix suggesstion window in IDEA for hypr
+CLOSED: [2024-06-14 Fri 11:21]
 Possible solution
 https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
-* TODO Issue when laptop sits for a while
-After some time laptop will freez and stop respond
+
+Looks like fixed for now
+* TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO User username parameter instead of variable
 I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
 * TODO Fix emms in emacs
@@ -173,3 +185,4 @@ For not I get some strage permission error but in ncmpcpp everything works fine
 * TODO Add vis config files to nixos
 * TODO Fix kanshi profiles to settings
 trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.
+* TODO Add hyprland move window from one screen to another
