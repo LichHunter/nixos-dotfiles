@@ -120,10 +120,11 @@ in {
   stylix = {
     autoEnable = false;
     targets = {
-      rofi.enable = true;
       alacritty.enable = true;
-      #wofi.enable = true;
+
       firefox.enable = true;
+      qutebrowser.enable = true;
+
       gtk.enable = true;
       hyprland.enable = true;
       kde.enable = false;

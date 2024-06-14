@@ -195,3 +195,7 @@ trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.s
 Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull/96 to be merged
 As I understood this will fix it
 * TODO Latest update broke theming...
+Rolling back to previous version fixed it.
+Created issue to get help - https://github.com/danth/stylix/issues/430
+* TODO Look at nix fmt error
+After running `nix fmt` to format code git is no longer able to commit changes
