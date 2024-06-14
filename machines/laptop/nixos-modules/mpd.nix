@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 {
   systemd.services.mpd.environment = {
@@ -8,8 +8,8 @@
 
   services.mpd = {
     enable = true;
-    user = "${config.variables.username}";
-    musicDirectory = "/home/${config.variables.username}/Music";
+    user = "${username}";
+    musicDirectory = "/home/${username}/Music";
     extraConfig = ''
       audio_output {
           type "pipewire"

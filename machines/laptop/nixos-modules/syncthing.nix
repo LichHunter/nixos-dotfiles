@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 with lib;
 
@@ -8,8 +8,8 @@ with lib;
     services = {
       syncthing = {
         enable = true;
-        user = "${config.variables.username}";
-        dataDir = "/home/${config.variables.username}/syncthing";
+        user = "${username}";
+        dataDir = "/home/${username}/syncthing";
         overrideDevices = false;     # overrides any devices added or deleted through the WebUI
         overrideFolders = false;     # overrides any folders added or deleted through the WebUI
         settings = {
@@ -19,7 +19,7 @@ with lib;
           };
           folders = {
             "Documents" = {         # Name of folder in Syncthing, also the folder ID
-            path = "/home/${config.variables.username}/Documents/shared";    # Which folder to add to Syncthing
+              path = "/home/${username}/Documents/shared";    # Which folder to add to Syncthing
             devices = [ "phone" "server" ];      # Which devices to share the folder with
             };
             # "Example" = {

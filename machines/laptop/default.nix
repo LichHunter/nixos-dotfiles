@@ -44,9 +44,9 @@ in {
     };
   };
 
-  users.users."${config.variables.username}" = {
+  users.users."${username}" = {
     isNormalUser = true;
-    description = "omen";
+    description = "My HP Omen laptop nixos";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     shell = pkgs.zsh;
     #initialPassword = "test";
@@ -224,7 +224,7 @@ in {
     backupFileExtension = "home-backup";
     extraSpecialArgs = { inherit inputs spkgs username; };
 
-    users."${config.variables.username}" = {
+    users."${username}" = {
       imports = [
         ./home.nix
         #inputs.impermanence.nixosModules.home-manager.impermanence

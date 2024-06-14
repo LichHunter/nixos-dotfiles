@@ -178,12 +178,14 @@ https://github.com/hyprwm/Hyprland/issues/3450#issuecomment-1816761575
 Looks like fixed for now
 * DONE Add vis config files to nixos
 CLOSED: [2024-06-14 Fri 11:38]
-* TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
-* TODO User username parameter instead of variable
+* DONE Add distrobox.conf file to nixos configs
+CLOSED: [2024-06-14 Fri 11:39]
+* DONE User username parameter instead of variable
+CLOSED: [2024-06-14 Fri 11:49]
 I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
+* TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
-* TODO Add distrobox.conf file to nixos configs
 * TODO Fix kanshi profiles to settings
 trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.
 * TODO Add hyprland move window from one screen to another

@@ -6,6 +6,5 @@ in {
     ./../variables.nix
   ];
 
-  config.variables.username = "omen";
   config.variables.stateVersion = "24.05";
 }

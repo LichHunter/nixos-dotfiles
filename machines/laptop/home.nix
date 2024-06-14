@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, username, ... }:
 let
   mod = "Mod4";
 
@@ -14,8 +14,8 @@ in {
 
   home = {
     stateVersion = "${config.variables.stateVersion}";
-    username = config.variables.username;
-    homeDirectory = "/home/${config.variables.username}";
+    username = username;
+    homeDirectory = "/home/${username}";
   };
 
   dov = {
