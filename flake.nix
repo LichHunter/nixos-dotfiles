@@ -118,6 +118,7 @@
           ./modules/filemanager/ranger
           ./modules/music/beets
           ./modules/music/ncmpcpp
+          ./modules/music/cli-visualizer
           # TODO not yet in my current homemanager, need to update it
           #./modules/fastfetch
           ./modules/distrobox

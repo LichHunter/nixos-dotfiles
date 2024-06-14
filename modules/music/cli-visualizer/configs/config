@@ -1,0 +1,6 @@
+visualizer.spectrum.smoothing.mode=sgs
+visualizer.spectrum.bar.spacing=0
+
+colors.override.terminal=true
+colors.scheme=rainbow
+
