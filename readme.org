@@ -1,9 +1,53 @@
 #+title: Readme
 
-* Instlation
-Checkout impermanence branch and follow readme in it
+Hi there!
+How did you find this repo?
+You either me and want to install belowed NixOS on new system or you are very lost and need to get back to normal Linux distribuions as fast as possible while you can, don't try to help, leave me here, now I can't return to normal people, it is too late.
+If you are still here then lets discuss my setup.
+* Setup
+Currently I'm using nixos-unstable with flake based configuration.
+As my primary maching is laptop - all links will be pointing to it.
+I try to keep vm configs up to date, but as it is not used I rarely actually do it.
 
-After nixos is installed follow next steps
-1. clone repo again
-2. create hashedPassword file in /persistance
-3. run emacs/install.sh
+Installed packages
+- Hyprland
+  Is Wayland dynamic tiling compositor
+  - [[file:machines/laptop/nixos-modules/hypr.nix][nixos configs]]
+  - [[file:modules/rice/my/hypr/default.nix][home-manager]]
+- Stylix
+  Used to customize theming across system
+  - [[file:machines/laptop/default.nix][nixos configs]] - search for stylix
+  - [[file:machines/laptop/home.nix][home-manager]] - seach for stylix
+- Alacritty
+- Browsers
+  There are some options that can be enabled using `dov.browser.{browserName} = true;`
+  Available options:
+  1. Firefox
+  2. Qutebrowser
+  3. Chrome
+  4. Brave
+  5. Vivaldi
+- Filemanager
+  I use ranger for terminal and thunar for GUI option
+
+
+* Installation
+1. Create installation flashdrive with latest iso using this command
+  #+begin_src bash
+  sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
+  #+end_src
+2. Install using gui installation tool (in future perhaps I will create nixos config for it)
+3. Add ssh files from backups
+4. Clone this repo
+  #+begin_src bash
+  git clone git@github.com:LichHunter/nixos-dotfiles.git
+  #+end_src
+5. Run command to install configuration
+   In this case I'm running boot option as there are a bunch of packages (around 20G was) to be installed and this can break smth if run switch
+   `nixos-boot` == `sudo nixos-rebuild boot --flake ~/nixos-dotfiles#laptop`
+  #+begin_src bash
+  nixos-boot
+  #+end_src
+
+* Afterword
+There is also [[file:wiki.org][wiki.org]] file that contains some commands that can be used
