@@ -6,5 +6,6 @@
     ./chrome
     ./firefox
     ./qutebrowser
+    ./vivaldi
   ];
 }

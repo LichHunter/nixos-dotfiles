@@ -28,6 +28,7 @@ in {
       firefox.enable = true;
       chrome.enable = true;
       qutebrowser.enable = true;
+      #vivaldi.enable = true;
     };
     hypr.enable = true;
     polybar.enable = false;
