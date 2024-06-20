@@ -183,6 +183,15 @@ CLOSED: [2024-06-14 Fri 11:39]
 * DONE User username parameter instead of variable
 CLOSED: [2024-06-14 Fri 11:49]
 I've added username to the flake and now would need to do some refactoring to use it instead of username from variables.nix as it seem to be better way to manage username variable
+* DONE Latest update broke theming...
+CLOSED: [2024-06-20 Thu 22:14]
+Rolling back to previous version fixed it.
+Created issue to get help - https://github.com/danth/stylix/issues/430
+
+Fixed stylix. As I mentioned in issue, there were a commit with change of accent colors for GTK, as it doesn't work for me I've forked project and reverted change.
+Now will need to periodically update fork to keep up with upstream.
+Also finally fixed image.png.drv issue. It was related to "image.png" not exising (before it worked fine before tho...), so now I use exising wallpaper in repo.
+I don't think it changes anything in hyprland at all so will leave it as it is for now
 * TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
@@ -194,8 +203,5 @@ trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.s
 * TODO Fix split-workspaces are broken for now with latest version of hypland
 Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull/96 to be merged
 As I understood this will fix it
-* TODO Latest update broke theming...
-Rolling back to previous version fixed it.
-Created issue to get help - https://github.com/danth/stylix/issues/430
 * TODO Look at nix fmt error
 After running `nix fmt` to format code git is no longer able to commit changes

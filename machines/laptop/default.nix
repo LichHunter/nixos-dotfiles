@@ -2,11 +2,11 @@
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-  wallpaper = pkgs.runCommand "image.png" {} ''
-        COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${theme})
-        COLOR="#"$COLOR
-        ${pkgs.imagemagick}/bin/magick convert -size 1920x1080 xc:$COLOR $out
-  '';
+  # wallpaper = pkgs.runCommand "~/Wallpapers/wallpaper.png" {} ''
+  #       COLOR=$(${pkgs.yq}/bin/yq -r .base00 ${theme})
+  #       COLOR="#"$COLOR
+  #       ${pkgs.imagemagick}/bin/magick convert -size 1920x1080 xc:$COLOR $out
+  # '';
 in {
   imports =
     [
@@ -187,7 +187,8 @@ in {
   ];
 
   stylix = {
-    image = wallpaper;
+    enable = true;
+    image = ./wallpapers/wallpaper.png;
 
     # this can be used when we are using not base16 scheme but auto generated
     # to set dark colors as more prefered

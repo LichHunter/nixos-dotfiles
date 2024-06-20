@@ -119,15 +119,9 @@ in {
  };
 
   stylix = {
-    autoEnable = false;
+    enable = true;
+    autoEnable = true;
     targets = {
-      alacritty.enable = true;
-
-      firefox.enable = true;
-      qutebrowser.enable = true;
-
-      gtk.enable = true;
-      hyprland.enable = true;
       kde.enable = false;
     };
   };
