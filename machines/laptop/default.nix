@@ -12,7 +12,7 @@ in {
     [
       ./hardware-configuration.nix # Include the results of the hardware scan.
       ./variables.nix
-      ./hardware
+      #./hardware
       ./nixos-modules
       inputs.home-manager.nixosModules.home-manager
     ];

@@ -33,7 +33,6 @@
     nur.url = "github:nix-community/NUR";
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
-
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -101,7 +100,7 @@
         ./machines/laptop
         [
           ./modules/options.nix
-
+          nixos-hardware.nixosModules.omen-15-en1007sa
         ] # extra modules
         [
           ./modules/git
