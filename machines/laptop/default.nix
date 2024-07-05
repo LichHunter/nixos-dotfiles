@@ -85,6 +85,8 @@ in {
       texlive.combined.scheme-medium
       # :lang nix
       nixfmt-classic
+      #nixd
+      nil
       # :lang lisp
       sbcl
       # :lang sh
@@ -105,6 +107,8 @@ in {
       rubocop
 
       isync # mu4e related
+
+      devpod
     ];
   };
 

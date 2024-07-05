@@ -152,6 +152,11 @@
   (add-hook 'lsp-mode-hook #'lsp-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
   (add-hook 'java-mode-hook #'lsp-java-boot-lens-mode)
+  (lsp-register-client
+    (make-lsp-client :new-connection (lsp-stdio-connection "nixd")
+                     :major-modes '(nix-mode)
+                     :priority 0
+                     :server-id 'nixd))
   )
 
 (add-to-list 'safe-local-variable-values #'stringp)
@@ -220,3 +225,21 @@
   (setq emms-seek-seconds 5
         emms-player-list '(emms-player-mpd)
         emms-info-functions '(emms-info-mpd)))
+
+(after! lsp-mode
+  ;; (lsp-register-client                  ;
+  ;;   (make-lsp-client :new-connection (lsp-stdio-connection "nixd")
+  ;;                    :major-modes '(nix-mode)
+  ;;                    :priority 0
+  ;;                    :server-id 'nixd))
+(use-package lsp-nix
+  :ensure lsp-mode
+  :after (lsp-mode)
+  :demand t
+  :custom
+  (lsp-nix-nil-formatter ["nixpkgs-fmt"]))
+
+(use-package nix-mode
+  :hook (nix-mode . lsp-deferred)
+  :ensure t)
+  )
