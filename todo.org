@@ -192,6 +192,8 @@ Fixed stylix. As I mentioned in issue, there were a commit with change of accent
 Now will need to periodically update fork to keep up with upstream.
 Also finally fixed image.png.drv issue. It was related to "image.png" not exising (before it worked fine before tho...), so now I use exising wallpaper in repo.
 I don't think it changes anything in hyprland at all so will leave it as it is for now
+* DONE Add readme
+CLOSED: [2024-06-28 Fri 19:52]
 * TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
@@ -205,4 +207,4 @@ Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull
 As I understood this will fix it
 * TODO Look at nix fmt error
 After running `nix fmt` to format code git is no longer able to commit changes
-* TODO Add readme
+* TODO Change doom font to properly shot italy text
