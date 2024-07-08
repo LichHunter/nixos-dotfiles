@@ -107,8 +107,6 @@ in {
       rubocop
 
       isync # mu4e related
-
-      devpod
     ];
   };
 

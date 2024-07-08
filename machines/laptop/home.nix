@@ -51,6 +51,7 @@ in {
     font-awesome_5
     source-code-pro
     vlc
+    gcc
 
     coreutils
     libtool
@@ -75,6 +76,9 @@ in {
     yarn
     nodejs
     semgrep
+    devpod
+    jetbrains.gateway
+    tmux
 
     #torrent
     qbittorrent
