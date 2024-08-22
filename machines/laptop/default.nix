@@ -23,8 +23,6 @@ in {
 
   time.timeZone = "Europe/Warsaw";
 
-  sound.enable = true;
-
   security.rtkit.enable = true;
 
   hardware = {
@@ -224,7 +222,7 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "home-backup";
+    backupFileExtension = "backup";
     extraSpecialArgs = { inherit inputs spkgs username; };
 
     users."${username}" = {
@@ -244,4 +242,6 @@ in {
       cores = 6;
     };
   };
+
+  networking.firewall.enable = true;
 }

@@ -208,3 +208,7 @@ As I understood this will fix it
 * TODO Look at nix fmt error
 After running `nix fmt` to format code git is no longer able to commit changes
 * TODO Change doom font to properly shot italy text
+* TODO Add fractional scalling
+From what I can see I can do it either in kanshe or hyprland but as I'm using kanshi for autodetection of displays I think this should be there
+* TODO Fix building with sudo
+After building system with sudo I can't run 'nix develop' or other commands without removing cache first

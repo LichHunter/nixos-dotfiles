@@ -170,4 +170,27 @@ in {
       SyncState *
     '';
   };
+
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+
+    settings = {
+      nix_shell = {
+        disabled = false;
+        impure_msg = "";
+        symbol = "";
+        format = "[$symbol$state]($style) ";
+      };
+      shlvl = {
+        disabled = false;
+        symbol = "λ ";
+      };
+      haskell.symbol = " ";
+      openstack.disabled = true;
+      gcloud.disabled = true;
+    };
+  };
 }
