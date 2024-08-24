@@ -7,6 +7,7 @@ in {
     inputs.home-manager.nixosModules.home-manager
     ./disko-config.nix
   ];
+  system.stateVersion = "24.05";
 
   nix = {
     package = pkgs.nixFlakes;
@@ -80,11 +81,19 @@ in {
      cifs-utils
      nfs-utils
      git
+     jellyfin
+     jellyfin-web
+     jellyfin-ffmpeg
   ];
-
-  services.openssh.enable = true;
 
   networking.firewall.enable = false;
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  services = {
+    openssh.enable = true;
+
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
+  };
 }
