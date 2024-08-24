@@ -45,7 +45,7 @@ in {
   users.users."${username}" = {
     isNormalUser = true;
     description = "My HP Omen laptop nixos";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "audio" ];
     shell = pkgs.zsh;
     #initialPassword = "test";
     #hashedPasswordFile = "/persist/hashedPassword";

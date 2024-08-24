@@ -111,3 +111,8 @@ gpg-agent
 #+begin_src bash
 sudo nix fmt
 #+end_src
+* Sound issues
+For some reason sound stoped working and was able to fix using:
+#+begin_example bash
+systemctl --user restart pipewire.service
+#+end_example

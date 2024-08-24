@@ -33,6 +33,11 @@
     nur.url = "github:nix-community/NUR";
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -42,7 +47,9 @@
                      emacs-overlay,
                      hyprland,
                      nur,
-                     arkenfox, ... }:
+                     arkenfox,
+                     disko,
+                     ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -130,6 +137,18 @@
           arkenfox.hmModules.arkenfox
         ] # extra modules to be loaded by home-manager
         "omen" # username
+        ;
+
+      # asus laptop
+      uzume = mkComputer
+        ./machines/uzume
+        [
+          disko.nixosModules.disko
+        ] # extra nix modules
+        [
+
+        ] # extra home-manager modules
+        "uzume" #username
         ;
     };
   };
