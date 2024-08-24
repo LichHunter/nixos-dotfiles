@@ -70,6 +70,8 @@ in {
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
+      vim
+      jackett
     ];
     # Created using mkpasswd
     hashedPassword = "$6$oUcMXXTDVOSJw9y3$Y5oYAD9ogAUdkWQp30w/l43fupl2QLiwEt1mNWkl9ddGqsCgjMGNMvgUWiApxzFjIBlLWhZbKelZe01ROy5I8.";
@@ -95,6 +97,11 @@ in {
     openssh.enable = true;
 
     jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
+
+    radarr = {
       enable = true;
       openFirewall = true;
     };
