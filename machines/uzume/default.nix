@@ -31,7 +31,10 @@ in {
   systemd.tmpfiles.rules = [
     "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
   ];
-  virtualisation.docker.logDriver = "json-file";
+  virtualisation.docker = {
+    enable = true;
+    logDriver = "json-file";
+  };
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -64,7 +67,7 @@ in {
 
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
