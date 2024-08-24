@@ -56,6 +56,11 @@ in {
   #   name = "iqn.2016-04.com.open-iscsi:${meta.hostname}";
   # };
 
+  security.pam = {
+    sshAgentAuth.enable = true;
+    services.sudo.sshAgentAuth = true;
+  };
+
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
@@ -63,10 +68,10 @@ in {
       tree
     ];
     # Created using mkpasswd
-    hashedPassword = "$6$wDXfPk9alZbc3ErH$MF8kK5vzjyrXXWdbDRU3FBBOoO9r0RT0VXrhciiwSrbRx.vuKbvAfPP37f.VWKfCe6BCoAgnyWShOXh4eTETp0";
-     openssh.authorizedKeys.keys = [
-       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcGhVpjmWEw1GEw0y/ysJPa2v3+u/Rt/iES/Se2huH2 alexander0derevianko@gmail.com"
-     ];
+    hashedPassword = "$6$oUcMXXTDVOSJw9y3$Y5oYAD9ogAUdkWQp30w/l43fupl2QLiwEt1mNWkl9ddGqsCgjMGNMvgUWiApxzFjIBlLWhZbKelZe01ROy5I8.";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcGhVpjmWEw1GEw0y/ysJPa2v3+u/Rt/iES/Se2huH2 alexander0derevianko@gmail.com"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
