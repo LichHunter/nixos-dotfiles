@@ -1,4 +1,3 @@
-
 { inputs, config, pkgs, username, ... }:
 
 let
@@ -96,11 +95,73 @@ in {
 
             environment = {
               UMASK="022";
-              PUID="1000";
-              PGID="100";
             };
           };
         };
+
+        "nginx".settings.services = {
+          "nginx".service = {
+            image = "jc21/nginx-proxy-manager:latest";
+            restart = "unless-stopped";
+
+            ports = [
+              "80:80"
+              "81:81"
+              "443:443"
+            ];
+
+            volumes = [
+              "/home/${username}/nginx/data:/data"
+              "/home/${username}/nginx/letsencrypt:/etc/letsencrypt"
+            ];
+
+            environment = {
+              PUID = "1000";
+              PGID = "100";
+            };
+          };
+        };
+
+        # "media".settings.services = {
+        #   "jellyfin".service = {
+        #     image = "jellyfin/jellyfin";
+        #     restart = "unless-stopped";
+        #     container_name = "jellyfin";
+        #     user = "0:0";
+
+        #     ports = [
+        #       "8096:8096"
+        #     ];
+
+        #     volumes = [
+        #       "/data/jellyfin/config:/config"
+        #       "/data/jellyfin/cache:/cache"
+        #       "/data/media:/media"
+        #       "/data/media2:/media2:ro"
+        #     ];
+
+        #     environment = {
+        #       PUID = "0";
+        #       PGID = "0";
+        #     };
+        #   };
+
+        #   "radarr".service = {
+        #     image = "lscr.io/linuxserver/radarr";
+        #     restart = "unless-stopped";
+        #     container_name = "radarr";
+
+        #     ports = [
+        #       "7878:7878"
+        #     ];
+
+        #     volumes = [
+        #       "/data/radarr/data:/config"
+        #       "/data/media/movies:/movies"
+        #       "/data/incomplete:/incomplete"
+        #     ];
+        #   };
+        # };
       };
     };
   };
@@ -112,7 +173,7 @@ in {
 
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "media" ];
     packages = with pkgs; [
       tree
       vim
@@ -123,6 +184,8 @@ in {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcGhVpjmWEw1GEw0y/ysJPa2v3+u/Rt/iES/Se2huH2 alexander0derevianko@gmail.com"
     ];
   };
+
+  users.groups.media = { };
 
   environment.systemPackages = with pkgs; [
      neovim
@@ -140,42 +203,21 @@ in {
   services = {
     openssh.enable = true;
 
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-    };
+    # jellyfin = {
+    #   enable = true;
+    #   openFirewall = true;
+    #   group = config.users.users.${username}.group;
+    # };
 
     jackett = {
       enable = true;
+      group = config.users.users.${username}.group;
     };
 
     radarr = {
       enable = true;
       openFirewall = true;
+      group = "media";
     };
   };
-
-  # nixarr = {
-  #   enable = false;
-
-  #   mediaDir = "/data/media";
-  #   stateDir = "/data/media/.state/nixarr";
-
-  #   vpn = {
-  #     enable = true;
-  #     wgConf = "/data/.secret/wg.conf";
-  #   };
-
-  #   jellyfin = {
-  #     enable = true;
-  #   };
-
-  #   transmission = {
-  #     enable = true;
-  #     vpn.enable = true;
-  #     peerPort = 50000; # Set this to the port forwarded by your VPN
-  #   };
-
-  #   radarr.enable = true;
-  # };
 }
