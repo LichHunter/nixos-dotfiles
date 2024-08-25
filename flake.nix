@@ -38,6 +38,8 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -144,6 +146,7 @@
         ./machines/uzume
         [
           disko.nixosModules.disko
+          inputs.nixarr.nixosModules.default
         ] # extra nix modules
         [
 

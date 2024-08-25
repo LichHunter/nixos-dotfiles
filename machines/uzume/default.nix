@@ -1,5 +1,7 @@
 { inputs, pkgs, username, ... }:
 
+with inputs.nixarr;
+
 let
 in {
   imports = [
@@ -71,7 +73,6 @@ in {
     packages = with pkgs; [
       tree
       vim
-      jackett
     ];
     # Created using mkpasswd
     hashedPassword = "$6$oUcMXXTDVOSJw9y3$Y5oYAD9ogAUdkWQp30w/l43fupl2QLiwEt1mNWkl9ddGqsCgjMGNMvgUWiApxzFjIBlLWhZbKelZe01ROy5I8.";
@@ -105,5 +106,33 @@ in {
       enable = true;
       openFirewall = true;
     };
+
+    jackett = {
+      enable = true;
+    };
+  };
+
+  nixarr = {
+    enable = true;
+
+    mediaDir = "/data/media";
+    stateDir = "/data/media/.state/nixarr";
+
+    vpn = {
+      enable = true;
+      wgConf = "/data/.secret/wg.conf";
+    };
+
+    jellyfin = {
+      enable = true;
+    };
+
+    transmission = {
+      enable = true;
+      vpn.enable = true;
+      peerPort = 50000; # Set this to the port forwarded by your VPN
+    };
+
+    radarr.enable = true;
   };
 }
