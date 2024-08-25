@@ -146,7 +146,7 @@
         ./machines/uzume
         [
           disko.nixosModules.disko
-          inputs.nixarr.nixosModules.default
+          #inputs.nixarr.nixosModules.default
         ] # extra nix modules
         [
 

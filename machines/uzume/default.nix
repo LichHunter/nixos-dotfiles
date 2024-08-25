@@ -90,7 +90,6 @@ in {
      jellyfin
      jellyfin-web
      jellyfin-ffmpeg
-     libnatpmpd
   ];
 
   networking.firewall.enable = false;
@@ -113,27 +112,27 @@ in {
     };
   };
 
-  nixarr = {
-    enable = false;
+  # nixarr = {
+  #   enable = false;
 
-    mediaDir = "/data/media";
-    stateDir = "/data/media/.state/nixarr";
+  #   mediaDir = "/data/media";
+  #   stateDir = "/data/media/.state/nixarr";
 
-    vpn = {
-      enable = true;
-      wgConf = "/data/.secret/wg.conf";
-    };
+  #   vpn = {
+  #     enable = true;
+  #     wgConf = "/data/.secret/wg.conf";
+  #   };
 
-    jellyfin = {
-      enable = true;
-    };
+  #   jellyfin = {
+  #     enable = true;
+  #   };
 
-    transmission = {
-      enable = true;
-      vpn.enable = true;
-      peerPort = 50000; # Set this to the port forwarded by your VPN
-    };
+  #   transmission = {
+  #     enable = true;
+  #     vpn.enable = true;
+  #     peerPort = 50000; # Set this to the port forwarded by your VPN
+  #   };
 
-    radarr.enable = true;
-  };
+  #   radarr.enable = true;
+  # };
 }
