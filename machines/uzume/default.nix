@@ -1,3 +1,4 @@
+
 { inputs, config, pkgs, username, ... }:
 
 let
@@ -35,11 +36,15 @@ in {
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    age = {
+      keyFile = "/home/${username}/.config/sops/age/keys.txt";
+    };
 
     secrets = {
       wireguard-private-key = {
+        # TODO does not work for some reason, secret is still under root
         owner = config.users.users.${username}.name;
+        group = config.users.users.${username}.group;
       };
     };
   };
@@ -55,7 +60,7 @@ in {
       projects = {
         "deluge".settings.services = {
           "gluetun".service = {
-            image = "qmcgaw/gluetunl";
+            image = "qmcgaw/gluetun";
             container_name = "gluetun-protonvpn";
             capabilities = {
               NET_ADMIN = true;
@@ -106,7 +111,6 @@ in {
   };
 
   users.users.${username} = {
-    name = username;
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [

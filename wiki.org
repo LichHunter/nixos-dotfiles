@@ -116,3 +116,6 @@ For some reason sound stoped working and was able to fix using:
 #+begin_example bash
 systemctl --user restart pipewire.service
 #+end_example
+* Sops
+Notes:
+After installation src_bash[:exports code]{nixos-rebuild test --flake .#uzume} returns error but after running src_bash[:exports code]{nixos-rebuild boot --flake .#uzume} and running test again issue fixed
