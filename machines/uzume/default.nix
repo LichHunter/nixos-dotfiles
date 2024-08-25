@@ -1,6 +1,4 @@
-{ inputs, pkgs, username, ... }:
-
-with inputs.nixarr;
+{ inputs, config, pkgs, username, ... }:
 
 let
 in {
