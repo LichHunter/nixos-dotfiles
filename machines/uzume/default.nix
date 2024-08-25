@@ -82,24 +82,24 @@ in {
             ];
           };
 
-          # "deluge".service = {
-          #   image = "dheaps/deluge";
-          #   container_name = "deluge";
-          #   restart="unless-stopped";
-          #   network_mode = "container:gluetun-protonvpn";
+          "deluge".service = {
+            image = "dheaps/deluge";
+            container_name = "deluge";
+            restart="unless-stopped";
+            network_mode = "container:gluetun-protonvpn";
 
-          #   volumes = [
-          #     "/home/${username}/deluge/data:/data"
-          #     "/home/${username}/deluge/config:/config"
-          #     "/etc/localtime:/etc/localtime:ro"
-          #   ];
+            volumes = [
+              "/home/${username}/deluge/data:/data"
+              "/home/${username}/deluge/config:/config"
+              "/etc/localtime:/etc/localtime:ro"
+            ];
 
-          #   environment = {
-          #     UMASK="022";
-          #     PUID="1000";
-          #     PGID="100";
-          #   };
-          # };
+            environment = {
+              UMASK="022";
+              PUID="1000";
+              PGID="100";
+            };
+          };
         };
       };
     };
