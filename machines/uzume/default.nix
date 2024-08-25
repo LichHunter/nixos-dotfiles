@@ -90,6 +90,7 @@ in {
      jellyfin
      jellyfin-web
      jellyfin-ffmpeg
+     libnatpmpd
   ];
 
   networking.firewall.enable = false;
@@ -102,18 +103,18 @@ in {
       openFirewall = true;
     };
 
+    jackett = {
+      enable = true;
+    };
+
     radarr = {
       enable = true;
       openFirewall = true;
     };
-
-    jackett = {
-      enable = true;
-    };
   };
 
   nixarr = {
-    enable = true;
+    enable = false;
 
     mediaDir = "/data/media";
     stateDir = "/data/media/.state/nixarr";
