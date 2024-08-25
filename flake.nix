@@ -39,7 +39,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixarr.url = "github:rasmus-kirk/nixarr";
+    arion.url = "github:hercules-ci/arion";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -146,7 +148,8 @@
         ./machines/uzume
         [
           disko.nixosModules.disko
-          #inputs.nixarr.nixosModules.default
+          inputs.arion.nixosModules.arion
+          inputs.sops-nix.nixosModules.sops
         ] # extra nix modules
         [
 

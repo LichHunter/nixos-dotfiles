@@ -33,34 +33,74 @@ in {
   systemd.tmpfiles.rules = [
     "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
   ];
-  virtualisation.docker = {
-    enable = true;
-    logDriver = "json-file";
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+
+    secrets = {
+      wireguard-private-key = {
+        owner = config.users.users.${username}.name;
+      };
+    };
   };
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-  # services.k3s = {
-  #   enable = true;
-  #   role = "server";
-  #   tokenFile = /var/lib/rancher/k3s/server/token;
-  #   extraFlags = toString ([
-	#     "--write-kubeconfig-mode \"0644\""
-	#     "--cluster-init"
-	#     "--disable servicelb"
-	#     "--disable traefik"
-	#     "--disable local-storage"
-  #   ] ++ (if meta.hostname == "homelab-0" then [] else [
-	#       "--server https://homelab-0:6443"
-  #   ]));
-  #   clusterInit = (meta.hostname == "homelab-0");
-  # };
+  virtualisation = {
+    docker = {
+      enable = true;
+      logDriver = "json-file";
+    };
 
-  # services.openiscsi = {
-  #   enable = true;
-  #   name = "iqn.2016-04.com.open-iscsi:${meta.hostname}";
-  # };
+    arion = {
+      backend = "docker";
+      projects = {
+        "deluge".settings.services = {
+          "gluetun".service = {
+            image = "qmcgaw/gluetunl";
+            container_name = "gluetun-protonvpn";
+            capabilities = {
+              NET_ADMIN = true;
+            };
+            environment = {
+              VPN_SERVICE_PROVIDER="protonvpn";
+              VPN_TYPE="wireguard";
+              SERVER_COUNTRIES="Ukraine";
+            };
+
+            ports = [
+              "8112:8112"
+              "58846:58846"
+              "58946:58946"
+            ];
+
+            volumes = [
+              "${config.sops.secrets.wireguard-private-key.path}:/run/secrets/wireguard_private_key"
+            ];
+          };
+
+          # "deluge".service = {
+          #   image = "dheaps/deluge";
+          #   container_name = "deluge";
+          #   restart="unless-stopped";
+          #   network_mode = "container:gluetun-protonvpn";
+
+          #   volumes = [
+          #     "/home/${username}/deluge/data:/data"
+          #     "/home/${username}/deluge/config:/config"
+          #     "/etc/localtime:/etc/localtime:ro"
+          #   ];
+
+          #   environment = {
+          #     UMASK="022";
+          #     PUID="1000";
+          #     PGID="100";
+          #   };
+          # };
+        };
+      };
+    };
+  };
 
   security.pam = {
     sshAgentAuth.enable = true;
@@ -68,6 +108,7 @@ in {
   };
 
   users.users.${username} = {
+    name = username;
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
