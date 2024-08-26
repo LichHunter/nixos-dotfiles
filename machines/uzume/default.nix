@@ -32,22 +32,6 @@ in {
     "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
   ];
 
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-    age = {
-      keyFile = "/home/${username}/.config/sops/age/keys.txt";
-    };
-
-    secrets = {
-      wireguard-private-key = {
-        # TODO does not work for some reason, secret is still under root
-        owner = config.users.users.${username}.name;
-        group = config.users.users.${username}.group;
-      };
-    };
-  };
-
   virtualisation = {
     docker = {
       enable = true;
@@ -57,48 +41,6 @@ in {
     arion = {
       backend = "docker";
       projects = {
-        "deluge".settings.services = {
-          "gluetun".service = {
-            image = "qmcgaw/gluetun";
-            container_name = "gluetun-protonvpn";
-            capabilities = {
-              NET_ADMIN = true;
-            };
-            environment = {
-              VPN_SERVICE_PROVIDER="protonvpn";
-              VPN_TYPE="wireguard";
-              SERVER_COUNTRIES="Ukraine";
-            };
-
-            ports = [
-              "8112:8112"
-              "58846:58846"
-              "58946:58946"
-            ];
-
-            volumes = [
-              "${config.sops.secrets.wireguard-private-key.path}:/run/secrets/wireguard_private_key"
-            ];
-          };
-
-          "deluge".service = {
-            image = "dheaps/deluge";
-            container_name = "deluge";
-            restart="unless-stopped";
-            network_mode = "container:gluetun-protonvpn";
-
-            volumes = [
-              "/home/${username}/deluge/data:/data"
-              "/home/${username}/deluge/config:/config"
-              "/etc/localtime:/etc/localtime:ro"
-            ];
-
-            environment = {
-              UMASK="022";
-            };
-          };
-        };
-
         "nginx".settings.services = {
           "nginx".service = {
             image = "jc21/nginx-proxy-manager:latest";
@@ -121,47 +63,6 @@ in {
             };
           };
         };
-
-        # "media".settings.services = {
-        #   "jellyfin".service = {
-        #     image = "jellyfin/jellyfin";
-        #     restart = "unless-stopped";
-        #     container_name = "jellyfin";
-        #     user = "0:0";
-
-        #     ports = [
-        #       "8096:8096"
-        #     ];
-
-        #     volumes = [
-        #       "/data/jellyfin/config:/config"
-        #       "/data/jellyfin/cache:/cache"
-        #       "/data/media:/media"
-        #       "/data/media2:/media2:ro"
-        #     ];
-
-        #     environment = {
-        #       PUID = "0";
-        #       PGID = "0";
-        #     };
-        #   };
-
-        #   "radarr".service = {
-        #     image = "lscr.io/linuxserver/radarr";
-        #     restart = "unless-stopped";
-        #     container_name = "radarr";
-
-        #     ports = [
-        #       "7878:7878"
-        #     ];
-
-        #     volumes = [
-        #       "/data/radarr/data:/config"
-        #       "/data/media/movies:/movies"
-        #       "/data/incomplete:/incomplete"
-        #     ];
-        #   };
-        # };
       };
     };
   };
@@ -203,11 +104,11 @@ in {
   services = {
     openssh.enable = true;
 
-    # jellyfin = {
-    #   enable = true;
-    #   openFirewall = true;
-    #   group = config.users.users.${username}.group;
-    # };
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      group = "media";
+    };
 
     jackett = {
       enable = true;

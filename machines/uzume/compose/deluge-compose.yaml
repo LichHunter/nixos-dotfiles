@@ -1,0 +1,25 @@
+services:
+  gluetun:
+    image: "qmcgaw/gluetun"
+    container_name: "gluetun-protonvpn"
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER="protonvpn"
+      - VPN_TYPE="wireguard"
+      - SERVER_COUNTRIES="Ukraine"
+      - WIREGUARD_PRIVATE_KEY=
+    ports:
+      - "8112:8112"
+      - "58846:58846"
+      - "58946:58946"
+
+  deluge:
+    image: "dheaps/deluge"
+    container_name: "deluge"
+    restart: "unless-stopped"
+    network_mode: "container:gluetun-protonvpn"
+    volumes:
+      - "/data:/data"
+      - "/data/deluge/config:/config"
+      - "/etc/localtime:/etc/localtime:ro"
