@@ -34,13 +34,12 @@
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
 
+    # Uzume dependencies
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     arion.url = "github:hercules-ci/arion";
-
     sops-nix.url = "github:Mic92/sops-nix";
   };
 

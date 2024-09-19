@@ -212,3 +212,9 @@ After running `nix fmt` to format code git is no longer able to commit changes
 From what I can see I can do it either in kanshe or hyprland but as I'm using kanshi for autodetection of displays I think this should be there
 * TODO Fix building with sudo
 After building system with sudo I can't run 'nix develop' or other commands without removing cache first
+* TODO Fix tripple waybar
+* TODO Fix remote build of uzume
+* TODO Add deluge torrent behind vpn without using container
+https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/modules/nixos/homelab/multimedia.nix#L50
+https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/nixos/nasgul/selfhosted/wireguard.nix#L71
+https://github.com/LongerHV/nixos-configuration/blob/9345264d148444d3b10412efd6783ad3721a18a2/nixos/nasgul/homelab.nix#L69

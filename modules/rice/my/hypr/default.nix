@@ -48,7 +48,7 @@ in {
           # Fix slow startup
           "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "pkill waybar & sleep 0.5 && waybar"
+          "waybar"
         ];
 
         exec-once = [
