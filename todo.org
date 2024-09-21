@@ -194,6 +194,20 @@ Also finally fixed image.png.drv issue. It was related to "image.png" not exisin
 I don't think it changes anything in hyprland at all so will leave it as it is for now
 * DONE Add readme
 CLOSED: [2024-06-28 Fri 19:52]
+* DONE Add deluge torrent behind vpn without using container
+CLOSED: [2024-09-21 Sat 11:04]
+https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/modules/nixos/homelab/multimedia.nix#L50
+https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/nixos/nasgul/selfhosted/wireguard.nix#L71
+https://github.com/LongerHV/nixos-configuration/blob/9345264d148444d3b10412efd6783ad3721a18a2/nixos/nasgul/homelab.nix#L69
+
+Kinda done but now all trafic goes through vpn and nginx stopped working...
+
+* DONE Fix split-workspaces are broken for now with latest version of hypland
+CLOSED: [2024-09-21 Sat 11:06]
+Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull/96 to be merged
+As I understood this will fix it
+Fixed now
+
 * TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
@@ -202,9 +216,6 @@ trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.s
 * TODO Add hyprland move window from one screen to another
 * TODO Move out mbsync from home.nix to another file
 * TODO Fix icons in waybar
-* TODO Fix split-workspaces are broken for now with latest version of hypland
-Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull/96 to be merged
-As I understood this will fix it
 * TODO Look at nix fmt error
 After running `nix fmt` to format code git is no longer able to commit changes
 * TODO Change doom font to properly shot italy text
@@ -214,7 +225,5 @@ From what I can see I can do it either in kanshe or hyprland but as I'm using ka
 After building system with sudo I can't run 'nix develop' or other commands without removing cache first
 * TODO Fix tripple waybar
 * TODO Fix remote build of uzume
-* TODO Add deluge torrent behind vpn without using container
-https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/modules/nixos/homelab/multimedia.nix#L50
-https://github.com/LongerHV/nixos-configuration/blob/3d9baf05bc1bc34e2b9137a475db123e84b7aec5/nixos/nasgul/selfhosted/wireguard.nix#L71
-https://github.com/LongerHV/nixos-configuration/blob/9345264d148444d3b10412efd6783ad3721a18a2/nixos/nasgul/homelab.nix#L69
+* TODO Add script to create and add permissions for /data folder on homelab
+* TODO Fix running services on uzume after reboot
