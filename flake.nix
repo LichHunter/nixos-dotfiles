@@ -150,7 +150,7 @@
           inputs.arion.nixosModules.arion
         ] # extra nix modules
         [
-
+          ./modules/options.nix
         ] # extra home-manager modules
         "uzume" #username
         ;

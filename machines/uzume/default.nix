@@ -1,15 +1,17 @@
-{ inputs, config, pkgs, username, ... }:
+{ inputs, config, pkgs, username, extraHomeModules, ... }:
 
 let
 in {
   imports = [
-    ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
+
+    ./hardware-configuration.nix
     ./disko-config.nix
     ./sops.nix
     ./network.nix
     ./arion.nix
   ];
+
   system.stateVersion = "24.05";
 
   nix = {
@@ -96,6 +98,20 @@ in {
      jellyfin-web
      jellyfin-ffmpeg
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
+    extraSpecialArgs = { inherit inputs username; };
+
+    users."${username}" = {
+      imports = [
+        ./home.nix
+        #inputs.impermanence.nixosModules.home-manager.impermanence
+      ] ++ extraHomeModules;
+    };
+  };
 
   networking.firewall.enable = false;
 
