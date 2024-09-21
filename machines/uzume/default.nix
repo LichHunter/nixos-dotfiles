@@ -6,6 +6,9 @@ in {
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
     ./disko-config.nix
+    ./sops.nix
+    ./network.nix
+    ./arion.nix
   ];
   system.stateVersion = "24.05";
 
@@ -26,11 +29,6 @@ in {
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # Fixes for longhorn
-  systemd.tmpfiles.rules = [
-    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
-  ];
 
   virtualisation = {
     docker = {
@@ -119,6 +117,22 @@ in {
       enable = true;
       openFirewall = true;
       group = "media";
+    };
+
+    deluge = {
+      enable = true;
+      web.enable = true;
+      declarative = true;
+
+      group = "media";
+      dataDir = "/data";
+
+      authFile = /data/deluge/config/auth;
+
+      config = {
+        enabled_plugins = [ "Label" ];
+        outgoing_interface = "wg0";
+      };
     };
   };
 }

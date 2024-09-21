@@ -148,7 +148,6 @@
         [
           disko.nixosModules.disko
           inputs.arion.nixosModules.arion
-          inputs.sops-nix.nixosModules.sops
         ] # extra nix modules
         [
 
