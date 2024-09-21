@@ -62,6 +62,8 @@ in {
         theme = "bira";
         plugins = [ "git" "sudo" ];
       };
-    };
+    } // (lib.optionalAttrs (cfg.shellAliases != null) {
+      shellAliases = cfg.shellAliases;
+    });
   };
 }

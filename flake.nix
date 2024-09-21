@@ -151,6 +151,7 @@
         ] # extra nix modules
         [
           ./modules/options.nix
+          ./modules/shell/zsh
         ] # extra home-manager modules
         "uzume" #username
         ;

@@ -84,6 +84,8 @@ in {
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBcGhVpjmWEw1GEw0y/ysJPa2v3+u/Rt/iES/Se2huH2 alexander0derevianko@gmail.com"
     ];
+
+    shell = pkgs.zsh;
   };
 
   users.groups.media = { };
@@ -156,5 +158,10 @@ in {
         outgoing_interface = "wg0";
       };
     };
+  };
+
+
+  programs = {
+    zsh.enable = true;
   };
 }
