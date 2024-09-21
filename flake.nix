@@ -152,6 +152,7 @@
         [
           ./modules/options.nix
           ./modules/shell/zsh
+          ./modules/shell/addon/starship
         ] # extra home-manager modules
         "uzume" #username
         ;
