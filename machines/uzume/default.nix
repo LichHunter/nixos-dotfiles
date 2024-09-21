@@ -119,6 +119,12 @@ in {
       group = "media";
     };
 
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+      group = "media";
+    };
+
     deluge = {
       enable = true;
       web.enable = true;
