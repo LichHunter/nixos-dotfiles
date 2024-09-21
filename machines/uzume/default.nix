@@ -10,6 +10,7 @@ in {
     ./sops.nix
     ./network.nix
     ./arion.nix
+    ./services
   ];
 
   system.stateVersion = "24.05";
@@ -117,48 +118,7 @@ in {
 
   networking.firewall.enable = false;
 
-  services = {
-    openssh.enable = true;
-
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-      group = "media";
-    };
-
-    jackett = {
-      enable = true;
-      group = config.users.users.${username}.group;
-    };
-
-    radarr = {
-      enable = true;
-      openFirewall = true;
-      group = "media";
-    };
-
-    sonarr = {
-      enable = true;
-      openFirewall = true;
-      group = "media";
-    };
-
-    deluge = {
-      enable = true;
-      web.enable = true;
-      declarative = true;
-
-      group = "media";
-      dataDir = "/data";
-
-      authFile = /data/deluge/config/auth;
-
-      config = {
-        enabled_plugins = [ "Label" ];
-        outgoing_interface = "wg0";
-      };
-    };
-  };
+  services.openssh.enable = true;
 
 
   programs = {
