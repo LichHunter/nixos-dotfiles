@@ -14,28 +14,50 @@ in {
 
     services.kanshi = {
       enable = true;
-      profiles = {
-        laptop = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-            }
-          ];
-        };
-        home = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-              position = "480,1440";
-            }
-            {
-              criteria = "LG Electronics LG ULTRAWIDE 201NTTQC5617";
-              position = "0,0";
-              mode = "3440x1440";
-            }
-          ];
-        };
-      };
+      settings = [
+        {
+          profile = {
+            name = "default";
+            outputs = [
+              {
+                criteria = "eDP-1";
+              }
+            ];
+          };
+        }
+        {
+          profile = {
+            name = "home";
+            outputs = [
+              {
+                criteria = "eDP-1";
+                position = "480,1440";
+              }
+              {
+                criteria = "LG Electronics LG ULTRAWIDE 201NTTQC5617";
+                position = "0,0";
+                mode = "3440x1440";
+              }
+            ];
+          };
+        }
+        {
+          profile = {
+            name = "reserve-home";
+            outputs = [
+              {
+                criteria = "eDP-1";
+                position = "480,1440";
+              }
+              {
+                criteria = "DP-5";
+                position = "0,0";
+                mode = "3440x1440";
+              }
+            ];
+          };
+        }
+      ];
     };
   };
 }
