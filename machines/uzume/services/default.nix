@@ -3,6 +3,7 @@
 {
   imports = [
     ./gitea.nix
+    ./hydra.nix
   ];
 
   services = {
