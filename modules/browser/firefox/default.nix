@@ -12,7 +12,7 @@ in {
       enable = true;
       arkenfox = {
         enable = true;
-        version = "122.0";
+        version = "128.0";
       };
 
       profiles.Default = {
