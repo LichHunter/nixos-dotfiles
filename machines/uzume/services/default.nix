@@ -4,6 +4,7 @@
   imports = [
     ./gitea.nix
     ./hydra.nix
+    ./lidarr.nix
   ];
 
   services = {
