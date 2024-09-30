@@ -6,10 +6,9 @@ let
   cfg = config.dov.browser.firefox;
 in {
   config = mkIf cfg.enable {
-    home.packages = [(pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {})];
-
     programs.firefox = {
       enable = true;
+      package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
       arkenfox = {
         enable = true;
         version = "128.0";
@@ -39,51 +38,6 @@ in {
           "2800".enable = false;
           "4500".enable = false; # RFP (resist fingerprinting)
         };
-
-        # bookmarks = [
-        #   {
-        #     name = "Google";
-        #     tags = [ "google" ];
-        #     keyword = "google";
-        #     url = "https://google.com";
-        #   }
-        #   {
-        #     name = "Appendix A. Home Manager Configuration Options";
-        #     tags = [ "nixos" "home-manager" ];
-        #     keyword = "appendix-a";
-        #     url = "https://nix-community.github.io/home-manager/options.xhtml";
-        #   }
-        #   {
-        #     name = "Advent code";
-        #     tags = [];
-        #     keyword = "adventcode";
-        #     url = "https://adventofcode.com/";
-        #   }
-        #   {
-        #     name = "Nixos Packages";
-        #     tags = [ "nixos" ];
-        #     keyword = "nixos";
-        #     url = "https://search.nixos.org/packages";
-        #   }
-        #   {
-        #     name = "Google Translate";
-        #     tags = [ "google" ];
-        #     keyword = "translate";
-        #     url = "https://translate.google.com/";
-        #   }
-        #   {
-        #     name = "YouTube";
-        #     tags = [ "google" ];
-        #     keyword = "youtube";
-        #     url = "https://youtube.com";
-        #   }
-        #   {
-        #     name = "Z-Library";
-        #     tags = [ "z-lib" ];
-        #     keyword = "z-lib";
-        #     url = "https://singlelogin.re";
-        #   }
-        # ];
 
         search = {
           default = "Searxng Site (Searxng)";
