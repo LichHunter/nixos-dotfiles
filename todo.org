@@ -208,11 +208,12 @@ Will need to wait for https://github.com/Duckonaut/split-monitor-workspaces/pull
 As I understood this will fix it
 Fixed now
 
+* DONE Fix kanshi profiles to settings
+CLOSED: [2024-09-22 Sun 20:37]
+trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.
 * TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
-* TODO Fix kanshi profiles to settings
-trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.
 * TODO Add hyprland move window from one screen to another
 * TODO Move out mbsync from home.nix to another file
 * TODO Fix icons in waybar

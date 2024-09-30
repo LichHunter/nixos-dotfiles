@@ -40,6 +40,8 @@ in {
           cp = "rsync -ah --progress";
         };
       };
+
+      addon.starship.enable = true;
     };
     browser = {
       brave.enable = false;
