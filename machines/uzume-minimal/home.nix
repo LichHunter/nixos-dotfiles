@@ -1,8 +1,7 @@
-{ config, lib, pkgs, username, inputs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 {
   imports = [
-    inputs.sops-nix.homManagerModules.sops
   ];
 
   home = {
@@ -36,22 +35,5 @@
   home.packages = with pkgs; [
     eza
   ];
-
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    validateSopsFiles = false;
-
-    age = {
-      sshKeyPath = [ "/etc/ssh/ssh_host_ed25519_key" ];
-      keyFile = "/var/lib/sops-nix/key.txt";
-      generateKey = true;
-    };
-
-    secrets = {
-      "private_keys/uzume" = {
-        path = "/home/${username}/.ssh/id_ed25519";
-      };
-    };
-  };
 
 }

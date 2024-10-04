@@ -7,10 +7,6 @@ in {
 
     ./hardware-configuration.nix
     ./disko-config.nix
-    ./sops.nix
-    #./arion.nix
-    ./services
-    ./modules/nixarr
   ];
 
   system.stateVersion = "24.05";

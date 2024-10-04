@@ -156,6 +156,19 @@
         ] # extra home-manager modules
         "uzume" #username
         ;
+      # minimal install for asus laptop
+      uzume-minimal = mkComputer
+        ./machines/uzume-minimal
+        [
+          disko.nixosModules.disko
+        ] # extra nix modules
+        [
+          ./modules/options.nix
+          ./modules/shell/zsh
+          ./modules/shell/addon/starship
+        ] # extra home-manager modules
+        "uzume" #username
+        ;
     };
   };
 }
