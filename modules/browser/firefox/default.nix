@@ -40,7 +40,7 @@ in {
         };
 
         search = {
-          default = "Searxng Site (Searxng)";
+          default = "Searx Work";
           force = true;
 
           engines = {
@@ -67,19 +67,9 @@ in {
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
 
-            "Freesearch (Searxng)" = {
+            "Searx Work" = {
               urls = [{
-                template = "https://freesearch.club/search";
-                params = [
-                  { name = "q"; value = "{searchTerms}"; }
-                ];
-              }];
-              definedAleases = [ "@fsrx" ];
-            };
-
-            "Searxng Site (Searxng)" = {
-              urls = [{
-                template = "https://searxng.site/search";
+                template = "https://searx.work/search";
                 params = [
                   { name = "q"; value = "{searchTerms}"; }
                 ];

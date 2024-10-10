@@ -140,6 +140,10 @@ in {
 
     # backup
     pika-backup
+
+    # TODO move to module
+    wineWowPackages.waylandFull
+    winetricks
   ];
 
 
@@ -147,7 +151,10 @@ in {
     zsh.enable = true;
     light.enable = true;
     nm-applet.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
