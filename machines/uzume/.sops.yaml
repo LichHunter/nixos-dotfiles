@@ -2,7 +2,7 @@ keys:
   - &users:
     - &primary age19wvqtn4ju6k4vs8fxr34unl6xx4cv04jw0lx9ps20xlde927zfssgl4qke
   - &hosts:
-    - &uzume age1amz9c02zhxmnemndpc59k7wmycwd78vv0g3q0qz8340vaa8l3cgsrzzl2r
+    - &uzume age18mhp8fkcv7q6jwsrppdl67jntzadnkuaf88pp7936rj4sh8uddmqqtvkey
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
