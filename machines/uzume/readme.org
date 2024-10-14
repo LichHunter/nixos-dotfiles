@@ -11,9 +11,29 @@ nixos-rebuild build --flake .#uzume-minimal
 
 nix run github:nix-community/nixos-anywhere -- --flake '.#uzume-minimal' nixos@192.168.1.29
 
+# copy ssh keys to uzume
 scp ~/.ssh/ed25519_uzume uzume@uzume:~/.ssh/id_ed25519
 scp ~/.ssh/ed25519_uzume.pub uzume@uzume:~/.ssh/id_ed25519.pub
+
+# copy age keys to uzume
+mkdir -p ~/.config/sops/age
+scp ~/.config/sops/age/uzume_keys.txt uzume@uzume:~/.config/sops/age/keys.txt
+sudo mkdir /var/lib/sops-nix
+sudo cp ~/.config/sops/age/keys.txt /var/lib/sops-nix
+
+# setup permissions on ssh
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
+
+# get configs
+git clone git@github.com:LichHunter/nixos-dotfiles.git
+cd nixos-dotfiles
+git checkout 24.05
+
+nixos-build
+nixos-boot
 #+end_src
+
 * Setup
 create folder:
 #+begin_src bash
@@ -26,15 +46,16 @@ sudo chmod -R g+s $dir
 
 #+begin_src bash
 sudo mkdir /data
-sudo chown uzume:users /data
-mkdir /data/{movies, shows, music}
+sudo chown -R uzume:media /data
+mkdir -p /data/{movies,shows,music}
 
-mkdir -p /data/deluge/config
+# needed only if runnning deluge not from docker
+#mkdir -p /data/deluge/config
 # create auth file with username:password:level
-touch /data/deluge/config/auth
+#touch /data/deluge/config/auth
 
 mkdir -p /data/.state/nixarr/jellyfin
-mkdir /data/.state/nixarr/jellyfin/{log,cache,data,config}
+mkdir -p /data/.state/nixarr/jellyfin/{log,cache,data,config}
 sudo chown -R jellyfin:media /data/.state/nixarr/jellyfin
 
 setfacl -m u:radarr:rwx /data
@@ -42,4 +63,10 @@ setfacl -m u:radarr:rwx /data/movies
 
 setfacl -m u:sonarr:rwx /data
 setfacl -m u:sonarr:rwx /data/shows
+
+setfacl -m u:lidarr:rwx /data/music
+
+setfacl -m u:jellyfin:rwx /data/movies
+setfacl -m u:jellyfin:rwx /data/shows
+setfacl -m u:jellyfin:rwx /data/music
 #+end_src
