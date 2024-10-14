@@ -143,7 +143,9 @@ in {
 
     # TODO move to module
     wineWowPackages.waylandFull
+    #wineWowPackages.stable
     winetricks
+    inputs.umu.packages.${pkgs.system}.umu
   ];
 
 
