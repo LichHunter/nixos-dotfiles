@@ -95,17 +95,17 @@ in {
   };
 
   nixarr = {
-    enable = true;
+    enable = false;
     vpn = {
       enable = false;
       wgConfig = config.sops.secrets.wireguard-private-key.path;
     };
 
     deluge.enable = false;
-    jellyfin.enable = true;
-    prowlarr.enable = true;
-    radarr.enable = true;
-    sonarr.enable = true;
-    lidarr.enable = true;
+    jellyfin.enable = false;
+    prowlarr.enable = false;
+    radarr.enable = false;
+    sonarr.enable = false;
+    lidarr.enable = false;
   };
 }

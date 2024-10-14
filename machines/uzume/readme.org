@@ -1,4 +1,19 @@
 #+title: Nixos Media Server
+* Install
+#+begin_src bash
+# get ip address of machine
+ip addr
+
+# change nixos password to ssh into machine
+passwd
+
+nixos-rebuild build --flake .#uzume-minimal
+
+nix run github:nix-community/nixos-anywhere -- --flake '.#uzume-minimal' nixos@192.168.1.29
+
+scp ~/.ssh/ed25519_uzume uzume@uzume:~/.ssh/id_ed25519
+scp ~/.ssh/ed25519_uzume.pub uzume@uzume:~/.ssh/id_ed25519.pub
+#+end_src
 * Setup
 create folder:
 #+begin_src bash

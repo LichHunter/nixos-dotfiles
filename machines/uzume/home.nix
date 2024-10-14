@@ -36,22 +36,4 @@
   home.packages = with pkgs; [
     eza
   ];
-
-  sops = {
-    defaultSopsFile = ./secrets/secrets.yaml;
-    validateSopsFiles = false;
-
-    age = {
-      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-      keyFile = "/home/${username}/.config/sops/age/keys.txt";
-      generateKey = false;
-    };
-
-    secrets = {
-      "private_keys/uzume" = {
-        path = "/home/${username}/.ssh/id_ed25519";
-      };
-    };
-  };
-
 }
