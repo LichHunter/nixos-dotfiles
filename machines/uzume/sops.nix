@@ -10,13 +10,9 @@
     validateSopsFiles = false;
 
     age = {
-      #sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      # Moved keys to /var as from /home folder we are not able to access them on boot
       keyFile = "/var/lib/sops-nix/keys.txt";
       generateKey = false;
-
-      # TODO this is propper way but it does not work and I need to copy key myself
-      # keyFile = "/var/lib/sops-nix/key.txt";
-      # generateKey = true;
     };
 
     secrets = {
