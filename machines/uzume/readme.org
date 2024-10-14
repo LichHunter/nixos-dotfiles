@@ -8,3 +8,23 @@ sudo chown :media -R $dir
 sudo chmod -R g+w $dir
 sudo chmod -R g+s $dir
 #+end_src
+
+#+begin_src bash
+sudo mkdir /data
+sudo chown uzume:users /data
+mkdir /data/{movies, shows, music}
+
+mkdir -p /data/deluge/config
+# create auth file with username:password:level
+touch /data/deluge/config/auth
+
+mkdir -p /data/.state/nixarr/jellyfin
+mkdir /data/.state/nixarr/jellyfin/{log,cache,data,config}
+sudo chown -R jellyfin:media /data/.state/nixarr/jellyfin
+
+setfacl -m u:radarr:rwx /data
+setfacl -m u:radarr:rwx /data/movies
+
+setfacl -m u:sonarr:rwx /data
+setfacl -m u:sonarr:rwx /data/shows
+#+end_src

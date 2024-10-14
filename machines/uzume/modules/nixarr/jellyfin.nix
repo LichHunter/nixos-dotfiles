@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.nixarr.jellyfin;
+  nixarr = config.nixarr;
 in {
   options.nixarr.jellyfin = {
     enable = mkEnableOption "nixarr jellyfin config";

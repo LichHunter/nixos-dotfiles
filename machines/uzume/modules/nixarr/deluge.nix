@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, username, ... }:
 
 with lib;
 
@@ -11,9 +11,12 @@ in {
 
   config = mkIf cfg.enable {
     services.deluge = {
-      enable = cfg.enable;
-      web.enable = true;
-      declarative = true;
+      enable = true;
+      web = {
+        enable = true;
+        openFirewall = true;
+      };
+      declarative = false;
 
       group = "media";
       dataDir = "/data";

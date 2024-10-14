@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, username, ... }:
 
 with lib;
 
@@ -6,6 +6,13 @@ let
   cfg = config.nixarr;
 in {
   config = mkIf cfg.vpn.enable {
+    sops.secrets = {
+      "wireguard-private-key" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+    };
+
     networking = {
       wg-quick.interfaces.wg0 = {
         # IP address of this machine in the *tunnel network*

@@ -32,7 +32,9 @@ in {
       enable = cfg.enable;
       openFirewall = true;
       group = "media";
-      dataDir = cfg.stateDir;
+
+      # TODO does not work because of permission issues
+      #dataDir = cfg.stateDir;
 
       # TODO add nginx like in original
     };

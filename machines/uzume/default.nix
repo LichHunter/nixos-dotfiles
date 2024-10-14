@@ -65,6 +65,8 @@ in {
      jellyfin
      jellyfin-web
      jellyfin-ffmpeg
+
+     qbittorrent
   ];
 
   home-manager = {
@@ -76,7 +78,6 @@ in {
     users."${username}" = {
       imports = [
         ./home.nix
-        #inputs.impermanence.nixosModules.home-manager.impermanence
       ] ++ extraHomeModules;
     };
   };
@@ -87,5 +88,24 @@ in {
 
   programs = {
     zsh.enable = true;
+  };
+
+  uzume = {
+    gitlab.enable = false;
+  };
+
+  nixarr = {
+    enable = true;
+    vpn = {
+      enable = false;
+      wgConfig = config.sops.secrets.wireguard-private-key.path;
+    };
+
+    deluge.enable = false;
+    jellyfin.enable = true;
+    prowlarr.enable = true;
+    radarr.enable = true;
+    sonarr.enable = true;
+    lidarr.enable = true;
   };
 }

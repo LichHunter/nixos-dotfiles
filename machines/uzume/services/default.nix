@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ./gitea.nix
-    ./hydra.nix
+    #./gitea.nix
+    #./hydra.nix
+    ./gitlab.nix
   ];
 }

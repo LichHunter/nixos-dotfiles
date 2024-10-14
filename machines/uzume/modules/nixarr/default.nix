@@ -7,12 +7,15 @@ let
   cfg = config.nixarr;
 in {
   imports = [
-    ./deluge.nix
+    #./deluge.nix
+    ./deluge_vpn.nix
+    ./transmission.nix
     ./jackett.nix
     ./jellyfin.nix
     ./lidarr.nix
     ./radarr.nix
     ./sonarr.nix
+    ./prowlarr.nix
     ./vpn.nix
   ];
 

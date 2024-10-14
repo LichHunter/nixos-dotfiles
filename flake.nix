@@ -47,6 +47,10 @@
     };
     arion.url = "github:hercules-ci/arion";
     sops-nix.url = "github:Mic92/sops-nix";
+    vpn-confinement = {
+      url = "github:Maroka-chan/VPN-Confinement";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs,
@@ -154,6 +158,7 @@
         [
           disko.nixosModules.disko
           inputs.arion.nixosModules.arion
+          inputs.vpn-confinement.nixosModules.default
         ] # extra nix modules
         [
           ./modules/options.nix

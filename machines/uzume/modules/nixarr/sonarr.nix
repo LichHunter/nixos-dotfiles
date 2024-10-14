@@ -4,6 +4,7 @@ with lib;
 
 let
   cfg = config.nixarr.sonarr;
+  nixarr = config.nixarr;
 in {
   options.nixarr.sonarr = {
     enable = mkEnableOption "nixarr sonarr config";
@@ -32,7 +33,6 @@ in {
       enable = cfg.enable;
       openFirewall = true;
       group = "media";
-      dataDir = cfg.stateDir;
 
       # TODO add nginx like in original
     };
