@@ -5,5 +5,6 @@
     #./gitea.nix
     #./hydra.nix
     ./gitlab.nix
+    ./nextcloud.nix
   ];
 }

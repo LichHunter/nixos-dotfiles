@@ -18,6 +18,30 @@
     secrets = {
       "wireguard-private-key" = {
       };
+      "gitlab-db-password" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+      "gitlab-root-password" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+      "gitlab-secret" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+      "gitlab-otp-secret" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+      "gitlab-db-secret" = {
+        owner = config.users.users.${username}.name;
+        inherit (config.users.users.${username}) group;
+      };
+      "nextcloud-password" = {
+        owner = "nextcloud";
+        group = "nextcloud";
+      };
     };
   };
 }

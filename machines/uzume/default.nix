@@ -8,7 +8,7 @@ in {
     ./hardware-configuration.nix
     ./disko-config.nix
     ./sops.nix
-    #./arion.nix
+    ./arion.nix
     ./services
     ./modules/nixarr
   ];
@@ -44,6 +44,11 @@ in {
     packages = with pkgs; [
       tree
       vim
+      emacs
+      # :lang nix
+      nixfmt-classic
+      #nixd
+      nil
     ];
     # Created using mkpasswd
     hashedPassword = "$6$oUcMXXTDVOSJw9y3$Y5oYAD9ogAUdkWQp30w/l43fupl2QLiwEt1mNWkl9ddGqsCgjMGNMvgUWiApxzFjIBlLWhZbKelZe01ROy5I8.";
