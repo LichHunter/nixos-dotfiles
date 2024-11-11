@@ -96,7 +96,10 @@ in {
   };
 
   uzume = {
+    # TODO not working currently
+    # using real passwords and not sops seems to do the trick, but I still can't open/find url for web ui
     gitlab.enable = false;
+    nextcloud.enable = true;
   };
 
   nixarr = {
