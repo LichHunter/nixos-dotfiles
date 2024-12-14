@@ -100,6 +100,7 @@ in {
     # using real passwords and not sops seems to do the trick, but I still can't open/find url for web ui
     gitlab.enable = false;
     nextcloud.enable = true;
+    hydra.enable = true;
   };
 
   nixarr = {
@@ -110,7 +111,10 @@ in {
     };
 
     deluge.enable = true;
-    jellyfin.enable = true;
+    jellyfin = {
+      enable = true;
+      jellyseer.enable = true;
+    };
     prowlarr.enable = true;
     radarr.enable = true;
     sonarr.enable = true;

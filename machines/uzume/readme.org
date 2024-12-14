@@ -70,3 +70,20 @@ setfacl -m u:jellyfin:rwx /data/movies
 setfacl -m u:jellyfin:rwx /data/shows
 setfacl -m u:jellyfin:rwx /data/music
 #+end_src
+
+* Tools
+** Hydra
+*** Installation
+Enable hydra in [[file:default.nix][default.nix]]
+#+begin_src nix
+uzume.hydra.enable = true;
+#+end_src
+
+Creating admin user
+#+begin_src bash
+sudo su hydra
+
+# update username and other params
+hydra-create-user alice --full-name 'Alice Q. User' \
+    --email-address 'alice@example.org' --password-prompt --role admi
+#+end_src

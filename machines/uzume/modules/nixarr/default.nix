@@ -12,6 +12,7 @@ in {
     ./transmission.nix
     ./jackett.nix
     ./jellyfin.nix
+    ./jellyseer.nix
     ./lidarr.nix
     ./radarr.nix
     ./sonarr.nix

@@ -3,7 +3,7 @@
 {
   imports = [
     #./gitea.nix
-    #./hydra.nix
+    ./hydra.nix
     ./gitlab.nix
     ./nextcloud.nix
   ];
