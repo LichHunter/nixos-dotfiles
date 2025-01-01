@@ -6,5 +6,5 @@ in {
     ./../variables.nix
   ];
 
-  config.variables.stateVersion = "24.05";
+  config.variables.stateVersion = "24.11";
 }
