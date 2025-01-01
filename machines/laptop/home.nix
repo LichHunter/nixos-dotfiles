@@ -117,6 +117,7 @@ in {
     qpdf
     cloudflared
     okular #pdf tool
+    nextcloud-client
 
     #music
     mpd
