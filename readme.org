@@ -42,12 +42,24 @@ Installed packages
   #+begin_src bash
   git clone git@github.com:LichHunter/nixos-dotfiles.git
   #+end_src
-5. Run command to install configuration
-   In this case I'm running boot option as there are a bunch of packages (around 20G was) to be installed and this can break smth if run switch
-   `nixos-boot` == `sudo nixos-rebuild boot --flake ~/nixos-dotfiles#laptop`
+5. Update `hardware-configuration.nix` with new ids for file systems
+6. Run command to install configuration
+   In this case I'm running boot option as there are a bunch of packages (around 34G) to be installed and this can break smth if run switch
   #+begin_src bash
-  nixos-boot
+  sudo nixos-rebuild boot --flake ~/nixos-dotfiles#laptop
   #+end_src
+** Post install
+After you installed os you can install install:
+*** Doom emacs
+#+begin_src bash
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+#+end_src
 
 * Afterword
 There is also [[file:wiki.org][wiki.org]] file that contains some commands that can be used
+
+* TODO
+- add instructions for installation from minimal iso
+- add disko for laptop config
+- add user password for laptop config
