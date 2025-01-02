@@ -152,6 +152,21 @@
         ] # extra modules to be loaded by home-manager
         "omen" # username
         ;
+      laptop-minimal = mkComputer
+        ./machines/laptop-minimal
+        [
+          ./modules/options.nix
+          nixos-hardware.nixosModules.omen-15-en1007sa
+          disko.nixosModules.disko
+        ] # extra modules
+        [
+          ./modules/git
+          ./modules/alacritty
+          ./modules/options.nix
+          ./modules/shell/zsh
+        ] # extra modules to be loaded by home-manager
+        "omen" # username
+        ;
 
       # asus laptop
       uzume = mkComputer
