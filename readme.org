@@ -36,17 +36,29 @@ Installed packages
   #+begin_src bash
   sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
   #+end_src
-2. Install using gui installation tool (in future perhaps I will create nixos config for it)
-3. Add ssh files from backups
-4. Clone this repo
+1. Create installation flashdrive with latest iso using this command
   #+begin_src bash
-  git clone git@github.com:LichHunter/nixos-dotfiles.git
+  sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
   #+end_src
-5. Update `hardware-configuration.nix` with new ids for file systems
-6. Run command to install configuration
-   In this case I'm running boot option as there are a bunch of packages (around 34G) to be installed and this can break smth if run switch
+2. Clone this repo
   #+begin_src bash
-  sudo nixos-rebuild boot --flake ~/nixos-dotfiles#laptop
+  git clone https://github.com/LichHunter/nixos-dotfiles
+  #+end_src
+3. Format disk
+  #+begin_src bash
+  sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ~/nixos-dotfiles/machines/laptop/disko-configuration.nix
+  #+end_src
+4. Mount disk
+  #+begin_src bash
+  mount /dev/nvme0n1 /mnt
+  #+end_src
+5. Generate nixos configurations
+  #+begin_src bash
+  nixos-generate-config --root /mnt
+  #+end_src
+6. Install nixos
+  #+begin_src bash
+  nixos-install --flake /mnt/etc/nixos#laptop
   #+end_src
 ** Post install
 After you installed os you can install install:
@@ -55,11 +67,8 @@ After you installed os you can install install:
 git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+end_src
-
 * Afterword
 There is also [[file:wiki.org][wiki.org]] file that contains some commands that can be used
 
 * TODO
-- add instructions for installation from minimal iso
-- add disko for laptop config
 - add user password for laptop config
