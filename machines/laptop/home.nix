@@ -25,7 +25,7 @@ in {
         enable = true;
         shellAliases = {
           ll = "exa -al";
-          nixos-build = "sudo nixos-rebuild build --show-trace --flake ~/nixos-dotfiles#laptop";
+          nixos-build = "nixos-rebuild build --show-trace --flake ~/nixos-dotfiles#laptop";
           nixos-boot = "sudo nixos-rebuild boot --flake ~/nixos-dotfiles#laptop";
           nixos-switch = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#laptop";
           nixos-test = "sudo nixos-rebuild test --flake ~/nixos-dotfiles#laptop";
