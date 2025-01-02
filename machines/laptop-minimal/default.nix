@@ -12,7 +12,6 @@ in {
     [
       ./hardware-configuration.nix # Include the results of the hardware scan.
       ./variables.nix
-      ./nixos-modules
       ./disko-config.nix
       inputs.home-manager.nixosModules.home-manager
     ];
@@ -80,20 +79,6 @@ in {
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-    };
-  };
-  dov = {
-    xserver = {
-      i3.enable = false;
-      plasma6.enable = false;
-      hypr.enable = false;
-      xmonad.enable = false;
-      plasma5.enable = false;
-    };
-
-    services = {
-      jellyfin.enable = false;
-      syncthing.enable = false;
     };
   };
 

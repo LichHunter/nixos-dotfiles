@@ -36,27 +36,31 @@ Installed packages
   #+begin_src bash
   sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
   #+end_src
-1. Create installation flashdrive with latest iso using this command
+2. Create installation flashdrive with latest iso using this command
   #+begin_src bash
   sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
   #+end_src
-2. Clone this repo
+3. Clone this repo
   #+begin_src bash
   git clone https://github.com/LichHunter/nixos-dotfiles
   #+end_src
-3. Format disk
+4. Format disk
   #+begin_src bash
   sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ~/nixos-dotfiles/machines/laptop/disko-configuration.nix
   #+end_src
-4. Mount disk
+5. Mount disk
   #+begin_src bash
-  mount /dev/nvme0n1 /mnt
+  sudo mount /dev/nvme0n1 /mnt
   #+end_src
-5. Generate nixos configurations
+6. Generate nixos configurations
   #+begin_src bash
-  nixos-generate-config --root /mnt
+  sudo nixos-generate-config --root /mnt
   #+end_src
-6. Install nixos
+7. Copy cloned config to '/mnt/etc/nixos'
+  #+begin_src bash
+  sudo cp -r * /mnt/etc/nixos
+  #+end_src
+8. Install nixos
   #+begin_src bash
   nixos-install --flake /mnt/etc/nixos#laptop
   #+end_src
