@@ -48,19 +48,24 @@ Installed packages
   #+begin_src bash
   sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ~/nixos-dotfiles/machines/laptop/disko-configuration.nix
   #+end_src
-5. Mount disk
+5. Mount main partition
   #+begin_src bash
   sudo mount /dev/nvme0n1 /mnt
   #+end_src
-6. Generate nixos configurations
+6. Mount boot partition
+  #+begin_src bash
+  mkdir -p /mnt/boot
+  mount -o umask=077 /dev/disk/by-label/boot /mnt/boot
+  #+end_src
+7. Generate nixos configurations
   #+begin_src bash
   sudo nixos-generate-config --root /mnt
   #+end_src
-7. Copy cloned config to '/mnt/etc/nixos'
+8. Copy cloned config to '/mnt/etc/nixos'
   #+begin_src bash
   sudo cp -r * /mnt/etc/nixos
   #+end_src
-8. Install nixos
+9. Install nixos
   #+begin_src bash
   nixos-install --flake /mnt/etc/nixos#laptop
   #+end_src
