@@ -12,8 +12,8 @@ in {
     [
       ./hardware-configuration.nix # Include the results of the hardware scan.
       ./variables.nix
-      #./hardware
       ./nixos-modules
+      ./disko-config.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 

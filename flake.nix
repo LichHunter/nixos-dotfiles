@@ -121,6 +121,7 @@
         [
           ./modules/options.nix
           nixos-hardware.nixosModules.omen-15-en1007sa
+          disko.nixosModules.disko
         ] # extra modules
         [
           ./modules/git
