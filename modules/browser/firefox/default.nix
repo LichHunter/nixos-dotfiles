@@ -40,7 +40,7 @@ in {
         };
 
         search = {
-          default = "Searx Work";
+          default = "Searx";
           force = true;
 
           engines = {
@@ -67,9 +67,9 @@ in {
             "Bing".metaData.hidden = true;
             "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
 
-            "Searx Work" = {
+            "Searx" = {
               urls = [{
-                template = "https://searx.work/search";
+                template = "https://search.hbubli.cc/search";
                 params = [
                   { name = "q"; value = "{searchTerms}"; }
                 ];
