@@ -211,6 +211,8 @@ Fixed now
 * DONE Fix kanshi profiles to settings
 CLOSED: [2024-09-22 Sun 20:37]
 trace: warning: omen profile: kanshi.profiles option is deprecated. Use kanshi.settings instead.
+* DONE Fix tripple waybar
+CLOSED: [2025-01-03 Fri 21:25]
 * TODO [#C] Try this rice [[https://www.reddit.com/r/unixporn/comments/196cdc1/hyprland_nixos_catppuccin_first_time_ricing_and/][link]]
 * TODO Fix emms in emacs
 For not I get some strage permission error but in ncmpcpp everything works fine
@@ -224,7 +226,6 @@ After running `nix fmt` to format code git is no longer able to commit changes
 From what I can see I can do it either in kanshe or hyprland but as I'm using kanshi for autodetection of displays I think this should be there
 * TODO Fix building with sudo
 After building system with sudo I can't run 'nix develop' or other commands without removing cache first
-* TODO Fix tripple waybar
 * TODO Fix remote build of uzume
 * TODO Add script to create and add permissions for /data folder on homelab
 * TODO Fix running services on uzume after reboot

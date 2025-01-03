@@ -50,9 +50,14 @@ in {
       qutebrowser.enable = true;
       #vivaldi.enable = true;
     };
+    #
     hypr.enable = true;
-    polybar.enable = false;
+
     kanshi.enable = true;
+
+    # Bars
+    waybar.enable = true;
+    polybar.enable = false;
   };
 
   programs.home-manager.enable = true;

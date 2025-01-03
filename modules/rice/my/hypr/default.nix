@@ -8,7 +8,6 @@ let
 in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      waybar
       swww
       mako
       pipewire
@@ -30,7 +29,6 @@ in {
       xwayland.enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       plugins = [
-        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       ];
 
@@ -49,7 +47,6 @@ in {
           # Fix slow startup
           "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
           "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "waybar"
         ];
 
         exec-once = [
@@ -62,7 +59,7 @@ in {
           "thunderbird"
           "element-desktop"
           "keepassxc"
-        ];
+        ] ++ (if config.dov.waybar.enable == true then [ "waybar" ] else []);
 
         "$mainMod" = "SUPER";
 
