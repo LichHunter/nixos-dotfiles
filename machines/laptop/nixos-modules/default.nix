@@ -18,6 +18,7 @@
     ./syncthing.nix
     ./printing.nix
     ./mpd.nix
+    ./openssh.nix
 
     #xserver
     ./hypr.nix

@@ -119,3 +119,64 @@ systemctl --user restart pipewire.service
 * Sops
 Notes:
 After installation src_bash[:exports code]{nixos-rebuild test --flake .#uzume} returns error but after running src_bash[:exports code]{nixos-rebuild boot --flake .#uzume} and running test again issue fixed
+** Integrate your configuration with sops
+1. Enter nix shell with necessary packages
+  #+begin_src bash
+  nix shell nixpkgs#ssh-to-age nixpkgs#age nixpkgs#sops
+  #+end_src
+2. Create master key
+  #+begin_src bash
+mkdir -p ~/.config/sops/age
+age-keygen -o ~/.config/sops/age/keys.txt
+  #+end_src
+3. Get public key for the generated one
+  #+begin_src bash
+age-keygen -y ~/.config/sops/age/keys.txt
+  #+end_src
+4. Create .sops.yaml file
+   Primary key is from previous steps, it should be backed up somewhere else as you will use it as backup key in case something happens and you can't access secrets using other keys
+   Omen key is based on public ssh key from /etc/ssh/ssh_host_ed25519_key.pub (enabled openssh service for this)
+  #+begin_src yaml
+keys:
+  - &primary age19wvqtn4ju6k4vs8fxr34unl6xx4cv04jw0lx9ps20xlde927zfssgl4qke
+  - &omen age1jggd0cqn7c3ajqphnd0tt7kud3tqdz6uv3mkghhkzdtf4f0xrp2qtuvsks
+creation_rules:
+  - path_regex: secrets/secrets.yaml$
+    key_groups:
+      - age:
+          - *primary
+          - *omen
+  #+end_src
+5. Create secrets file and populate them
+  #+begin_src bash
+sops secrets/secrets.yaml
+  #+end_src
+6. Create sops.nix configuration
+  #+begin_src nix
+{ config, lib, pkgs, inputs, ... }:
+
+{
+  imports = [
+      inputs.sops-nix.nixosModules.sops
+  ];
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    validateSopsFiles = false;
+
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/keys.txt";
+      generateKey = true;
+    };
+
+    secrets = {
+      omen-password = {
+        neededForUsers = true;
+      };
+    };
+  };
+}
+  #+end_src
+
+Now you can use your secrets in nix configurations

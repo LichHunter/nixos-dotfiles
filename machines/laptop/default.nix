@@ -14,6 +14,7 @@ in {
       ./variables.nix
       ./nixos-modules
       ./disko-config.nix
+      ./sops.nix
       inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -42,13 +43,14 @@ in {
     };
   };
 
+  users.mutableUsers = false;
   users.users."${username}" = {
     isNormalUser = true;
     description = "My HP Omen laptop nixos";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "audio" ];
     shell = pkgs.zsh;
     #initialPassword = "test";
-    #hashedPasswordFile = "/persist/hashedPassword";
+    hashedPasswordFile = config.sops.secrets.omen-password.path;
     packages = with pkgs; [
       ## Emacs itself
       binutils       # native-comp needs 'as', provided by this
