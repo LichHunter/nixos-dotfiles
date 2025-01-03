@@ -50,8 +50,11 @@ in {
       qutebrowser.enable = true;
       #vivaldi.enable = true;
     };
-    #
-    hypr.enable = true;
+    # Winodow Managers
+    windowManager.hypr.enable = true;
+
+    # Notifcations Managers
+    notification.mako.enable = true;
 
     kanshi.enable = true;
 

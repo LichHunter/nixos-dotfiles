@@ -4,8 +4,9 @@ with lib;
 
 let
   colors = config.lib.stylix.colors;
-  cfg = config.dov.hypr;
+  cfg = config.dov.windowManager.hypr;
 in {
+  options.dov.windowManager.hypr.enable = mkEnableOption "hypr configuration";
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       swww

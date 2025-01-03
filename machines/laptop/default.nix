@@ -168,10 +168,10 @@ in {
     xserver = {
       i3.enable = false;
       plasma6.enable = false;
-      hypr.enable = true;
       xmonad.enable = false;
       plasma5.enable = false;
     };
+    windowManager.hypr.enable = true;
 
     services = {
       jellyfin.enable = false;

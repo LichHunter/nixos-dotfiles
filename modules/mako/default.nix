@@ -3,9 +3,11 @@
 with lib;
 
 let
-  cfg = config.dov.hypr;
+  cfg = config.dov.notification.mako;
   colors = config.lib.stylix.colors;
 in {
+  options.dov.notification.mako.enable = mkEnableOption "mako configuration";
+
   config = mkIf cfg.enable {
     services.mako = {
      enable = true;

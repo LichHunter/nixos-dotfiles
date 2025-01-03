@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-in {
-  options.dov.hypr.enable = mkEnableOption "hypr config";
+{
   options.dov.kanshi.enable = mkEnableOption "kanshi config";
   options.dov.shell.zsh = {
     enable = mkEnableOption "zsh config";

@@ -2,19 +2,14 @@
 
 with lib;
 
-{
-  options.dov.xserver.hypr.enable = mkEnableOption "hypr configuration";
-  config = mkIf config.dov.xserver.hypr.enable {
+let
+  cfg = config.dov.windowManager.hypr;
+in{
+  options.dov.windowManager.hypr.enable = mkEnableOption "hypr configuration";
+  config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
-      # seems to be removed
-      #nvidiaPatches = true;
       xwayland.enable = true;
-
-      package = pkgs.hyprland.override {
-        debug = true;
-      };
-
     };
 
     environment = {

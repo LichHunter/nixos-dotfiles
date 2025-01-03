@@ -107,8 +107,6 @@
       vm = mkComputer
         ./machines/vm
         [
-          ./modules/xserver/i3
-          ./modules/xserver/plasma
         ] # extra modules
         [
           ./modules/polybar
