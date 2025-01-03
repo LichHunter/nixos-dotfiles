@@ -104,32 +104,19 @@
     };
   in {
     nixosConfigurations = {
-      vm = mkComputer
-        ./machines/vm
-        [
-        ] # extra modules
-        [
-          ./modules/polybar
-          ./modules/i3
-          ./modules/shell/fish
-        ] # extra modules to be loaded by home-manager
-        ;
       laptop = mkComputer
         ./machines/laptop
         [
-          ./modules/options.nix
           nixos-hardware.nixosModules.omen-15-en1007sa
           disko.nixosModules.disko
         ] # extra modules
         [
           ./modules/git
           ./modules/alacritty
-          ./modules/options.nix
           ./modules/mako
           #./modules/impermanence
           ./modules/kanshi
-          ./modules/shell/zsh
-          ./modules/shell/fish
+          ./modules/shell
           ./modules/browser
           ./modules/vpn
           ./modules/gaming
@@ -150,21 +137,6 @@
         ] # extra modules to be loaded by home-manager
         "omen" # username
         ;
-      laptop-minimal = mkComputer
-        ./machines/laptop-minimal
-        [
-          ./modules/options.nix
-          nixos-hardware.nixosModules.omen-15-en1007sa
-          disko.nixosModules.disko
-        ] # extra modules
-        [
-          ./modules/git
-          ./modules/alacritty
-          ./modules/options.nix
-          ./modules/shell/zsh
-        ] # extra modules to be loaded by home-manager
-        "omen" # username
-        ;
 
       # asus laptop
       uzume = mkComputer
@@ -175,7 +147,6 @@
           inputs.vpn-confinement.nixosModules.default
         ] # extra nix modules
         [
-          ./modules/options.nix
           ./modules/shell/zsh
           ./modules/shell/addon/starship
         ] # extra home-manager modules
@@ -188,7 +159,6 @@
           disko.nixosModules.disko
         ] # extra nix modules
         [
-          ./modules/options.nix
           ./modules/shell/zsh
           ./modules/shell/addon/starship
         ] # extra home-manager modules

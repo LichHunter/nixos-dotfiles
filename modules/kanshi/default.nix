@@ -9,6 +9,8 @@ with lib;
 let
   cfg = config.dov.kanshi;
 in {
+  options.dov.kanshi.enable = mkEnableOption "kanshi config";
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [ kanshi ];
 

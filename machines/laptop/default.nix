@@ -165,13 +165,13 @@ in {
     };
   };
   dov = {
-    xserver = {
+    windowManager = {
       i3.enable = false;
       plasma6.enable = false;
       xmonad.enable = false;
       plasma5.enable = false;
+      hypr.enable = true;
     };
-    windowManager.hypr.enable = true;
 
     services = {
       jellyfin.enable = false;

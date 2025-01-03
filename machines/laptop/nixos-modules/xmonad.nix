@@ -3,8 +3,8 @@
 with lib;
 
 {
-  options.dov.xserver.xmonad.enable = mkEnableOption "xmonad configuration";
-  config = mkIf config.dov.xserver.xmonad.enable {
+  options.dov.windowManager.xmonad.enable = mkEnableOption "xmonad configuration";
+  config = mkIf config.dov.windowManager.xmonad.enable {
     services.xserver = {
       enable = true;
       windowManager.xmonad = {

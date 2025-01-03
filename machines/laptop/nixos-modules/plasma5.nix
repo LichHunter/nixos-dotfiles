@@ -3,8 +3,8 @@
 with lib;
 
 {
-  options.dov.xserver.plasma5.enable = mkEnableOption "plasma5 config";
-  config = mkIf config.dov.xserver.plasma5.enable {
+  options.dov.windowManager.plasma5.enable = mkEnableOption "plasma5 config";
+  config = mkIf config.dov.windowManager.plasma5.enable {
     services.xserver = {
       enable = true;
       displayManager.sddm.enable = true;

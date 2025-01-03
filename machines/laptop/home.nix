@@ -66,8 +66,7 @@ in {
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    hello
-    # if you enable gtk theames 
+    # if you enable gtk theames
     # this is needed to fix "error: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name ca.desrt.dconf was not provided by any .service files"
     dconf
     eza
@@ -99,8 +98,8 @@ in {
     gradle
     maven
     jetbrains.idea-ultimate
-    jetbrains.webstorm
-    jetbrains.pycharm-community-src
+    #jetbrains.webstorm
+    #jetbrains.pycharm-community-src
     direnv
     jdt-language-server
     yarn
@@ -131,7 +130,6 @@ in {
     mpd
     mpv
     mpc-cli
-    ncmpcpp
   ];
 
   # fix collision between java17 and 11

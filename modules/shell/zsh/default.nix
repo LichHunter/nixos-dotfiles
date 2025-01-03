@@ -5,6 +5,14 @@ with lib;
 let
   cfg = config.dov.shell.zsh;
 in {
+  options.dov.shell.zsh = {
+    enable = mkEnableOption "zsh config";
+    shellAliases = mkOption {
+      type = types.attrs;
+      default = {};
+    };
+  };
+
   config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;

@@ -5,6 +5,8 @@ with lib;
 let
   cfg = config.dov.browser.firefox;
 in {
+  options.dov.browser.firefox.enable = mkEnableOption "firefox config";
+
   config = mkIf cfg.enable {
     programs.firefox = {
       enable = true;

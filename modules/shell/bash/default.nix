@@ -5,12 +5,11 @@ with lib;
 let
   cfg = config.dov.shell.bash;
 in {
+  options.dov.shell.bash.enable = mkEnableOption "bash config";
+
   config = mkIf cfg.enable {
     programs.bash = {
       enable = true;
-      history = {
-        save = 10000;
-      };
 
       initExtra = ''
         export JAVA_HOME=${pkgs.jdk21}

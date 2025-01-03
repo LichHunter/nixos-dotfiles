@@ -6,6 +6,8 @@ let
   cfg = config.dov.browser.qutebrowser;
   color = config.lib.stylix.colors;
 in {
+  options.dov.browser.qutebrowser.enable = mkEnableOption "qutebrowser config";
+
   config = mkIf cfg.enable {
     programs.qutebrowser = {
       enable = true;

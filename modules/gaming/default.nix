@@ -5,6 +5,8 @@ with lib;
 let
   cfg = config.dov.gaming;
 in {
+  options.dov.gaming.enable = mkEnableOption "gaming config";
+
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Gaming

@@ -3,9 +3,9 @@
 with lib;
 
 {
-  options.dov.xserver.i3.enable = mkEnableOption "i3 config";
+  options.dov.windowManager.i3.enable = mkEnableOption "i3 config";
 
-  config = mkIf config.dov.xserver.i3.enable {
+  config = mkIf config.dov.windowManager.i3.enable {
     services.xserver = {
       enable = true;
 
