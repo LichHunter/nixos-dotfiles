@@ -44,7 +44,7 @@ in {
       addon.starship.enable = true;
     };
     browser = {
-      brave.enable = false;
+      brave.enable = true;
       firefox.enable = true;
       chrome.enable = true;
       qutebrowser.enable = true;

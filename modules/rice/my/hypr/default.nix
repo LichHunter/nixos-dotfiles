@@ -161,21 +161,19 @@ in {
           border_size = 2;
           "col.active_border" = lib.mkForce "rgba(33ccffee) rgba(00ff99ee) 45deg";
           "col.inactive_border" = lib.mkForce "rgba(595959aa)";
+          "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
 
           layout = "dwindle";
         };
 
         decoration = {
           rounding = 10;
-          #blur = true
-          #blur_size = 3
-          #blur_passes = 1
-          #blur_new_optimizations = true
 
+          shadow = {
+            range = 4;
+            render_power = 3;
+          };
           drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
         };
 
         animations = {
