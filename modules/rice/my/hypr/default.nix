@@ -161,7 +161,6 @@ in {
           border_size = 2;
           "col.active_border" = lib.mkForce "rgba(33ccffee) rgba(00ff99ee) 45deg";
           "col.inactive_border" = lib.mkForce "rgba(595959aa)";
-          "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
 
           layout = "dwindle";
         };
@@ -170,10 +169,10 @@ in {
           rounding = 10;
 
           shadow = {
+            enabled = true;
             range = 4;
             render_power = 3;
           };
-          drop_shadow = true;
         };
 
         animations = {

@@ -27,7 +27,6 @@ in {
   security.rtkit.enable = true;
 
   hardware = {
-    pulseaudio.enable = false;
     xone.enable = true; #for xbox controller
     xpadneo.enable = true;
   };
