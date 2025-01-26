@@ -27,7 +27,6 @@ in {
   security.rtkit.enable = true;
 
   hardware = {
-    pulseaudio.enable = false;
     xone.enable = true; #for xbox controller
     xpadneo.enable = true;
   };
@@ -181,9 +180,8 @@ in {
   };
 
   fonts.packages = with pkgs; [
-    nerdfonts
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
@@ -196,7 +194,8 @@ in {
     emacsPackages.all-the-icons
     font-awesome_5
     source-code-pro
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts)
+  ;
 
   stylix = {
     enable = true;

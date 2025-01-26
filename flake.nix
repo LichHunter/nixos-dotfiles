@@ -50,7 +50,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     vpn-confinement = {
       url = "github:Maroka-chan/VPN-Confinement";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

@@ -6,6 +6,12 @@
       enable = true;
       userName = "Alexander";
       userEmail = "alexander0derevianko@gmail.com";
+
+      extraConfig = {
+        safe = {
+          directory = "/home/omen/nixos-dotfiles";
+        };
+      };
     };
   };
 }

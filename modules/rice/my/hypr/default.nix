@@ -167,15 +167,12 @@ in {
 
         decoration = {
           rounding = 10;
-          #blur = true
-          #blur_size = 3
-          #blur_passes = 1
-          #blur_new_optimizations = true
 
-          drop_shadow = true;
-          shadow_range = 4;
-          shadow_render_power = 3;
-          "col.shadow" = lib.mkForce "rgba(1a1a1aee)";
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+          };
         };
 
         animations = {

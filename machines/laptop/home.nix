@@ -32,6 +32,7 @@ in {
           sc = "source $HOME/.zshrc";
           doom = "$HOME/.config/emacs/bin/doom";
           vim = "nvim";
+          java23 = "export JAVA_HOME='/home/omen/jdk/openjdk23' && mvn -v";
           java21 = "export JAVA_HOME='/home/omen/jdk/openjdk21' && mvn -v";
           java17 = "export JAVA_HOME='/home/omen/jdk/openjdk17' && mvn -v";
           java11 = "export JAVA_HOME='/home/omen/jdk/openjdk11' && mvn -v";
@@ -44,7 +45,7 @@ in {
       addon.starship.enable = true;
     };
     browser = {
-      brave.enable = false;
+      brave.enable = true;
       firefox.enable = true;
       chrome.enable = true;
       qutebrowser.enable = true;
@@ -132,10 +133,11 @@ in {
     mpc-cli
   ];
 
-  # fix collision between java17 and 11
+  # fix collision between java17 and 11, 21, 23
   home.file."jdk/openjdk11".source = pkgs.jdk11;
   home.file."jdk/openjdk17".source = pkgs.jdk17;
   home.file."jdk/openjdk21".source = pkgs.jdk21;
+  home.file."jdk/openjdk23".source = pkgs.jdk23;
   home.file."python/python3".source = pkgs.python3;
 
   home.file."Wallpapers/wallpaper.png" = {
