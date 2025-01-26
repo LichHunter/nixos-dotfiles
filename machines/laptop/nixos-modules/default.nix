@@ -19,6 +19,7 @@
     ./printing.nix
     ./mpd.nix
     ./openssh.nix
+    ./minecraft.nix
 
     #xserver
     ./hypr.nix

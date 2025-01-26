@@ -229,3 +229,5 @@ After building system with sudo I can't run 'nix develop' or other commands with
 * TODO Fix remote build of uzume
 * TODO Add script to create and add permissions for /data folder on homelab
 * TODO Fix running services on uzume after reboot
+* TODO Add laptop-minimal installation
+This is needed as I now have sops and sops would not be initialized properly on clean install
