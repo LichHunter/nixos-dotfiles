@@ -70,6 +70,7 @@ in {
      jellyfin
      jellyfin-web
      jellyfin-ffmpeg
+     ripgrep
 
      qbittorrent
   ];
@@ -100,7 +101,7 @@ in {
     # using real passwords and not sops seems to do the trick, but I still can't open/find url for web ui
     gitlab.enable = false;
     nextcloud.enable = true;
-    hydra.enable = true;
+    hydra.enable = false;
   };
 
   nixarr = {
