@@ -12,7 +12,10 @@ in {
       enable = true;
       package = pkgs.nextcloud30;
       hostName = "nextcloud.uzume-lab.duckdns.org";
-      config.adminpassFile = config.sops.secrets.nextcloud-password.path;
+      config = {
+        adminpassFile = config.sops.secrets.nextcloud-password.path;
+        dbtype = "sqlite";
+      };
 
       maxUploadSize = "1G";
     };
