@@ -60,6 +60,7 @@ in {
           "thunderbird"
           "element-desktop"
           "keepassxc"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         ] ++ (if config.dov.waybar.enable == true then [ "waybar" ] else []);
 
         "$mainMod" = "SUPER";

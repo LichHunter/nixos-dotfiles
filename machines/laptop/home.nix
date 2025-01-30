@@ -109,6 +109,10 @@ in {
     devpod
     jetbrains.gateway
     tmux
+    ollama-cuda
+    #devenv
+    #open-webui
+    deno
 
     #torrent
     qbittorrent

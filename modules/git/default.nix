@@ -9,7 +9,7 @@
 
       extraConfig = {
         safe = {
-          directory = "/home/omen/nixos-dotfiles";
+          directory = ["/home/omen/nixos-dotfiles" "/home/omen/.cache/nix"];
         };
       };
     };
