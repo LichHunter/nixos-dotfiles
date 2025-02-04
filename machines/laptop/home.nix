@@ -90,10 +90,11 @@ in {
 
     # social
     telegram-desktop
-    thunderbird
+    thunderbird-latest
     element-desktop
-    teams-for-linux
-    webcord
+    #teams-for-linux
+    #webcord
+    discord
 
     # development
     gradle
@@ -113,6 +114,8 @@ in {
     #devenv
     #open-webui
     deno
+    typescript-language-server
+    bottles
 
     #torrent
     qbittorrent

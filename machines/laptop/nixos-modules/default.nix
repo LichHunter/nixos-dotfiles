@@ -20,6 +20,7 @@
     ./mpd.nix
     ./openssh.nix
     ./minecraft.nix
+    ./gaming.nix
 
     #xserver
     ./hypr.nix

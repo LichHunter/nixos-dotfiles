@@ -176,7 +176,10 @@ in {
       jellyfin.enable = false;
       syncthing.enable = true;
     };
-    gaming.minecraft.enable = true;
+    gaming = {
+      sunshine.enable = true;
+      minecraft.enable = true;
+    };
   };
 
   fonts.packages = with pkgs; [
