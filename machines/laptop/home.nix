@@ -116,6 +116,7 @@ in {
     deno
     typescript-language-server
     bottles
+    drawio
 
     #torrent
     qbittorrent
