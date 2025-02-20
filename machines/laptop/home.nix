@@ -125,6 +125,8 @@ in {
     ark
     keepassxc
     virt-manager
+    vial #keyboard configurator
+    qmk
 
     libreoffice
     grim

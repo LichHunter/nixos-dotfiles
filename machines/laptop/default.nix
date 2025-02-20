@@ -166,7 +166,7 @@ in {
   dov = {
     windowManager = {
       i3.enable = false;
-      plasma6.enable = false;
+      plasma6.enable = true;
       xmonad.enable = false;
       plasma5.enable = false;
       hypr.enable = true;
