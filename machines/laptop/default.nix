@@ -146,7 +146,7 @@ in {
     wineWowPackages.waylandFull
     #wineWowPackages.stable
     winetricks
-    inputs.umu.packages.${pkgs.system}.umu
+    inputs.umu.packages.${pkgs.system}.umu-launcher
   ];
 
 

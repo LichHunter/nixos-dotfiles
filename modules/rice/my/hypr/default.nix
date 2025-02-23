@@ -13,7 +13,6 @@ in {
       mako
       pipewire
       wireplumber
-      xdg-desktop-portal-hyprland
       libnotify
       kitty
       wofi

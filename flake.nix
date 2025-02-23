@@ -75,8 +75,7 @@
       };
       overlays = [
         emacs-overlay.overlay
-        nur.overlay
-        (import ./my-overlays.nix)
+        nur.overlays.default
       ];
     };
     spkgs = import inputs.nixpkgs-stable {
@@ -87,7 +86,6 @@
       overlays = [
         emacs-overlay.overlay
         nur.overlay
-        (import ./my-overlays.nix)
       ];
     };
 

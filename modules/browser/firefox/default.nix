@@ -13,7 +13,7 @@ in {
       package = (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true;}) {});
       arkenfox = {
         enable = true;
-        version = "128.0";
+        version = "133.0";
       };
 
       profiles.Default = {
@@ -89,7 +89,7 @@ in {
           };
         };
 
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           bitwarden
           keepassxc-browser
