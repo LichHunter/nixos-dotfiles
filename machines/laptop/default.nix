@@ -91,7 +91,7 @@ in {
       # :lang sh
       shellcheck
       # :lang typescript
-      javascript-typescript-langserver
+      #javascript-typescript-langserver # deprecated
       deno
       # :lang go
       # go

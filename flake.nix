@@ -36,8 +36,7 @@
 
     # umu-launcher
     umu= {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Open-Wine-Components/umu-launcher?dir=packaging/nix";
     };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
