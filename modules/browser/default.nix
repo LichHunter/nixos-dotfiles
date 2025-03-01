@@ -7,5 +7,6 @@
     ./firefox
     ./qutebrowser
     ./vivaldi
+    ./ladybird
   ];
 }

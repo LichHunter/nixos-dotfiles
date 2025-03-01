@@ -47,9 +47,10 @@ in {
     browser = {
       brave.enable = true;
       firefox.enable = true;
-      chrome.enable = true;
-      qutebrowser.enable = true;
+      chrome.enable = false;
+      qutebrowser.enable = false;
       #vivaldi.enable = true;
+      ladybird.enable = true;
     };
     # Winodow Managers
     windowManager.hypr.enable = true;
