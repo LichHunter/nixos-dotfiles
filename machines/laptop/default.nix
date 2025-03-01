@@ -162,6 +162,9 @@ in {
       enable = true;
       enableSSHSupport = true;
     };
+
+    # browsers
+    ladybird.enable = true;
   };
   dov = {
     windowManager = {
