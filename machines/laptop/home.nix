@@ -49,7 +49,7 @@ in {
       firefox.enable = true;
       chrome.enable = false;
       qutebrowser.enable = false;
-      #vivaldi.enable = true;
+      vivaldi.enable = false;
       ladybird.enable = true;
     };
     # Winodow Managers

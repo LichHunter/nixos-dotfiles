@@ -1,5 +1,12 @@
 { config, lib, pkgs, ... }:
 
-{
-  home.packages = with pkgs; [ vivaldi ];
+with lib;
+
+let
+  cfg = config.dov.browser.vivaldi;
+in {
+  options.dov.browser.vivaldi.enable = mkEnableOption "vivaldi config";
+  config = mkIf cfg.enable {
+    home.packages = with pkgs; [ vivaldi ];
+  };
 }
