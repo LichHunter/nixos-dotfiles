@@ -47,7 +47,7 @@ in {
     isNormalUser = true;
     description = "My HP Omen laptop nixos";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" "audio" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     #initialPassword = "test";
     hashedPasswordFile = config.sops.secrets.omen-password.path;
     packages = with pkgs; [
@@ -151,7 +151,10 @@ in {
 
 
   programs = {
+    # shells
     zsh.enable = true;
+    fish.enable = true;
+
     light.enable = true;
     nm-applet.enable = true;
     steam = {

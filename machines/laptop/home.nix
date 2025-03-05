@@ -20,7 +20,7 @@ in {
 
   dov = {
     shell = {
-      fish.enable = false;
+      fish.enable = true;
       zsh = {
         enable = true;
         shellAliases = {
@@ -101,7 +101,7 @@ in {
     gradle
     maven
     jetbrains.idea-ultimate
-    #jetbrains.webstorm
+    jetbrains.webstorm
     #jetbrains.pycharm-community-src
     direnv
     jdt-language-server
