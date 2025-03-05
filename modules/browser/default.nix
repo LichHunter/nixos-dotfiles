@@ -8,5 +8,6 @@
     ./qutebrowser
     ./vivaldi
     ./ladybird
+    ./librewolf
   ];
 }

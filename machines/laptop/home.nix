@@ -45,12 +45,13 @@ in {
       addon.starship.enable = true;
     };
     browser = {
-      brave.enable = true;
+      brave.enable = false;
       firefox.enable = true;
       chrome.enable = false;
       qutebrowser.enable = false;
       vivaldi.enable = false;
       ladybird.enable = true;
+      librewolf.enable = true;
     };
     # Winodow Managers
     windowManager.hypr.enable = true;

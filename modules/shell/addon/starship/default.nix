@@ -12,6 +12,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
 
       settings = {
         nix_shell = {
