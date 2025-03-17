@@ -263,5 +263,8 @@ in {
     };
   };
 
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 25565 ];
+  };
 }
