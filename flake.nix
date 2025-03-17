@@ -33,6 +33,7 @@
     nur.url = "github:nix-community/NUR";
 
     arkenfox.url = "github:dwarfmaster/arkenfox-nixos";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     # umu-launcher
     umu= {

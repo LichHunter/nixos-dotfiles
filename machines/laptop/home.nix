@@ -97,6 +97,7 @@ in {
     #teams-for-linux
     #webcord
     discord
+    inputs.zen-browser.packages."${system}".default
 
     # development
     gradle
@@ -123,8 +124,8 @@ in {
     #torrent
     qbittorrent
 
-    kate
-    ark
+    kdePackages.kate
+    kdePackages.ark
     keepassxc
     virt-manager
     vial #keyboard configurator
@@ -136,7 +137,7 @@ in {
     wl-clipboard
     qpdf
     cloudflared
-    okular #pdf tool
+    kdePackages.okular #pdf tool
     nextcloud-client
 
     #music
