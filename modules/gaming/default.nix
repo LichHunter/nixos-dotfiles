@@ -10,7 +10,6 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       # Gaming
-      steam
       wine
       (lutris.override {
         extraLibraries =  pkgs: [
@@ -22,7 +21,6 @@ in {
         ];
       })
       protontricks
-      prismlauncher
     ];
   };
 }

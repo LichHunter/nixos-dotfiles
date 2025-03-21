@@ -64,6 +64,7 @@ in {
     # Bars
     waybar.enable = true;
     polybar.enable = false;
+    gaming.enable = true;
   };
 
   programs.home-manager.enable = true;

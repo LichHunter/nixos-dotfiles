@@ -160,6 +160,7 @@ in {
     steam = {
       enable = true;
       protontricks.enable = true;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
     gnupg.agent = {
       enable = true;
