@@ -137,7 +137,7 @@ in {
     slurp
     wl-clipboard
     qpdf
-    cloudflared
+    #cloudflared
     kdePackages.okular #pdf tool
     nextcloud-client
 

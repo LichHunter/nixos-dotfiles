@@ -9,11 +9,26 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot = {
+    boot = {
     loader = {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5; # bootmenu items
+        consoleMode = "max";
+        windows = {
+          "nvme0n1p1" = {
+            title = "Windows 11";
+            # sudo blkid //check Windows ESP PARTUUID
+            # reboot to systemd-boot uefi shell and type: map
+            # find the FS alias match Windows ESP (ex: HD0a66666a2, HD0b, FS1, or BLK7)
+            efiDeviceHandle = "FS0";
+            sortKey = "a_windows";
+          };
+        };
+      };
     };
+
     initrd = {
       availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci" ];
       kernelModules = [ ];
@@ -25,6 +40,22 @@
     kernel.sysctl."kernel.perf_event_paranoid" = 1;
     kernel.sysctl."kernel.kptr_restrict" = lib.mkForce 0;
   };
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/b3f5eada-8c75-4980-bb52-4e9130baa614";
+      fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/9650-4F59";
+      fsType = "vfat";
+      options = [ "fmask=0077" "dmask=0077" ];
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/184246e6-4601-4d50-ab79-dd7f11f6a594"; }
+    ];
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

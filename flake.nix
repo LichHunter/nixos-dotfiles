@@ -110,7 +110,7 @@
         ./machines/laptop
         [
           nixos-hardware.nixosModules.omen-15-en1007sa
-          disko.nixosModules.disko
+          #disko.nixosModules.disko
         ] # extra modules
         [
           ./modules/git
