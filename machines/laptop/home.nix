@@ -52,7 +52,7 @@ in {
       vivaldi.enable = false;
       ladybird.enable = false;
       librewolf.enable = false;
-      #zen.enable = true;
+      zen.enable = true;
     };
     # Winodow Managers
     windowManager.hypr.enable = true;
@@ -99,7 +99,6 @@ in {
     #teams-for-linux
     #webcord
     discord
-    inputs.zen-browser.packages."${system}".default
 
     # development
     gradle
