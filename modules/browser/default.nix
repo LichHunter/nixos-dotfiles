@@ -9,5 +9,6 @@
     ./vivaldi
     ./ladybird
     ./librewolf
+    ./zen
   ];
 }

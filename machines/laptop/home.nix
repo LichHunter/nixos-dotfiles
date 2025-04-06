@@ -46,12 +46,13 @@ in {
     };
     browser = {
       brave.enable = false;
-      firefox.enable = true;
+      firefox.enable = false;
       chrome.enable = false;
       qutebrowser.enable = false;
       vivaldi.enable = false;
-      ladybird.enable = true;
-      librewolf.enable = true;
+      ladybird.enable = false;
+      librewolf.enable = false;
+      #zen.enable = true;
     };
     # Winodow Managers
     windowManager.hypr.enable = true;
