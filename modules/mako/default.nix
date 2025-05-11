@@ -11,12 +11,14 @@ in {
   config = mkIf cfg.enable {
     services.mako = {
      enable = true;
-     backgroundColor = mkForce "#${colors.base01}";
-     borderColor = mkForce "#${colors.base00}";
-     borderRadius = 10;
-     textColor = mkForce "#${colors.base0A}";
+     settings = {
+      background-color = mkForce "#${colors.base01}";
+      border-color = mkForce "#${colors.base00}";
+      border-radius = 10;
+      text-color = mkForce "#${colors.base0A}";
 
-     defaultTimeout = 5000;
+      default-timeout = 5000;
+     };
     };
   };
 }

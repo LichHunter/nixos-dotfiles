@@ -20,7 +20,7 @@ in {
         save = 10000;
       };
 
-      initExtra = ''
+      initContent = ''
         export JAVA_HOME=${pkgs.jdk21}
         export PATH=$PATH:$JAVA_HOME/bin:$HOME/.npm-global
         export JDTLS_PATH=${pkgs.jdt-language-server}/share/java
