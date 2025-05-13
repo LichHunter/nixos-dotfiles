@@ -216,6 +216,7 @@ in {
           "group, class:^(.*Element.*)$"
           "workspace 8, title:^(.*KeePassXC.*)$"
           "float, class:^(.*steam.*)$"
+          "noinitialfocus,class:(jetbrains-)(.*),title:^win(.*), initialTitle:win.*, floating:1"
         ];
       };
     };
