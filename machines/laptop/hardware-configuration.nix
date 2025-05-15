@@ -12,20 +12,11 @@
     boot = {
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      grub = {
         enable = true;
-        configurationLimit = 5; # bootmenu items
-        consoleMode = "max";
-        windows = {
-          "nvme0n1p1" = {
-            title = "Windows 11";
-            # sudo blkid //check Windows ESP PARTUUID
-            # reboot to systemd-boot uefi shell and type: map
-            # find the FS alias match Windows ESP (ex: HD0a66666a2, HD0b, FS1, or BLK7)
-            efiDeviceHandle = "FS0";
-            sortKey = "a_windows";
-          };
-        };
+        useOSProber = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
       };
     };
 
