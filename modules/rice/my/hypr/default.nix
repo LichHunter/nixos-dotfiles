@@ -60,7 +60,6 @@ in {
           #"element-desktop"
           "keepassxc"
           "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-          "swww-daemon"
         ] ++ (if config.dov.waybar.enable == true then [ "waybar" ] else []);
 
         "$mainMod" = "SUPER";
@@ -140,7 +139,7 @@ in {
         bindm = [
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
-          #"ALT, mouse:272, resizewindow"
+          "ALT, mouse:272, resizewindow"
         ];
 
         input = {

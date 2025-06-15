@@ -117,12 +117,10 @@ in {
     ollama-cuda
     #devenv
     #open-webui
-    #deno
+    deno
     typescript-language-server
     bottles
     drawio
-    #code-cursor
-    vscode-fhs
 
     #torrent
     qbittorrent

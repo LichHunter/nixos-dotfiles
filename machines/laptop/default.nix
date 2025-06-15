@@ -92,7 +92,7 @@ in {
       shellcheck
       # :lang typescript
       #javascript-typescript-langserver # deprecated
-      #deno
+      deno
       # :lang go
       # go
       # gopls

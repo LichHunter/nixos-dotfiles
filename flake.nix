@@ -13,8 +13,8 @@
     };
 
     stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:LichHunter/stylix";
+      # inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     emacs-overlay.url = "github:nix-community/emacs-overlay/master";
@@ -125,6 +125,7 @@
           ./modules/filemanager/ranger
           ./modules/music/beets
           ./modules/music/ncmpcpp
+          ./modules/music/cli-visualizer
           # TODO not yet in my current homemanager, need to update it
           #./modules/fastfetch
           ./modules/distrobox
