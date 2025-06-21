@@ -18,7 +18,13 @@ in {
       inputs.home-manager.nixosModules.home-manager
     ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://nix-community.cachix.org" ];
+    # Compare to the key published at https://nix-community.org/cache
+    trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
+    trusted-users = ["root" "omen"];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -29,6 +35,16 @@ in {
   hardware = {
     xone.enable = true; #for xbox controller
     xpadneo.enable = true;
+    nvidia = {
+      open = false;
+      nvidiaSettings = true;
+      modesetting.enable = true;
+
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+    nvidia-container-toolkit = {
+      enable = true;
+    };
   };
 
   system = {
