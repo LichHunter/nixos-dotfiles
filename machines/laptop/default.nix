@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, extraHomeModules, spkgs, username, ... }:
+{ inputs, config, pkgs, extraHomeModules, username, ... }:
 
 let
   theme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
@@ -260,15 +260,12 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs spkgs username; };
+    extraSpecialArgs = { inherit inputs pkgs username; };
 
     users."${username}" = {
       imports = [
         ./home.nix
-        #inputs.impermanence.nixosModules.home-manager.impermanence
       ] ++ extraHomeModules;
-
-      #dconf.settings."org/gnome/desktop/interface".font-name = lib.mkForce "JetBrainsMono Nerd Font 12";
     };
   };
 
