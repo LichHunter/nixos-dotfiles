@@ -51,6 +51,12 @@
     vpn-confinement = {
       url = "github:Maroka-chan/VPN-Confinement";
     };
+
+    # Allow to run unpatched dynamic binaries on NixOS.
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs,

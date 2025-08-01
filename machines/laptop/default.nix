@@ -284,4 +284,6 @@ in {
     enable = true;
     allowedTCPPorts = [ 80 443 25565 ];
   };
+
+  programs.nix-ld.enable = true;
 }
