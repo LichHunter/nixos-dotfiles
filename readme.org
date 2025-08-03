@@ -1,5 +1,10 @@
 #+title: Readme
 
+* Migrated this repo to new one
+There is new version of nixos, better, cooler, faster, please use it - http://github.com/LichHunter/nixos
+
+
+* Old Readme
 Hi there!
 How did you find this repo?
 You either me and want to install belowed NixOS on new system or you are very lost and need to get back to normal Linux distribuions as fast as possible while you can, don't try to help, leave me here, now I can't return to normal people, it is too late.
